@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>统一异常处理</title>
+</head>
+<body>
+<h1>错误页面</h1>
+错误请求：
+<div th:text="${url}"></div>
+
+<br/>
+错误参数：
+<div th:text="${exception.parm}"></div>
+
+<br/>
+可能错误原因：
+<div th:text="${exception.reason}"></div>
+<br/>
+
+错误详情:
+<div th:each="array:${arrays}">
+    <div th:text="${array}"></div>
+
+</div>
+
+</body>
+</html>

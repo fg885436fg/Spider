@@ -1,0 +1,101 @@
+package spider.demo.domain;
+
+import org.apache.ibatis.annotations.*;
+import spider.demo.domain.entity.SfBook;
+
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+
+/**
+ * 对存储着书籍信息的表进行操作
+ *
+ * @author lanyubing
+ * @date 2018年2月3日
+ */
+@Mapper
+@Repository
+public interface SfBookMapper {
+
+
+    @Select("SELECT * FROM SFBOOK WHERE bookName = #{bookName}")
+    List<SfBook> findByName (@Param("bookName") String bookName);
+
+    @Select("SELECT DISTINCT * FROM  SFBOOK WHERE bookName = #{bookName} AND date = #{date}")
+    SfBook findByNameAndDate (@Param("bookName") String bookName, @Param("date") String date);
+
+
+    /**
+     * 获取最近一周的所有数据
+     *
+     * @param bookName
+     * @return
+     */
+    @Select("SELECT DISTINCT " +
+            "*\n" +
+            "FROM\n" +
+            "SFBOOK\n" +
+            "WHERE\n" +
+            "SFBOOK.bookName =  #{bookName}\n" +
+            "ORDER BY\n" +
+            "SFBOOK.date DESC\n" +
+            "LIMIT 0,7")
+    List<SfBook> findAllDateWeek (@Param("bookName") String bookName);
+
+
+    /**
+     * 获取最近一个月的所有数据
+     *
+     * @param bookName
+     * @return
+     */
+    @Select("SELECT DISTINCT " +
+            "*\n" +
+            "FROM\n" +
+            "SFBOOK\n" +
+            "WHERE\n" +
+            "SFBOOK.bookName =  #{bookName}\n" +
+            "ORDER BY\n" +
+            "SFBOOK.date DESC\n" +
+            "LIMIT 0,30")
+    List<SfBook> findAllDateMonth (@Param("bookName") String bookName);
+
+
+    /**
+     * 插入整个完整的书籍信息
+     *
+     * @param sfBook 书籍对象
+     * @return
+     */
+    @Insert("INSERT INTO SFBOOK(bookName,collectNum," +
+            "clickNum,monthlyNum," +
+            "likeNum,date,upateDate,status,wordNum,sign) VALUES "
+            +
+            "(#{bookName},#{collectNum}," +
+            "#{clickNum},#{monthlyNum}," +
+            "#{likeNum},#{date},#{upateDate},#{status},#{wordNum},#{sign})" )
+    int insertAll (SfBook sfBook);
+
+
+    /**
+     * 用于测试的，只插入书名字段
+     *
+     * @param bookName
+     * @return
+     */
+
+    @Insert("INSERT INTO SFBOOK(bookName) VALUES(#{bookName})")
+    int insert (@Param("bookName") String bookName);
+
+    /**
+     * 用于删除书籍
+     * @param bookName
+     * @return
+     */
+
+    @Delete("DELETE FROM SFBOOK WHERE SFBOOK.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
+    int delectByBookName (@Param("bookName") String bookName);
+
+
+}
