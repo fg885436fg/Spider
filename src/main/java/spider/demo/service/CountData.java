@@ -8,7 +8,7 @@ import spider.demo.exception.MyException;
 import java.util.List;
 
 /**
- * 用于统计书籍增长数据
+ * 用于计算数据增长信息
  * @author lanyubing
  * @date 2018年2月2日
  */
@@ -22,11 +22,11 @@ public interface CountData {
     /**
      * 获取一周的常量
      */
-    int WEEK_DAY = 7;
+    int WEEK_DAY = 8;
     /**
      * 获取一月的常量
      */
-    int MON_DAY = 30;
+    int MON_DAY = 31;
 
 
     /**
@@ -55,13 +55,13 @@ public interface CountData {
      * 最近七日的数据增长/减少量
      * @param bookName 书名
      */
-   EchartsVo growthAllweek(String bookName) throws MyException;
+   EchartsVo growthAllweek(String bookName) throws Exception;
 
     /**
      * 最近一个月的数据增长/减少量
      * @param bookName 书名
      */
-    EchartsVo  growthAllMonth(String bookName) throws MyException;
+    EchartsVo  growthAllMonth(String bookName) throws Exception;
 
 
 

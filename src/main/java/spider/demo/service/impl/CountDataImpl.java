@@ -46,14 +46,14 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public EchartsVo growthAllweek (String bookName) throws MyException {
+    public EchartsVo growthAllweek (String bookName) throws Exception {
 
 
         try {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
             List<GrowthData> growthDatas = creatGrowthData(WEEK_DAY, sfBooks);
-            return creatEchartsVo(growthDatas, WEEK_DAY);
+            return creatEchartsVo(growthDatas);
 
 
         } catch (Exception ex) {
@@ -73,12 +73,12 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public EchartsVo growthAllMonth (String bookName) throws MyException {
+    public EchartsVo growthAllMonth (String bookName) throws Exception {
         try {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
             List<GrowthData> growthDatas = creatGrowthData(MON_DAY, sfBooks);
-            return creatEchartsVo(growthDatas, MON_DAY);
+            return creatEchartsVo(growthDatas);
 
 
         } catch (Exception ex) {
@@ -102,7 +102,10 @@ public class CountDataImpl implements CountData {
     }
 
 
-    private EchartsVo creatEchartsVo (List<GrowthData> growthDatas, int dayNum) {
+    private EchartsVo creatEchartsVo (List<GrowthData> growthDatas) {
+
+
+        int dayNum;
 
         EchartsVo echartsVo = new EchartsVo();
         long lowCollectNum = growthDatas.stream().min((g1, g2) -> (int) g1.getCollectNumInc() - (int) g2.getCollectNumInc()).get().getCollectNumInc();
@@ -208,7 +211,7 @@ public class CountDataImpl implements CountData {
 
     }
 
-    ;
+
 
 
 }

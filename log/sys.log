@@ -1,19 +1,62 @@
-2018-02-23 10:41:37,406 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 6916 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
-2018-02-23 10:41:37,445 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
-2018-02-23 10:41:41,420 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 4.506 seconds (JVM running for 5.648)
-2018-02-23 10:43:36,259 ERROR (GlobalExceptionHandler.java:32)- 查询书籍《无人机》错误
-2018-02-23 10:43:36,259 ERROR (GlobalExceptionHandler.java:36)- java.util.Optional.get(Optional.java:135)
-2018-02-23 10:43:36,259 ERROR (GlobalExceptionHandler.java:36)- spider.demo.service.impl.CountDataImpl.creatEchartsVo(CountDataImpl.java:108)
-2018-02-23 10:43:36,259 ERROR (GlobalExceptionHandler.java:36)- spider.demo.service.impl.CountDataImpl.growthAllweek(CountDataImpl.java:56)
-2018-02-23 10:43:36,259 ERROR (GlobalExceptionHandler.java:36)- spider.demo.controller.HelloController.getBook(HelloController.java:29)
-2018-02-23 10:43:36,260 ERROR (GlobalExceptionHandler.java:36)- sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-2018-02-23 10:45:03,625 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 2432 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
-2018-02-23 10:45:03,641 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
-2018-02-23 10:45:07,456 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 4.424 seconds (JVM running for 5.395)
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:32)- 查询书籍《无人机》错误
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:34)- java.util.Optional.get(Optional.java:135)
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:34)- spider.demo.service.impl.CountDataImpl.creatEchartsVo(CountDataImpl.java:108)
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:34)- spider.demo.service.impl.CountDataImpl.growthAllweek(CountDataImpl.java:56)
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:34)- spider.demo.controller.HelloController.getBook(HelloController.java:29)
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:34)- sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-2018-02-23 10:46:06,638 ERROR (GlobalExceptionHandler.java:37)- 
+2018-03-07 13:55:51,408 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 6408 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
+2018-03-07 13:55:51,479 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 13:55:56,441 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 5.835 seconds (JVM running for 10.08)
+2018-03-07 13:58:58,700 ERROR (GlobalExceptionHandler.java:40)- 查询书籍《性转为机械少女在异界的奇妙冒险 》错误
+2018-03-07 13:58:58,701 ERROR (GlobalExceptionHandler.java:42)- org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:79)
+2018-03-07 13:58:58,701 ERROR (GlobalExceptionHandler.java:42)- org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:447)
+2018-03-07 13:58:58,701 ERROR (GlobalExceptionHandler.java:42)- com.sun.proxy.$Proxy60.selectList(Unknown Source)
+2018-03-07 13:58:58,701 ERROR (GlobalExceptionHandler.java:42)- org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:231)
+2018-03-07 13:58:58,702 ERROR (GlobalExceptionHandler.java:42)- org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:128)
+2018-03-07 13:58:58,702 ERROR (GlobalExceptionHandler.java:45)- 
+2018-03-07 14:00:27,990 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 5584 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
+2018-03-07 14:00:28,118 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:00:32,623 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 5.789 seconds (JVM running for 7.062)
+2018-03-07 14:00:33,322 ERROR (GlobalExceptionHandler.java:40)- 查询书籍《性转为机械少女在异界的奇妙冒险 》错误
+2018-03-07 14:00:33,323 ERROR (GlobalExceptionHandler.java:42)- org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:79)
+2018-03-07 14:00:33,323 ERROR (GlobalExceptionHandler.java:42)- org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:447)
+2018-03-07 14:00:33,323 ERROR (GlobalExceptionHandler.java:42)- com.sun.proxy.$Proxy60.selectList(Unknown Source)
+2018-03-07 14:00:33,323 ERROR (GlobalExceptionHandler.java:42)- org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:231)
+2018-03-07 14:00:33,323 ERROR (GlobalExceptionHandler.java:42)- org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:128)
+2018-03-07 14:00:33,323 ERROR (GlobalExceptionHandler.java:45)- 
+2018-03-07 14:02:40,324 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 2636 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
+2018-03-07 14:02:40,328 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:02:44,263 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 4.79 seconds (JVM running for 5.981)
+2018-03-07 14:02:53,780 INFO (StartupInfoLogger.java:48)- Starting ApplicationTests on PRC-20170528YEV with PID 820 (started by Administrator in F:\working\Spider)
+2018-03-07 14:02:53,782 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:03:00,001 INFO (StartupInfoLogger.java:57)- Started ApplicationTests in 6.988 seconds (JVM running for 9.497)
+2018-03-07 14:04:24,158 INFO (StartupInfoLogger.java:48)- Starting ApplicationTests on PRC-20170528YEV with PID 7128 (started by Administrator in F:\working\Spider)
+2018-03-07 14:04:24,160 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:04:31,601 INFO (StartupInfoLogger.java:57)- Started ApplicationTests in 8.367 seconds (JVM running for 10.526)
+2018-03-07 14:05:04,492 INFO (StartupInfoLogger.java:48)- Starting ApplicationTests on PRC-20170528YEV with PID 6184 (started by Administrator in F:\working\Spider)
+2018-03-07 14:05:04,494 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:05:10,755 INFO (StartupInfoLogger.java:57)- Started ApplicationTests in 7.169 seconds (JVM running for 9.164)
+2018-03-07 14:07:23,735 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 4660 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
+2018-03-07 14:07:23,754 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:07:28,950 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 5.785 seconds (JVM running for 8.749)
+2018-03-07 14:09:35,300 ERROR (GlobalExceptionHandler.java:40)- 查询书籍《了房价快速的离开解放》错误
+2018-03-07 14:09:35,300 ERROR (GlobalExceptionHandler.java:42)- java.util.Optional.get(Optional.java:135)
+2018-03-07 14:09:35,301 ERROR (GlobalExceptionHandler.java:42)- spider.demo.service.impl.CountDataImpl.creatEchartsVo(CountDataImpl.java:108)
+2018-03-07 14:09:35,301 ERROR (GlobalExceptionHandler.java:42)- spider.demo.service.impl.CountDataImpl.growthAllweek(CountDataImpl.java:56)
+2018-03-07 14:09:35,301 ERROR (GlobalExceptionHandler.java:42)- spider.demo.controller.HelloController.getBook(HelloController.java:34)
+2018-03-07 14:09:35,301 ERROR (GlobalExceptionHandler.java:42)- sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2018-03-07 14:09:35,301 ERROR (GlobalExceptionHandler.java:45)- 
+2018-03-07 14:10:24,380 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 7052 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
+2018-03-07 14:10:24,385 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:10:28,300 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 4.662 seconds (JVM running for 5.724)
+2018-03-07 14:10:37,045 ERROR (GlobalExceptionHandler.java:40)- 查询书籍《了房价快速的离开解放》错误
+2018-03-07 14:10:37,045 ERROR (GlobalExceptionHandler.java:40)- 查询书籍《了房价快速的离开解放》错误
+2018-03-07 14:10:37,045 ERROR (GlobalExceptionHandler.java:42)- java.util.Optional.get(Optional.java:135)
+2018-03-07 14:10:37,045 ERROR (GlobalExceptionHandler.java:42)- java.util.Optional.get(Optional.java:135)
+2018-03-07 14:10:37,046 ERROR (GlobalExceptionHandler.java:42)- spider.demo.service.impl.CountDataImpl.creatEchartsVo(CountDataImpl.java:108)
+2018-03-07 14:10:37,046 ERROR (GlobalExceptionHandler.java:42)- spider.demo.service.impl.CountDataImpl.creatEchartsVo(CountDataImpl.java:108)
+2018-03-07 14:10:37,046 ERROR (GlobalExceptionHandler.java:42)- spider.demo.service.impl.CountDataImpl.growthAllweek(CountDataImpl.java:56)
+2018-03-07 14:10:37,046 ERROR (GlobalExceptionHandler.java:42)- spider.demo.service.impl.CountDataImpl.growthAllweek(CountDataImpl.java:56)
+2018-03-07 14:10:37,047 ERROR (GlobalExceptionHandler.java:42)- spider.demo.controller.HelloController.getBook(HelloController.java:34)
+2018-03-07 14:10:37,047 ERROR (GlobalExceptionHandler.java:42)- spider.demo.controller.HelloController.getBook(HelloController.java:34)
+2018-03-07 14:10:37,047 ERROR (GlobalExceptionHandler.java:42)- sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2018-03-07 14:10:37,047 ERROR (GlobalExceptionHandler.java:42)- sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2018-03-07 14:10:37,047 ERROR (GlobalExceptionHandler.java:45)- 
+2018-03-07 14:10:37,047 ERROR (GlobalExceptionHandler.java:45)- 
+2018-03-07 14:11:52,010 INFO (StartupInfoLogger.java:48)- Starting SpiderApplication on PRC-20170528YEV with PID 940 (F:\working\Spider\target\classes started by Administrator in F:\working\Spider)
+2018-03-07 14:11:52,043 INFO (SpringApplication.java:593)- No active profile set, falling back to default profiles: default
+2018-03-07 14:11:56,389 INFO (StartupInfoLogger.java:57)- Started SpiderApplication in 5.308 seconds (JVM running for 6.608)

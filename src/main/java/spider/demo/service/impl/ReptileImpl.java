@@ -62,7 +62,7 @@ public class ReptileImpl implements Reptile {
      * 0 0 1 * * ?      凌晨1点一次
      */
     @Override
-    @Scheduled(cron = "0 0 1 * * ? ")
+    @Scheduled(cron = "0 0 0 * * ? ")
     public void getSfbookBasicByYA () {
 
         int threadNum = 15;

@@ -25,7 +25,7 @@ public class HelloController {
     private CountData countData;
 
     @RequestMapping("/bookname" )
-    public ModelAndView getBook (String bookname) throws MyException {
+    public ModelAndView getBook (String bookname) throws Exception {
 
         if (StringUtil.isBlank(bookname)) {
             bookname = "性转为机械少女在异界的奇妙冒险 ";
