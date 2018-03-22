@@ -37,7 +37,7 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
     protected static Logger logger = LoggerFactory.getLogger(AutoSaveGrowthDataImpl.class);
 
     @Override
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0 0 1 * * ?")
     public void saveGrowthData () throws Exception {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
@@ -59,16 +59,12 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
         }
         for (String bookName : bookNames) {
 
-            List<GrowthData> growthDatas = countData.growthAllweek(bookName);
-
-            for (GrowthData growthData : growthDatas) {
-                growthDatamapper.insertAll(growthData);
-            }
-
+            List<GrowthData> growthDatas = countData.growthAllDay(bookName);
+            growthDatamapper.insertIncBatch(growthDatas);
 
         }
 
-        logger.info("存储了"+bookNames.size()+"本书的增长数据");
+        logger.info("存储了" + bookNames.size() + "本书的增长数据");
 
 
     }
