@@ -1,9 +1,7 @@
 package spider.demo.service;
 
 import spider.demo.domain.entity.SfBook;
-import spider.demo.domain.vo.EchartsVo;
-import spider.demo.domain.vo.GrowthData;
-import spider.demo.exception.MyException;
+import spider.demo.domain.entity.GrowthData;
 
 import java.util.List;
 
@@ -22,7 +20,7 @@ public interface CountData {
     /**
      * 获取一周的常量
      */
-    int WEEK_DAY = 8;
+    int WEEK_DAY = 7;
     /**
      * 获取一月的常量
      */
@@ -55,13 +53,13 @@ public interface CountData {
      * 最近七日的数据增长/减少量
      * @param bookName 书名
      */
-   EchartsVo growthAllweek(String bookName) throws Exception;
+    List<GrowthData> growthAllweek(String bookName) throws Exception;
 
     /**
      * 最近一个月的数据增长/减少量
      * @param bookName 书名
      */
-    EchartsVo  growthAllMonth(String bookName) throws Exception;
+    List<GrowthData>   growthAllMonth(String bookName) throws Exception;
 
 
 

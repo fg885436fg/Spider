@@ -1,4 +1,4 @@
-package spider.demo.domain.vo;
+package spider.demo.domain.entity;
 
 /**
  * 用于传到前端的，数据增长量VO
@@ -23,16 +23,16 @@ public class GrowthData {
     }
 
     /**
-     * 所属的日期。
+     * 所属的日期。（也就是书籍更新的日期）
      */
-    private String day;
+    private String date;
 
-    public String getDay () {
-        return day;
+    public String getDate () {
+        return date;
     }
 
-    public void setDay (String day) {
-        this.day = day;
+    public void setDate (String date) {
+        this.date = date;
     }
 
     /**
@@ -87,13 +87,40 @@ public class GrowthData {
      * 字数增长量
      */
 
-    private long wordNum;
+    private long wordNumInc;
 
-    public long getWordNum () {
-        return wordNum;
+    public long getWordNumInc () {
+        return wordNumInc;
     }
 
-    public void setWordNum (long wordNum) {
-        this.wordNum = wordNum;
+    public void setWordNumInc (long wordNumInc) {
+        this.wordNumInc = wordNumInc;
+    }
+
+    /**
+     * 书籍标签
+     */
+    private  String sign;
+
+    public String getSign () {
+        return sign;
+    }
+
+    public void setSign (String sign) {
+        this.sign = sign;
+    }
+
+
+    /**
+     * 书籍更新日期
+     */
+    private String updateDay;
+
+    public String getUpdateDay () {
+        return updateDay;
+    }
+
+    public void setUpdateDay (String updateDay) {
+        this.updateDay = updateDay;
     }
 }

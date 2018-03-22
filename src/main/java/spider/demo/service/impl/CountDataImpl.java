@@ -1,12 +1,11 @@
 package spider.demo.service.impl;
 
-import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spider.demo.domain.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
 import spider.demo.domain.vo.EchartsVo;
-import spider.demo.domain.vo.GrowthData;
+import spider.demo.domain.entity.GrowthData;
 import spider.demo.exception.MyException;
 import spider.demo.service.CountData;
 
@@ -46,14 +45,14 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public EchartsVo growthAllweek (String bookName) throws Exception {
+    public List<GrowthData> growthAllweek (String bookName) throws Exception {
 
 
         try {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
             List<GrowthData> growthDatas = creatGrowthData(WEEK_DAY, sfBooks);
-            return creatEchartsVo(growthDatas);
+            return growthDatas;
 
 
         } catch (Exception ex) {
@@ -73,12 +72,12 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public EchartsVo growthAllMonth (String bookName) throws Exception {
+    public List<GrowthData> growthAllMonth (String bookName) throws Exception {
         try {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
             List<GrowthData> growthDatas = creatGrowthData(MON_DAY, sfBooks);
-            return creatEchartsVo(growthDatas);
+            return growthDatas;
 
 
         } catch (Exception ex) {
@@ -102,78 +101,7 @@ public class CountDataImpl implements CountData {
     }
 
 
-    private EchartsVo creatEchartsVo (List<GrowthData> growthDatas) {
-
-
-        int dayNum;
-
-        EchartsVo echartsVo = new EchartsVo();
-        long lowCollectNum = growthDatas.stream().min((g1, g2) -> (int) g1.getCollectNumInc() - (int) g2.getCollectNumInc()).get().getCollectNumInc();
-        long lowClictNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getClictNumInc() - (int) g2.getClictNumInc()).get().getClictNumInc();
-        long lowMonthlyNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getMonthlyNumInc() - (int) g2.getMonthlyNumInc()).get().getMonthlyNumInc();
-        long lowtWordNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getWordNum() - (int) g2.getWordNum()).get().getWordNum();
-        long lowtLikeNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getLikeNumInc() - (int) g2.getLikeNumInc()).get().getLikeNumInc();
-
-        echartsVo.setLowtLikeNumInc(lowtLikeNumInc);
-        echartsVo.setLowtWordNumInc(lowtWordNumInc);
-        echartsVo.setLowMonthlyNumInc(lowMonthlyNumInc);
-        echartsVo.setLowClictNumInc(lowClictNumInc);
-        echartsVo.setLowCollectNum(lowCollectNum);
-
-
-        dayNum = growthDatas.size();
-
-        String[] xAxisdate = new String[dayNum];
-        for (int i = 0; i < dayNum; i++) {
-            xAxisdate[i] = growthDatas.get(i).getDay();
-
-        }
-
-
-        String[] clictNumInc = new String[dayNum];
-        for (int i = 0; i < dayNum; i++) {
-            clictNumInc[i] = String.valueOf(growthDatas.get(i).getClictNumInc());
-
-        }
-
-        String[] monthlyNumInc = new String[dayNum];
-        for (int i = 0; i < dayNum; i++) {
-            monthlyNumInc[i] = String.valueOf(growthDatas.get(i).getMonthlyNumInc());
-
-        }
-
-
-        String[] likeNumInc = new String[dayNum];
-        for (int i = 0; i < dayNum; i++) {
-            likeNumInc[i] = String.valueOf(growthDatas.get(i).getLikeNumInc());
-
-        }
-        String[] collectNumInc = new String[dayNum];
-        for (int i = 0; i < dayNum; i++) {
-            collectNumInc[i] = String.valueOf(growthDatas.get(i).getCollectNumInc());
-
-        }
-
-        String[] wordNumInc = new String[dayNum];
-        for (int i = 0; i < dayNum; i++) {
-            wordNumInc[i] = String.valueOf(growthDatas.get(i).getWordNum());
-
-        }
-
-
-        echartsVo.setxAxisdate(xAxisdate);
-        echartsVo.setWordNumInc(wordNumInc);
-        echartsVo.setMonthlyNumInc(monthlyNumInc);
-        echartsVo.setCollectNumInc(collectNumInc);
-        echartsVo.setLikeNumInc(likeNumInc);
-        echartsVo.setClictNumInc(clictNumInc);
-
-        echartsVo.setName(growthDatas.get(0).getBookName());
-
-        return echartsVo;
-    }
-
-    public List<GrowthData> creatGrowthData (int dayNum, List<SfBook> sfBooks) {
+    private List<GrowthData> creatGrowthData (int dayNum, List<SfBook> sfBooks) {
 
         List<GrowthData> growthDatas = new ArrayList<>();
 
@@ -185,7 +113,8 @@ public class CountDataImpl implements CountData {
         for (int i = 0; i < dayNum; i++) {
 
             GrowthData growthData = new GrowthData();
-            growthData.setDay(sfBooks.get(i + 1).getDate());
+            growthData.setDate(sfBooks.get(i + 1).getDate());
+            growthData.setUpdateDay(sfBooks.get(i).getUpateDate());
 
             growthData.setBookName(sfBooks.get(i + 1).getBookName());
             //计算点击量增长
@@ -199,8 +128,9 @@ public class CountDataImpl implements CountData {
             growthData.setMonthlyNumInc(sfBooks.get(i).getMonthlyNum() - sfBooks.get(i + 1).getMonthlyNum());
 
             //计算字量增长
-            growthData.setWordNum(sfBooks.get(i).getWordNum() - sfBooks.get(i + 1).getWordNum());
+            growthData.setWordNumInc(sfBooks.get(i).getWordNum() - sfBooks.get(i + 1).getWordNum());
 
+            growthData.setSign(sfBooks.get(i + 1).getSign());
             growthDatas.add(growthData);
 
 
@@ -210,8 +140,6 @@ public class CountDataImpl implements CountData {
         return growthDatas;
 
     }
-
-
 
 
 }

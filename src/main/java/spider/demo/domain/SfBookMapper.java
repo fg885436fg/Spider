@@ -1,6 +1,7 @@
 package spider.demo.domain;
 
 import org.apache.ibatis.annotations.*;
+import spider.demo.config.SimpleSelectInExtendedLanguageDriver;
 import spider.demo.domain.entity.SfBook;
 
 import org.springframework.stereotype.Repository;
@@ -40,8 +41,45 @@ public interface SfBookMapper {
             "SFBOOK.bookName =  #{bookName}\n" +
             "ORDER BY\n" +
             "SFBOOK.date DESC\n" +
-            "LIMIT 0,7")
+            "LIMIT 0,100")
     List<SfBook> findAllDateWeek (@Param("bookName") String bookName);
+
+    /**
+     * 根据日期获取书名
+     * @param date
+     * @return
+     */
+    @Select("SELECT\n" +
+            "SFBOOK.bookName\n" +
+            "FROM\n" +
+            "SFBOOK\n" +
+            "WHERE\n" +
+            "SFBOOK.upateDate = #{date} AND\n" +
+            "SFBOOK.sign <> '普通'\n")
+    List<String> findAllByDate(@Param("date") String date);
+
+    /**
+     * 根据日期批量获取书名
+     * @param dates 日期集合
+     * @return
+     */
+    @Lang(SimpleSelectInExtendedLanguageDriver.class)
+    @Select("SELECT  DISTINCT\n" +
+            "SFBOOK.bookName\n" +
+            "FROM\n" +
+            "SFBOOK\n" +
+            "WHERE\n" +
+            "SFBOOK.sign != '普通'\n" +
+            " AND "+
+            "SFBOOK.upateDate IN (#{dates})")
+    List<String> findBookNameBatchByDate(@Param("dates") List<String> dates);
+
+
+//
+//            AND\n" +
+//            "SFBOOK.sign <> '普通'\n"
+
+
 
 
     /**
@@ -58,7 +96,7 @@ public interface SfBookMapper {
             "SFBOOK.bookName =  #{bookName}\n" +
             "ORDER BY\n" +
             "SFBOOK.date DESC\n" +
-            "LIMIT 0,30")
+            "LIMIT 0,100")
     List<SfBook> findAllDateMonth (@Param("bookName") String bookName);
 
 

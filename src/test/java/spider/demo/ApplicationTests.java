@@ -9,9 +9,11 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import spider.demo.domain.AuthorMapper;
+import spider.demo.domain.GrowthDatamapper;
 import spider.demo.domain.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
-import spider.demo.domain.vo.GrowthData;
+import spider.demo.domain.entity.GrowthData;
+import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
 import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.AuthorPageProcessor;
@@ -19,9 +21,13 @@ import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
 import us.codecraft.webmagic.Spider;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -41,6 +47,9 @@ public class ApplicationTests {
     @Autowired
     private AuthorMapper authorMapper;
 
+    @Autowired
+    private GrowthDatamapper growthDatamapper;
+
 
     @Autowired
     private CountData countData;
@@ -52,8 +61,11 @@ public class ApplicationTests {
     AuthorPageProcessor authorPageProcessor;
 
 
+    @Autowired
+    AutoSaveGrowthData autoSaveGrowthData;
+
+
     @Test
-    @Rollback
     public void findByName () throws Exception {
 
     }
@@ -109,67 +121,44 @@ public class ApplicationTests {
 
 
     @Test
-    @Rollback
     public void getSfbook () throws Exception {
 
 
-//        List<SfBook> sfBooks = sfBookMapper.findByName("精灵女王的宠物少女");
- /*   List<SfBook> sfBooks = sfBookMapper.findByName("网游之与魔共舞");
+        LocalDate today = LocalDate.now();
+        List<String> bookNames = sfBookMapper.findAllByDate(today.minusDays(1).toString());
+        bookNames.addAll(sfBookMapper.findAllByDate(today.minusDays(2).toString()));
+        bookNames.addAll(sfBookMapper.findAllByDate(today.minusDays(3).toString()));
 
-        sfBooks.forEach(sfBook -> {
-            System.out.println("书名：" + sfBook.getBookName());
-            System.out.println("点击：" + sfBook.getClickNum());
-            System.out.println("收藏：" + sfBook.getCollectNum());
-            System.out.println("日期：" + sfBook.getDate());
+        bookNames = bookNames.stream().distinct().collect(Collectors.toList());
 
-        });*/
+        int size = bookNames.size();
+        System.out.println(size + "本");
 
-        List<GrowthData> growthDatas = countData.growthAllMonthForConsole("精灵女王的宠物少女");
+        for (String bookName : bookNames) {
+
+            List<GrowthData> growthDatas = countData.growthAllweek(bookName);
+
+            for (GrowthData growthData : growthDatas) {
+
+                growthDatamapper.insertAll(growthData);
+                System.out.println(growthDatamapper.findByName(bookName).get(0).getBookName());
+
+            }
 
 
-        growthDatas.forEach(growthData -> {
 
-            System.out.println("书名：" + growthData.getBookName());
-            System.out.println("2018-02-06至" + growthData.getDay());
-            System.out.println("字数增长量" + growthData.getWordNum());
-            System.out.println("点击增长量" + growthData.getClictNumInc());
-            System.out.println("月票增长量" + growthData.getMonthlyNumInc());
-            System.out.println("收藏增长量" + growthData.getCollectNumInc() + "\n");
-
-        });
-
-        growthDatas = countData.growthAllMonthForConsole("用剑的魔法师");
-        growthDatas.forEach(growthData -> {
-
-            System.out.println("书名：" + growthData.getBookName());
-            System.out.println(growthData.getDay());
-            System.out.println("字数增长量" + growthData.getWordNum());
-            System.out.println("点击增长量" + growthData.getClictNumInc());
-            System.out.println("月票增长量" + growthData.getMonthlyNumInc());
-            System.out.println("收藏增长量" + growthData.getCollectNumInc() + "\n");
-
-        });
-        growthDatas = countData.growthAllMonthForConsole("网游之与魔共舞");
-        growthDatas.forEach(growthData -> {
-
-            System.out.println("书名：" + growthData.getBookName());
-            System.out.println(growthData.getDay());
-            System.out.println("字数增长量" + growthData.getWordNum());
-            System.out.println("点击增长量" + growthData.getClictNumInc());
-            System.out.println("月票增长量" + growthData.getMonthlyNumInc());
-            System.out.println("收藏增长量" + growthData.getCollectNumInc() + "\n");
-
-        });
+        }
 
 
     }
 
 
     @Test
-    public void getOneTest () {
-        Spider.create(sfPageYa).thread(1).
-                addUrl("https://api.sfacg.com/novels/" + 118281 + "" +
-                        "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag").run();
+    public void getOneTest ()throws Exception {
+
+
+        autoSaveGrowthData.saveGrowthData();
+
     }
 
 
