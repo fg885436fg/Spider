@@ -42,7 +42,7 @@ public class AuthorPageProcessor implements PageProcessor {
     protected static Logger logger = LoggerFactory.getLogger(AuthorPageProcessor.class);
 
     @Override
-   synchronized public void process (Page page) {
+    synchronized public void process (Page page) {
 
 
         String jsonStr = page.getJson().toString();
@@ -53,7 +53,7 @@ public class AuthorPageProcessor implements PageProcessor {
 
         String upateDate = jsonData.getString("lastUpdateTime");
         upateDate = upateDate.substring(0, 10);
-        //比较与现在的时间差，如果相差过大，则不录入。
+        //比较更新时间与现在的时间差，如果相差过大，则不录入。
         String date = LocalDate.now().toString();
         long day = getDistanceDays(date, upateDate);
 
@@ -69,8 +69,7 @@ public class AuthorPageProcessor implements PageProcessor {
 
         //&& !"普通".equals(sign) 筛选签约或者VIP的条件。
         //只收录近45天更新字数大于50000的
-        if (authorObject == null  && day < 45&& wordNum >50000) {
-
+        if (authorObject == null && day < 45 && wordNum > 50000) {
             authorObject = new Author();
             authorObject.setUrl(page.getUrl().toString());
             authorObject.setAuthorName(jsonData.getString("authorName"));
@@ -78,14 +77,14 @@ public class AuthorPageProcessor implements PageProcessor {
             authorMapper.insertAll(authorObject);
 
             logger.info("《" + bookName + "》在作者表中增添成功");
-        } else if(authorObject != null&& "普通".equals(sign)&& wordNum <50000) {
+        } else if (authorObject != null && "普通".equals(sign) && wordNum < 50000) {
 
 
             if (authorMapper.delectByBookName(bookName) > 0) {
 
                 logger.info("《" + bookName + "》在作者表中删除成功");
 
-            }else {
+            } else {
 
                 logger.info("《" + bookName + "》在作者表中删除失败");
             }
@@ -97,7 +96,7 @@ public class AuthorPageProcessor implements PageProcessor {
     }
 
     @Override
-    synchronized  public Site getSite () {
+    synchronized public Site getSite () {
         return site;
     }
 
