@@ -3,6 +3,9 @@ package spider.demo.tools;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+/**
+ * 获取异常的详细信息
+ */
 public class Get {
 
     public static String getExcrptionInfo (Exception e) {

@@ -11,6 +11,18 @@ package spider.demo.exception;
 public class MyException extends Exception {
 
 
+    public MyException () {
+    }
+
+    ;
+
+    public MyException (String parm, String reason) {
+        this.parm = parm;
+        this.reason = reason;
+    }
+
+    ;
+
     //输入的参数
     private String parm;
 

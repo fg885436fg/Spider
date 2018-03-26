@@ -38,7 +38,7 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
 
     @Override
     //0 * * * * ?  0 0 1 * * ?
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = " 0 0 1 * * ?")
     public void saveGrowthData () throws Exception {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
@@ -69,14 +69,15 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
             temp.addAll(countData.growthAllDay(bookName));
             if (index % 100 == 0 || index % 100 == temp.size() % 100) {
                 growthDatamapper.insertIncBatch(temp);
+                growthDatas.addAll(temp);
                 temp.clear();
             }
 
         }
 
 
-        System.out.println("存储成功！");
-        logger.info("存储了" + bookNames.size() + "本书的增长数据");
+
+        logger.info("存储了" + growthDatas.size() + "本书的增长数据");
 
 
     }

@@ -23,7 +23,7 @@ public class GrowthData {
     }
 
     /**
-     * 所属的日期。（也就是书籍更新的日期）
+     * 所属的日期。
      */
     private String date;
 
@@ -123,4 +123,8 @@ public class GrowthData {
     public void setUpdateDay (String updateDay) {
         this.updateDay = updateDay;
     }
+
+
+
+
 }

@@ -52,6 +52,9 @@ public class CountDataImpl implements CountData {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
             List<GrowthData> growthDatas = creatGrowthData(WEEK_DAY, sfBooks);
+            if(sfBooks.size() ==0) {
+                throw  new Exception() ;
+            }
             return growthDatas;
 
 
@@ -60,7 +63,7 @@ public class CountDataImpl implements CountData {
             MyException e = new MyException("");
             e.setStackTrace(ex.getStackTrace());
             e.setParm("查询书籍《" + bookName + "》错误");
-            e.setReason("书籍不存在，或者书籍刚录入，因此只有一日数据。");
+            e.setReason("书籍不存在，或者书籍刚录入，因此只有一日数据,无法计算增长数据。");
 
 
             throw e;
@@ -77,6 +80,9 @@ public class CountDataImpl implements CountData {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
             List<GrowthData> growthDatas = creatGrowthData(MON_DAY, sfBooks);
+            if(sfBooks.size() ==0) {
+                throw  new Exception() ;
+            }
             return growthDatas;
 
 

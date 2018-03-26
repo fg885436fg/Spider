@@ -30,10 +30,7 @@ import java.time.LocalDate;
     @Autowired
     private SfBookMapper sfBookMapper;
 
-    @Autowired
-    private AuthorMapper authorMapper;
 
-    protected static Logger logger = LoggerFactory.getLogger(AuthorPageProcessor.class);
 
      @Override
      synchronized   public void process (Page page) {

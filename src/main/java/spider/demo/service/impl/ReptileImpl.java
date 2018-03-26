@@ -10,10 +10,14 @@ import spider.demo.domain.AuthorMapper;
 import spider.demo.domain.entity.Author;
 import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.AuthorPageProcessor;
+import spider.demo.service.webmagic.SfPageIncome;
 import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
+import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Spider;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,7 +32,8 @@ import java.util.regex.Pattern;
 public class ReptileImpl implements Reptile {
     @Autowired
     SfPageProcessor sfPageProcessor;
-
+    @Autowired
+    SfPageIncome sfPageIncome;
 
     @Autowired
     SfPageYa sfPageYa;
@@ -83,8 +88,8 @@ public class ReptileImpl implements Reptile {
 
 
         }
-//sfPageYa
-        Spider.create(sfPageYa).thread(threadNum).thread(threadNum).addUrl(url).run();
+
+        Spider.create(sfPageYa).thread(threadNum).addUrl(url).run();
 
 
         long endTime = System.currentTimeMillis();
@@ -115,11 +120,22 @@ public class ReptileImpl implements Reptile {
             }
 
 
-
         }
 
         long endTime = System.currentTimeMillis();
         logger.info("10根线程,SF作者全部爬取花费时间为：" + (endTime - startTime) + "毫秒");
+
+    }
+
+    @Override
+    @Scheduled(cron = "0 0 0 * * ? ")
+    public void getAuthorIncome () {
+
+
+        DateUtil d = new DateUtil();
+        String date = d.getSfDate();
+        //http://i.sfacg.com/income/c/3-3-2018
+        Spider.create(sfPageIncome).thread(1).addUrl("http://i.sfacg.com/income/c/1-" + date).run();
 
     }
 
