@@ -74,8 +74,7 @@ public class SfPageIncome implements PageProcessor {
     @Override
     synchronized public Site getSite () {
 
-        site.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36")
-                .addCookie(".SFCommunity", "31EF3F56673ECDD3F4AEE2DAD9E6E41685F7024457D3240EE9FFC999689257E1D1C4250A56703D80495BE8D43675D3A28DED5747CF595BA306A130C5DEC38A796C14E88AD74EC19A84DA7238228CB339E27635FB5C2E305A10A3378005524C67");
+        site.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
 
         return site;
     }
