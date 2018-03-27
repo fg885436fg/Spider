@@ -5,14 +5,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import spider.demo.domain.AuthorMapper;
-import spider.demo.domain.GrowthDatamapper;
-import spider.demo.domain.SfBookMapper;
+import spider.demo.domain.Mapper.AuthorMapper;
+import spider.demo.domain.Mapper.GrowthDataMapper;
+import spider.demo.domain.Mapper.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
-import spider.demo.domain.entity.GrowthData;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
 import spider.demo.service.Reptile;
@@ -21,13 +19,9 @@ import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
 import us.codecraft.webmagic.Spider;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -48,7 +42,7 @@ public class ApplicationTests {
     private AuthorMapper authorMapper;
 
     @Autowired
-    private GrowthDatamapper growthDatamapper;
+    private GrowthDataMapper growthDataMapper;
 
 
     @Autowired
@@ -97,7 +91,7 @@ public class ApplicationTests {
     @Test
     public void sfPageProcessor () throws Exception {
 
-        //      reptile.getSfbookBasicByYA();
+        //    reptile.getSfbookBasicByYA();
 
         //  reptile.getAuthorBook();
     }
@@ -124,40 +118,32 @@ public class ApplicationTests {
     public void getSfbook () throws Exception {
 
 
-        LocalDate today = LocalDate.now();
-        List<String> bookNames = sfBookMapper.findAllByDate(today.minusDays(1).toString());
-        bookNames.addAll(sfBookMapper.findAllByDate(today.minusDays(2).toString()));
-        bookNames.addAll(sfBookMapper.findAllByDate(today.minusDays(3).toString()));
-
-        bookNames = bookNames.stream().distinct().collect(Collectors.toList());
-
-        int size = bookNames.size();
-        System.out.println(size + "本");
-
-        for (String bookName : bookNames) {
-
-            List<GrowthData> growthDatas = countData.growthAllweek(bookName);
-
-            for (GrowthData growthData : growthDatas) {
-
-                growthDatamapper.insertAll(growthData);
-                System.out.println(growthDatamapper.findByName(bookName).get(0).getBookName());
-
-            }
-
-
-
-        }
+//        LocalDate today = LocalDate.now();
+//        List<String> bookNames = sfBookMapper.findAllByDate(today.minusDays(1).toString());
+//        bookNames.addAll(sfBookMapper.findAllByDate(today.minusDays(2).toString()));
+//        bookNames.addAll(sfBookMapper.findAllByDate(today.minusDays(3).toString()));
+//
+//        bookNames = bookNames.stream().distinct().collect(Collectors.toList());
+//
+//        int size = bookNames.size();
+//        System.out.println(size + "本");
+//
+//        for (String bookName : bookNames) {
+//
+//            List<GrowthData> growthDatas = countData.growthAllweek(bookName);
+//            growthDatamapper.insertIncBatch(growthDatas);
+//            System.out.println(growthDatamapper.findByName(bookName).get(0).getBookName());
+//        }
 
 
     }
 
 
     @Test
-    public void getOneTest ()throws Exception {
+    public void getOneTest () throws Exception {
 
+        reptile.getAuthorIncome();
 
-        autoSaveGrowthData.saveGrowthData();
 
     }
 

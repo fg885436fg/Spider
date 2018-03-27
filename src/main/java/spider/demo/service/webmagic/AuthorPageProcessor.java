@@ -6,9 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import spider.demo.domain.AuthorMapper;
+import spider.demo.domain.Mapper.AuthorMapper;
 
-import spider.demo.domain.SfBookMapper;
 import spider.demo.domain.entity.Author;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -36,8 +35,7 @@ public class AuthorPageProcessor implements PageProcessor {
 
     @Autowired
     private AuthorMapper authorMapper;
-    @Autowired
-    private SfBookMapper sfBookMapper;
+
 
     protected static Logger logger = LoggerFactory.getLogger(AuthorPageProcessor.class);
 

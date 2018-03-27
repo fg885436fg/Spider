@@ -1,4 +1,4 @@
-package spider.demo.domain;
+package spider.demo.domain.Mapper;
 
 import org.apache.ibatis.annotations.*;
 import spider.demo.config.SimpleSelectInExtendedLanguageDriver;
@@ -73,13 +73,6 @@ public interface SfBookMapper {
             " AND "+
             "SFBOOK.upateDate IN (#{dates})")
     List<String> findBookNameBatchByDate(@Param("dates") List<String> dates);
-
-
-//
-//            AND\n" +
-//            "SFBOOK.sign <> '普通'\n"
-
-
 
 
     /**

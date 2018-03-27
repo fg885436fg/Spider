@@ -1,30 +1,22 @@
 package spider.demo.service.webmagic;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import spider.demo.domain.AuthorMapper;
-import spider.demo.domain.SfBookMapper;
 import spider.demo.domain.entity.Income;
-import spider.demo.domain.entity.SfBook;
-import spider.demo.exception.MyException;
-import spider.demo.service.impl.AutoSaveGrowthDataImpl;
 import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,10 +30,9 @@ import java.util.regex.Pattern;
 public class SfPageIncome implements PageProcessor {
     protected static Logger logger = LoggerFactory.getLogger(SfPageIncome.class);
 
-    private Site site = Site.me().setRetryTimes(3).setSleepTime(100)
-            .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36")
-            .addCookie(".SFCommunity", "31EF3F56673ECDD3F4AEE2DAD9E6E41685F7024457D3240EE9FFC999689257E1D1C4250A56703D80495BE8D43675D3A28DED5747CF595BA306A130C5DEC38A796C14E88AD74EC19A84DA7238228CB339E27635FB5C2E305A10A3378005524C67");
-
+    private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
+    //用来存储cookie信息
+    private Map<String, String> cookies;
 
     @Override
     synchronized public void process (Page page) {
@@ -60,7 +51,7 @@ public class SfPageIncome implements PageProcessor {
 
         DateUtil d = new DateUtil();
         List<String> links = new ArrayList<>();
-        for (int i = 2; i <= hz; i++) {
+        for (int i = 2; i <= hz && i < 5; i++) {
             String rl = "http://i.sfacg.com/income/c/" + i;
             links.add(rl + "-" + d.getSfDate());
         }
@@ -71,20 +62,21 @@ public class SfPageIncome implements PageProcessor {
         Income income1 = new Income();
         for (int i = 0; i < incomes.size(); i++) {
             Income income = incomes.get(i);
-            income1.setIncome(income.getIncome()+income1.getIncome());
-            income1.setChapterNum(income.getChapterNum()+income1.getChapterNum());
+            income1.setIncome(income.getIncome() + income1.getIncome());
+            income1.setChapterNum(income.getChapterNum() + income1.getChapterNum());
             income1.setDate(income.getDate());
 
         }
-        System.out.println("日期："+income1.getDate());
-        System.out.println("总收入"+income1.getIncome());
-        System.out.println("总章数："+income1.getChapterNum());
 
 
     }
 
     @Override
     synchronized public Site getSite () {
+
+        site.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36")
+                .addCookie(".SFCommunity", "31EF3F56673ECDD3F4AEE2DAD9E6E41685F7024457D3240EE9FFC999689257E1D1C4250A56703D80495BE8D43675D3A28DED5747CF595BA306A130C5DEC38A796C14E88AD74EC19A84DA7238228CB339E27635FB5C2E305A10A3378005524C67");
+
         return site;
     }
 
@@ -120,10 +112,6 @@ public class SfPageIncome implements PageProcessor {
                 if (td.hasAttr("width")) {
                     continue;
                 }
-                if (td.hasText()) {
-                    System.out.println(td.text());
-                }
-
 
                 if (td.hasText()) {
                     j++;
@@ -137,7 +125,10 @@ public class SfPageIncome implements PageProcessor {
                 }
 
             }
-            if(!StringUtils.isEmpty(income.getDate())) {
+
+
+            //UserInfo
+            if (!StringUtils.isEmpty(income.getDate())) {
                 incomes.add(income);
             }
 

@@ -1,7 +1,7 @@
 package spider.demo.domain.entity;
 
 /**
- * 收入d的jij实体类
+ * 收入的实体类
  * @date 2018年3月23日
  * @author lanyubing
  */
@@ -55,5 +55,19 @@ public class Income {
 
     public void setIncome (double income) {
         this.income = income;
+    }
+
+
+    /**
+     * 作者名
+     */
+    private String authorName;
+
+    public String getAuthorName () {
+        return authorName;
+    }
+
+    public void setAuthorName (String authorName) {
+        this.authorName = authorName;
     }
 }

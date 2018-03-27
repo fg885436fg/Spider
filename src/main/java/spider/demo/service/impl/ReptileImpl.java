@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import spider.demo.domain.AuthorMapper;
+import spider.demo.domain.Mapper.AuthorMapper;
 import spider.demo.domain.entity.Author;
 import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.AuthorPageProcessor;
@@ -16,8 +16,6 @@ import spider.demo.service.webmagic.SfPageYa;
 import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Spider;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -134,7 +132,6 @@ public class ReptileImpl implements Reptile {
 
         DateUtil d = new DateUtil();
         String date = d.getSfDate();
-        //http://i.sfacg.com/income/c/3-3-2018
         Spider.create(sfPageIncome).thread(1).addUrl("http://i.sfacg.com/income/c/1-" + date).run();
 
     }

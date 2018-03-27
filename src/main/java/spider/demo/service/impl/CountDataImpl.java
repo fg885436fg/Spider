@@ -2,15 +2,20 @@ package spider.demo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spider.demo.domain.SfBookMapper;
+import spider.demo.domain.Mapper.GrowthDataMapper;
+import spider.demo.domain.Mapper.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
-import spider.demo.domain.vo.EchartsVo;
 import spider.demo.domain.entity.GrowthData;
+import spider.demo.domain.vo.WhoAreYou;
 import spider.demo.exception.MyException;
 import spider.demo.service.CountData;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static spider.demo.config.WhoAreYou.CLICK_INC;
+import static spider.demo.config.WhoAreYou.MONTHLY_INC;
+import static spider.demo.config.WhoAreYou.WORDS_INC;
 
 
 /**
@@ -25,6 +30,10 @@ public class CountDataImpl implements CountData {
 
     @Autowired
     SfBookMapper sfBookMapper;
+
+    @Autowired
+    GrowthDataMapper growthDataMapper;
+
 
     @Override
     public List<SfBook> allDateWeek (String bookName) {
@@ -52,8 +61,8 @@ public class CountDataImpl implements CountData {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
             List<GrowthData> growthDatas = creatGrowthData(WEEK_DAY, sfBooks);
-            if(sfBooks.size() ==0) {
-                throw  new Exception() ;
+            if (sfBooks.size() == 0) {
+                throw new Exception();
             }
             return growthDatas;
 
@@ -80,8 +89,8 @@ public class CountDataImpl implements CountData {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
             List<GrowthData> growthDatas = creatGrowthData(MON_DAY, sfBooks);
-            if(sfBooks.size() ==0) {
-                throw  new Exception() ;
+            if (sfBooks.size() == 0) {
+                throw new Exception();
             }
             return growthDatas;
 
@@ -104,6 +113,34 @@ public class CountDataImpl implements CountData {
 
         List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
         return creatGrowthData(MON_DAY, sfBooks);
+    }
+
+    @Override
+    public WhoAreYou countRank (String bookName, String parm) throws  Exception{
+
+        List<GrowthData> growthDatas = new ArrayList<>();
+
+        if (parm.equals(WORDS_INC)) {
+
+            growthDatas = growthDataMapper.getBookIncSortByWord();
+
+        } else if (parm.equals(CLICK_INC)) {
+
+            growthDatas = growthDataMapper.getBookIncSortByClick();
+
+        } else if (parm.equals(MONTHLY_INC)) {
+             growthDatas = growthDataMapper.getBookIncSortByMonth();
+        } else {
+
+            throw  new MyException("parm","传入参数不规范");
+
+        }
+
+
+
+
+
+        return null;
     }
 
 
@@ -146,6 +183,10 @@ public class CountDataImpl implements CountData {
         return growthDatas;
 
     }
+
+
+
+
 
 
 }

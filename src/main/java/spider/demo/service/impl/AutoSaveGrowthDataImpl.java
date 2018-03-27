@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import spider.demo.domain.GrowthDatamapper;
-import spider.demo.domain.SfBookMapper;
+import spider.demo.domain.Mapper.GrowthDataMapper;
+import spider.demo.domain.Mapper.SfBookMapper;
 import spider.demo.domain.entity.GrowthData;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
@@ -14,7 +14,6 @@ import spider.demo.service.CountData;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 自动存储增长数据
@@ -32,13 +31,13 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
     private CountData countData;
 
     @Autowired
-    private GrowthDatamapper growthDatamapper;
+    private GrowthDataMapper growthDataMapper;
 
     protected static Logger logger = LoggerFactory.getLogger(AutoSaveGrowthDataImpl.class);
 
     @Override
     //0 * * * * ?  0 0 1 * * ?
-    @Scheduled(cron = " 0 0 1 * * ?")
+    @Scheduled(cron = "0 * * * * ?")
     public void saveGrowthData () throws Exception {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
@@ -67,8 +66,8 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
             index++;
 
             temp.addAll(countData.growthAllDay(bookName));
-            if (index % 100 == 0 || index % 100 == temp.size() % 100) {
-                growthDatamapper.insertIncBatch(temp);
+            if (index % 100 == 0 || index == temp.size()-1 ) {
+                growthDataMapper.insertIncBatch(temp);
                 growthDatas.addAll(temp);
                 temp.clear();
             }
