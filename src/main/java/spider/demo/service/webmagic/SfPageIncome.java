@@ -6,15 +6,22 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import spider.demo.domain.Mapper.AuthorCookieMapper;
+import spider.demo.domain.Mapper.IncomeMapper;
+import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.domain.entity.Income;
+import spider.demo.domain.vo.SfCookie;
 import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
 
+import javax.servlet.http.Cookie;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -30,12 +37,25 @@ import java.util.regex.Pattern;
 public class SfPageIncome implements PageProcessor {
     protected static Logger logger = LoggerFactory.getLogger(SfPageIncome.class);
 
+    public String authorName;
+
+    /**
+     * 要爬取的收入日期
+     */
+    public String incomeDate;
+
+    @Autowired
+    AuthorCookieMapper authorCookieMapper;
+
+    @Autowired
+    IncomeMapper incomeMapper;
+
     private Site site = Site.me().setRetryTimes(3).setSleepTime(100);
-    //用来存储cookie信息
-    private Map<String, String> cookies;
+
 
     @Override
     synchronized public void process (Page page) {
+
         logger.info("开始抓取收入信息,地址是：" + page.getUrl().toString());
 
         List<Income> incomes = new ArrayList<>();
@@ -53,20 +73,17 @@ public class SfPageIncome implements PageProcessor {
         List<String> links = new ArrayList<>();
         for (int i = 2; i <= hz && i < 5; i++) {
             String rl = "http://i.sfacg.com/income/c/" + i;
-            links.add(rl + "-" + d.getSfDate());
+            links.add(rl + "-" + incomeDate);
         }
         if (links.size() != 0) {
             page.addTargetRequests(links);
         }
 
-        Income income1 = new Income();
-        for (int i = 0; i < incomes.size(); i++) {
-            Income income = incomes.get(i);
-            income1.setIncome(income.getIncome() + income1.getIncome());
-            income1.setChapterNum(income.getChapterNum() + income1.getChapterNum());
-            income1.setDate(income.getDate());
-
+        if (incomes.size() !=0) {
+            incomeMapper.insertIncBatch(incomes);
         }
+
+
 
 
     }
@@ -75,6 +92,15 @@ public class SfPageIncome implements PageProcessor {
     synchronized public Site getSite () {
 
         site.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
+        AuthorCookie authorCookie = authorCookieMapper.getByAuthorName(authorName);
+        SfCookie sfCookie = new SfCookie();
+        sfCookie.setSfCookie(authorCookie.getCookieJson());
+
+        for (String key : sfCookie.getSfCookie().keySet()) {
+
+            site.addCookie(key, sfCookie.getSfCookie().get(key));
+        }
+
 
         return site;
     }
@@ -117,7 +143,7 @@ public class SfPageIncome implements PageProcessor {
                     if (j == 1) {
                         income.setDate(td.text());
                     } else if (j == 2) {
-                        income.setChapterNum(Integer.parseInt(td.text().replace("章", "")));
+                        income.setChapterNum(Long.valueOf(td.text().replace("章", "")));
                     } else if (j == 3) {
                         income.setIncome(Double.parseDouble(td.text()));
                     }
@@ -125,7 +151,7 @@ public class SfPageIncome implements PageProcessor {
 
             }
 
-
+            income.setAuthorName(authorName);
             //UserInfo
             if (!StringUtils.isEmpty(income.getDate())) {
                 incomes.add(income);

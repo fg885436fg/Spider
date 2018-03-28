@@ -3,12 +3,15 @@ package spider.demo.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spider.demo.domain.Mapper.GrowthDataMapper;
+import spider.demo.domain.Mapper.IncomeMapper;
 import spider.demo.domain.Mapper.SfBookMapper;
+import spider.demo.domain.entity.Income;
 import spider.demo.domain.entity.SfBook;
 import spider.demo.domain.entity.GrowthData;
 import spider.demo.domain.vo.WhoAreYou;
 import spider.demo.exception.MyException;
 import spider.demo.service.CountData;
+import spider.demo.tools.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +36,9 @@ public class CountDataImpl implements CountData {
 
     @Autowired
     GrowthDataMapper growthDataMapper;
+
+    @Autowired
+    IncomeMapper incomeMapper;
 
 
     @Override
@@ -116,7 +122,7 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public WhoAreYou countRank (String bookName, String parm) throws  Exception{
+    public WhoAreYou countRank (String bookName, String parm) throws Exception {
 
         List<GrowthData> growthDatas = new ArrayList<>();
 
@@ -129,18 +135,23 @@ public class CountDataImpl implements CountData {
             growthDatas = growthDataMapper.getBookIncSortByClick();
 
         } else if (parm.equals(MONTHLY_INC)) {
-             growthDatas = growthDataMapper.getBookIncSortByMonth();
+            growthDatas = growthDataMapper.getBookIncSortByMonth();
         } else {
 
-            throw  new MyException("parm","传入参数不规范");
+            throw new MyException("parm", "传入参数不规范");
 
         }
 
 
-
-
-
         return null;
+    }
+
+    @Override
+    public List<Income> getMonIncome (String authorName, int mons) {
+        DateUtil d = new DateUtil();
+        d.getAnyMonDate("yyyy-MM", mons);
+        return incomeMapper.getByAuthorNameAndDate(authorName, d.getAnyMonDate("yyyy-MM", mons));
+
     }
 
 
@@ -183,10 +194,6 @@ public class CountDataImpl implements CountData {
         return growthDatas;
 
     }
-
-
-
-
 
 
 }

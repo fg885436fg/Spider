@@ -7,7 +7,7 @@ package spider.demo.domain.vo;
  * @author lanyubing
  * @date 2018年2月5日
  */
-public class EchartsVo {
+public class BookIncEchartsVo {
 //' ['点击增长量','收藏增长量','月票增长量','字数增长量','赞数增长量']
 
 
@@ -22,7 +22,7 @@ public class EchartsVo {
     }
 
     /**
-     * Y轴，一般是日期
+     * X轴，一般是日期
      * data : ['2018-','2018-','2018-','2018-','2018-','2018-','2018-']
      */
 

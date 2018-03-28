@@ -23,18 +23,16 @@
     </div>
     <div class="span8 col-sm-offset-2">
         <h3>
-            自制的SF网站书籍数据查询。
+            自制的SF网站收入查询
         </h3>
         <ol>
             <li>
-                只收录最近45天更新,且字数上5万的作品。
+                乱输入作者名会自动跳到错误页面。
             </li>
             <li>
-                乱输入书名会自动跳到错误页面。
+                想要查本月，在提交月份中输入0，上月则是1，以此类推。
             </li>
-            <li>
-                自娱自乐作品。后期打算加“看看自己算老几”的功能
-            </li>
+
         </ol>
     </div>
     <div class="span2">
@@ -54,10 +52,13 @@
         <div class="span4">
         </div>
         <div class="span4">
-            <form action="/bookname" method="get">
+            <form action="/income" method="get">
                 <fieldset>
-                    <legend>提交书名</legend>
-                    <label>书名：</label><input name="bookname" type="text"/> <span class="help-block">.</span>
+                    <legend>提交作者名</legend>
+                    <label>作者名：</label><input name="authorName" type="text"/> <span class="help-block">.</span>
+                    <legend> 提交月份</legend>
+                    <label>月份：</label>
+                    <input name="mons" type="number"  max="36"/> <span class="help-block">.</span>
                     <button class="btn" type="submit">提交</button>
                 </fieldset>
             </form>
@@ -84,7 +85,7 @@
             trigger: 'axis'
         },
         legend: {
-            data: ['点击增长量', '收藏增长量', '月票增长量', '字数增长量', '赞数增长量']
+            data: ['卖出章数', '收入']
         },
         toolbox: {
             show: true,
@@ -114,7 +115,7 @@
         ],
         series: [
             {
-                name: '点击增长量',
+                name: '卖出章数',
                 type: 'line',
                 data: [11, 11, 15, 13, 12, 13, 10],
                 markPoint: {
@@ -127,48 +128,9 @@
                 }
             },
             {
-                name: '收藏增长量',
+                name: '收入',
                 type: 'line',
                 data: [325, 600, 334, 0, 0, 0, 0],
-                markPoint: {
-                    data: []
-                },
-                markLine: {
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            },
-            {
-                name: '月票增长量',
-                type: 'line',
-                data: [1, -2, 2, 5, 3, 2, 0],
-                markPoint: {
-                    data: []
-                },
-                markLine: {
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            },
-            {
-                name: '字数增长量',
-                type: 'line',
-                data: [1, -2, 2, 5, 3, 2, 0],
-                markPoint: {
-                    data: []
-                },
-                markLine: {
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            },
-            {
-                name: '赞数增长量',
-                type: 'line',
-                data: [1, -2, 2, 5, 3, 2, 0],
                 markPoint: {
                     data: []
                 },
@@ -182,17 +144,13 @@
     };
 
 
-    option.title.text = [[${date.name}]] ;
+    option.title.text = [[${date.authorName}]] ;
 
 
-    //' ['点击增长量','收藏增长量','月票增长量','字数增长量','赞数增长量']
+
     option.xAxis[0].data = [[${date.xAxisdate}]];
-    option.series[0].data = [[${date.clictNumInc}]];
-    option.series[1].data = [[${date.collectNumInc}]];
-    option.series[2].data = [[${date.monthlyNumInc}]];
-    option.series[3].data = [[${date.wordNumInc}]];
-    option.series[4].data = [[${date.likeNumInc}]];
-
+    option.series[0].data = [[${date.chapterNum}]];
+    option.series[1].data = [[${date.income}]];
     myChart.setOption(option);
 
 

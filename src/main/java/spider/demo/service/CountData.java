@@ -1,5 +1,6 @@
 package spider.demo.service;
 
+import spider.demo.domain.entity.Income;
 import spider.demo.domain.entity.SfBook;
 import spider.demo.domain.entity.GrowthData;
 import spider.demo.domain.vo.WhoAreYou;
@@ -85,6 +86,30 @@ public interface CountData {
      * @return
      */
     WhoAreYou countRank (String bookName,String parm) throws Exception;
+
+
+    /*******************
+     * 提供指定月份收入
+     * *****************
+     */
+
+
+    /**
+     * 提供指定月份的收入
+     * @param authorName 作者名
+     * @param mons  距离当月差多少月？上月就是1，本月就是0
+     * @return
+     */
+    List<Income> getMonIncome(String authorName,int mons);
+
+
+
+
+
+
+
+
+
 
 
 }

@@ -1,11 +1,11 @@
 package spider.demo.domain.Mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.domain.entity.SfBook;
+
+import java.util.List;
 
 /**
  * 对作者Cookie表进行增删改查
@@ -13,6 +13,8 @@ import spider.demo.domain.entity.SfBook;
  * @author lanyubing
  * @date 2018年3月27日
  */
+@Mapper
+@Repository
 public interface AuthorCookieMapper {
 
 
@@ -54,7 +56,8 @@ public interface AuthorCookieMapper {
 
     //查
 
-    /**根据作者名查询
+    /**
+     * 根据作者名查询
      *
      * @param authorName
      * @return
@@ -65,7 +68,18 @@ public interface AuthorCookieMapper {
             "authorcookie\n" +
             "WHERE\n" +
             "authorcookie.authorName =#{authorName}")
-    int getByAuthorName (@Param("authorName") String authorName);
+    AuthorCookie getByAuthorName (@Param("authorName") String authorName);
+
+    /**
+     * 获取全部作者cookie
+     *
+     * @return
+     */
+    @Select("SELECT\n" +
+            "*\n" +
+            "FROM \n" +
+            "authorcookie\n")
+    List<AuthorCookie> getAll ();
 
 
 }

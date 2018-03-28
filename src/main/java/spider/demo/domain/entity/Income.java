@@ -11,7 +11,7 @@ public class Income {
 
 
     public Income(){}
-    public Income(String date, int chapterNum, double income){
+    public Income(String date, long chapterNum, double income){
         this.date = date;
         this.chapterNum =chapterNum;
         this.income = income;
@@ -33,13 +33,13 @@ public class Income {
     /**
      *章节数
      */
-    private int chapterNum;
+    private long chapterNum;
 
-    public int getChapterNum () {
+    public long getChapterNum () {
         return chapterNum;
     }
 
-    public void setChapterNum (int chapterNum) {
+    public void setChapterNum (long chapterNum) {
         this.chapterNum = chapterNum;
     }
 

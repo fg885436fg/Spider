@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import spider.demo.domain.Mapper.AuthorCookieMapper;
 import spider.demo.domain.Mapper.AuthorMapper;
 import spider.demo.domain.Mapper.GrowthDataMapper;
 import spider.demo.domain.Mapper.SfBookMapper;
+import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.domain.entity.SfBook;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
@@ -57,6 +59,9 @@ public class ApplicationTests {
 
     @Autowired
     AutoSaveGrowthData autoSaveGrowthData;
+
+    @Autowired
+    AuthorCookieMapper authorCookieMapper;
 
 
     @Test

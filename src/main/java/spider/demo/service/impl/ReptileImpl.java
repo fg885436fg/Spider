@@ -6,8 +6,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import spider.demo.domain.Mapper.AuthorCookieMapper;
 import spider.demo.domain.Mapper.AuthorMapper;
+import spider.demo.domain.Mapper.IncomeMapper;
 import spider.demo.domain.entity.Author;
+import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.AuthorPageProcessor;
 import spider.demo.service.webmagic.SfPageIncome;
@@ -41,6 +44,12 @@ public class ReptileImpl implements Reptile {
 
     @Autowired
     AuthorPageProcessor authorPageProcessor;
+
+    @Autowired
+    AuthorCookieMapper authorCookieMapper;
+
+    @Autowired
+    IncomeMapper incomeMapper;
 
 
     protected static Logger logger = LoggerFactory.getLogger(ReptileImpl.class);
@@ -126,13 +135,23 @@ public class ReptileImpl implements Reptile {
     }
 
     @Override
-    @Scheduled(cron = "0 0 0 * * ? ")
+    @Scheduled(cron = "0 0,02 10 * * ?")
     public void getAuthorIncome () {
 
+        List<AuthorCookie> authorCookies = authorCookieMapper.getAll();
 
-        DateUtil d = new DateUtil();
-        String date = d.getSfDate();
-        Spider.create(sfPageIncome).thread(1).addUrl("http://i.sfacg.com/income/c/1-" + date).run();
+        for (AuthorCookie authorCookie : authorCookies) {
+            sfPageIncome.authorName = authorCookie.getAuthorName();
+            incomeMapper.delectByAuthorName(authorCookie.getAuthorName());
+            DateUtil d = new DateUtil();
+            for (int i = 0; i <= mons; i++) {
+
+                sfPageIncome.incomeDate = d.getAnyMonDate("M-YYYY", i);
+                Spider.create(sfPageIncome).thread(1).addUrl("http://i.sfacg.com/income/c/1-" + d.getAnyMonDate("M-YYYY", i)).run();
+            }
+
+
+        }
 
     }
 

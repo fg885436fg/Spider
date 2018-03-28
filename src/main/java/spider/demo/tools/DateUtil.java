@@ -42,6 +42,21 @@ public class DateUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return formatter.format(now);
     }
+    /**
+     * 获取随意格式的当日期字符串。
+     * 可通过days 属性，获得当日以前X月的日期
+     *
+     * @param format 格式，例如：MM -dd-yyyy
+     * @param mons  今日前×月
+     * @return
+     */
+
+    public String getAnyMonDate (String format, int mons) {
+        LocalDate now = LocalDate.now();
+        now = now.minusMonths(mons);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+        return formatter.format(now);
+    }
 
 
     /**

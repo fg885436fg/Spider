@@ -11,12 +11,19 @@ package spider.demo.service;
 public interface Reptile {
 
 
-    final int BOOK_NUM=152000;
+     int BOOK_NUM=152000;
 
     /**
      * 起始找书书号
      */
-    final int BOOK_FIRST_NUM =60000;
+    int BOOK_FIRST_NUM =60000;
+
+    /**
+     * 抓取最近三十六月的收入
+     */
+    int mons = 36;
+
+
     /**
      * 爬取sf网站的基本信息（除了简介之外），用于比较每日数据增长
      */
