@@ -135,7 +135,7 @@ public class ReptileImpl implements Reptile {
     }
 
     @Override
-    @Scheduled(cron = "0 0,02 10 * * ?")
+    @Scheduled(cron = "0 58 23 * * ?")
     public void getAuthorIncome () {
 
         List<AuthorCookie> authorCookies = authorCookieMapper.getAll();

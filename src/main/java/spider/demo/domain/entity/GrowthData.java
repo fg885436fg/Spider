@@ -125,6 +125,35 @@ public class GrowthData {
     }
 
 
+    @Override
+    public boolean equals (Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        GrowthData that = (GrowthData) o;
 
+        if (collectNumInc != that.collectNumInc) return false;
+        if (clictNumInc != that.clictNumInc) return false;
+        if (monthlyNumInc != that.monthlyNumInc) return false;
+        if (likeNumInc != that.likeNumInc) return false;
+        if (wordNumInc != that.wordNumInc) return false;
+        if (bookName != null ? !bookName.equals(that.bookName) : that.bookName != null) return false;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (sign != null ? !sign.equals(that.sign) : that.sign != null) return false;
+        return updateDay != null ? updateDay.equals(that.updateDay) : that.updateDay == null;
+    }
+
+    @Override
+    public int hashCode () {
+        int result = bookName != null ? bookName.hashCode() : 0;
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (int) (collectNumInc ^ (collectNumInc >>> 32));
+        result = 31 * result + (int) (clictNumInc ^ (clictNumInc >>> 32));
+        result = 31 * result + (int) (monthlyNumInc ^ (monthlyNumInc >>> 32));
+        result = 31 * result + (int) (likeNumInc ^ (likeNumInc >>> 32));
+        result = 31 * result + (int) (wordNumInc ^ (wordNumInc >>> 32));
+        result = 31 * result + (sign != null ? sign.hashCode() : 0);
+        result = 31 * result + (updateDay != null ? updateDay.hashCode() : 0);
+        return result;
+    }
 }

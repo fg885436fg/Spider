@@ -1,5 +1,6 @@
 package spider.demo.service.impl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spider.demo.domain.Mapper.GrowthDataMapper;
@@ -14,6 +15,7 @@ import spider.demo.service.CountData;
 import spider.demo.tools.DateUtil;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static spider.demo.config.WhoAreYou.CLICK_INC;
@@ -75,12 +77,9 @@ public class CountDataImpl implements CountData {
 
         } catch (Exception ex) {
 
-            MyException e = new MyException("");
+            MyException e = new MyException("查询书籍《" + bookName + "》错误",
+                    "书籍不存在，或者书籍刚录入，因此只有一日数据,无法计算增长数据。");
             e.setStackTrace(ex.getStackTrace());
-            e.setParm("查询书籍《" + bookName + "》错误");
-            e.setReason("书籍不存在，或者书籍刚录入，因此只有一日数据,无法计算增长数据。");
-
-
             throw e;
 
 
@@ -122,29 +121,69 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public WhoAreYou countRank (String bookName, String parm) throws Exception {
+    public WhoAreYou countRank (String bookName, String parm, boolean vip) throws Exception {
 
         List<GrowthData> growthDatas = new ArrayList<>();
 
         if (parm.equals(WORDS_INC)) {
 
-            growthDatas = growthDataMapper.getBookIncSortByWord();
+            if (vip) {
+                growthDatas = growthDataMapper.getVipBookIncSortByWord();
+            } else {
+                growthDatas = growthDataMapper.getBookIncSortByWord();
+            }
+
 
         } else if (parm.equals(CLICK_INC)) {
+
+            if (vip) {
+                growthDatas = growthDataMapper.getVipBookIncSortByMonth();
+            } else {
+                growthDatas = growthDataMapper.getBookIncSortByMonth();
+            }
 
             growthDatas = growthDataMapper.getBookIncSortByClick();
 
         } else if (parm.equals(MONTHLY_INC)) {
-            growthDatas = growthDataMapper.getBookIncSortByMonth();
+
+            if (vip) {
+                growthDatas = growthDataMapper.getVipBookIncSortByMonth();
+
+            } else {
+
+                growthDatas = growthDataMapper.getBookIncSortByMonth();
+            }
+
         } else {
 
-            throw new MyException("parm", "传入参数不规范");
-
+            throw new MyException(parm, "传入参数不规范");
         }
 
 
-        return null;
+        return creatRank(growthDatas, bookName);
     }
+
+
+    private WhoAreYou creatRank (List<GrowthData> growthDatas, String bookName) throws Exception {
+        try {
+            GrowthData growthData = new GrowthData();
+            growthData = growthDatas.stream().filter(growth -> growth.getBookName().equals(bookName))
+                    .findFirst().get();
+
+            int rank = growthDatas.indexOf(growthData);
+            WhoAreYou whoAreYou = new WhoAreYou(growthDatas.size(), rank);
+
+            return whoAreYou;
+
+        } catch (Exception e) {
+
+            throw new MyException("查询书籍《" + bookName + "》排位错误错误",
+                    "书籍不存在，或者书籍刚录入，因此只有一日数据,无法计算增长数据。",
+                    e.getStackTrace());
+        }
+
+    }
+
 
     @Override
     public List<Income> getMonIncome (String authorName, int mons) {

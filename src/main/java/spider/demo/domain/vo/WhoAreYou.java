@@ -10,6 +10,16 @@ import spider.demo.tools.NumProcess;
  */
 public class WhoAreYou {
 
+
+    public WhoAreYou () {
+    }
+
+    public WhoAreYou (double sortNum, int rank) {
+        this.sortNum = sortNum;
+        this.rank = rank;
+
+    }
+
     /**
      * 和你一起的家伙一共有多少位？
      */
@@ -41,10 +51,10 @@ public class WhoAreYou {
      */
     private double fuckRate;
 
-    public double getFuckRate () {
+    public String getFuckRate () {
         NumProcess num = new NumProcess();
 
-        return num.halfUp(rank / sortNum);
+        return num.halfUp(rank / sortNum)*100+"%";
     }
 
     public void setFuckRate (double fuckRate) {

@@ -85,7 +85,12 @@ public interface CountData {
      * @param parm 排序参数
      * @return
      */
-    WhoAreYou countRank (String bookName,String parm) throws Exception;
+    WhoAreYou countRank (String bookName,String parm ,boolean vip) throws Exception;
+
+
+
+
+
 
 
     /*******************

@@ -13,6 +13,7 @@ import spider.demo.domain.Mapper.GrowthDataMapper;
 import spider.demo.domain.Mapper.SfBookMapper;
 import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.domain.entity.SfBook;
+import spider.demo.domain.vo.WhoAreYou;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
 import spider.demo.service.Reptile;
@@ -147,8 +148,9 @@ public class ApplicationTests {
     @Test
     public void getOneTest () throws Exception {
 
-        reptile.getAuthorIncome();
-
+        WhoAreYou whoAreYou = countData.countRank("掌控雷电后，我居然变成了女生？", "wordNumInc", false);
+        System.out.println(whoAreYou.getFuckRate());
+        System.out.println(whoAreYou);
 
     }
 

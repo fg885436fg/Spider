@@ -10,6 +10,7 @@ import spider.demo.domain.Mapper.SfBookMapper;
 import spider.demo.domain.entity.GrowthData;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
+import spider.demo.tools.DateUtil;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
 
     @Override
     //0 * * * * ?  0 0 1 * * ?
-    @Scheduled(cron = " 0 0 1 * * ?")
+    @Scheduled(cron = "0 * * * * ? ")
     public void saveGrowthData () throws Exception {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
@@ -49,6 +50,8 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
             dates.add(today.minusDays(i).toString());
         }
 
+        DateUtil d = new DateUtil();
+        growthDataMapper.delectBookInc(d.getAnyDate("yyyy-MM-dd",1));
 
         // 获取近一个月内更新的小说名
         List<String> bookNames = new ArrayList<>();
@@ -58,6 +61,7 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
 
         }
 
+
         //分段存储
         List<GrowthData> growthDatas = new ArrayList<>();
         int index = 1;
@@ -66,14 +70,13 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
             index++;
 
             temp.addAll(countData.growthAllDay(bookName));
-            if (index % 100 == 0 || index == temp.size()-1 ) {
+            if (index % 100 == 0 || index == temp.size() - 1) {
                 growthDataMapper.insertIncBatch(temp);
                 growthDatas.addAll(temp);
                 temp.clear();
             }
 
         }
-
 
 
         logger.info("存储了" + growthDatas.size() + "本书的增长数据");
