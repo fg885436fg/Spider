@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>书籍数据</title>
+    <!-- 引入 echarts.js -->
+    <!-- 这里是加载刚下好的echarts.min.js，注意路径 -->
+    <script src="https://cdn.bootcss.com/echarts/4.0.2/echarts-en.common.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+
+</head>
+<body>
+
+<div class="row-fluid">
+    <div class="span2">
+    </div>
+    <div class="span8 col-sm-offset-4 container">
+        <h3>
+            自制的SF网站书籍数据查询。
+        </h3>
+        <ol>
+            <li>
+                只收录最近45天更新,且字数上5万的作品。
+            </li>
+            <li>
+                乱输入书名会自动跳到错误页面。
+            </li>
+            <li>
+                <a data-target="#exampleModal" data-toggle="modal"> 点我看看自己的书算老几？</a>
+            </li>
+
+            <li>
+                点这个，会隐藏对应折线：<img th:src="@{assets/images/tishi.png}"/>
+            </li>
+            <li>
+                <a href="http://book.sfacg.com/Novel/110000/">喜欢的话，请为我的书投张月票支持下吧。</a>
+
+            </li>
+
+        </ol>
+
+    </div>
+    <div class="span2">
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">书籍排名查询</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/rank">
+                            <div class="form-group">
+                                <label>书籍名</label>
+                                <input type="text" class="form-control" name="rankBookName" placeholder="输入要查询排名的书名">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="vip" type="checkbox">是否只与签约书比较？
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <h4 class="modal-title">选择比较数据</h4>
+                                <label>
+                                    <input type="radio" name="parm" value="monthlyNumInc"/> 比比月票增长量<br/>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="radio" name="parm" value="clictNumInc" checked="checked"/> 比比点击增长量<br/>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="radio" name="parm" value="wordNumInc"/> 比比谁日更多<br/>
+                                </label>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12 col-sm-offset-2">
+            <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+            <div id="main" style="width: 80%;height:700px;"></div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span4">
+        </div>
+        <div class="col-md-4 col-md-offset-4">
+            <form action="/bookname" method="get">
+
+                <div class="form-group">
+                    <label>书名：</label>
+                    <input name="bookname" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <h4 class="modal-title">选择显示最近多少周的数据（默认显示一周）</h4>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="weekNum" value="1" checked="checked"/> 一周 <br/>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="weekNum" value="2"/> 两周 <br/>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="weekNum" value="3"/> 三周 <br/>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" name="weekNum" value="4"/> 四周 <br/>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">提交</button>
+            </form>
+
+        </div>
+        <div class="span4">
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span4">
+        </div>
+
+        <div class="span4 col-sm-offset-4" style="margin-top:100px; margin-bottom:200px;">
+            <h2 contenteditable="true" >或许你想了解更多？</h2>
+            <br>
+            <h4  class="text-left">Q：为什么我的书没有？</h4>
+            <h4  class="text-left">A：本网站只收录最近45日更新、且字数过五万字的书籍。不满足这两个条件，即使曾经收录，也会不再更新。</h4>
+            <br>
+            <h4  class="text-left">Q：明明我的书符合了条件。</h4>
+            <h4  class="text-left">A：首先把书名放在SF搜搜，看看有没有，最好是直接复制粘贴。我在后台见过太多错误的书名，它们与正确的书名往往只差一两个字。</h4>
+            <br>
+            <h4  class="text-left">Q：还是不行！</h4>
+            <h4  class="text-left">A：看看你有没有多输入空格，特别是书名末尾，在复制书名是可能会把后面的空格也复制入内。</h4>
+            <br>
+            <h4  class="text-left">Q：你怎么知道？</h4>
+            <h4  class="text-left">A：程序都会把每一次出错记在错误日志里</h4>
+            <br>
+            <h4  class="text-left">Q：你做这网站的目的是什么？</h4>
+            <h4  class="text-left">A：当然是增加作者太监率，减少竞争对手，顺便搞垮SF咯。</h4>
+            <br>
+            <h4  class="text-left">Q：我是认真的。</h4>
+            <h4  class="text-left">A：对<del>上班</del>业余所学新技术学以致用，就那么简单</h4>
+
+
+        </div>
+        <div class="span4">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script th:inline="javascript">
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+
+    option = {
+        title: {
+            text: '最近一周的数据变化',
+            subtext: ''
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['点击增长量', '收藏增长量', '月票增长量', '字数增长量', '赞数增长量']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                mark: {show: true},
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
+        },
+        calculable: true,
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: ['2018-', '2018-', '2018-', '2018-', '2018-', '2018-', '2018-']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} '
+                }
+            }
+        ],
+        series: [
+            {
+                name: '点击增长量',
+                type: 'line',
+                data: [11, 11, 15, 13, 12, 13, 10],
+                markPoint: {
+                    data: []
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name: '收藏增长量',
+                type: 'line',
+                data: [325, 600, 334, 0, 0, 0, 0],
+                markPoint: {
+                    data: []
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name: '月票增长量',
+                type: 'line',
+                data: [1, -2, 2, 5, 3, 2, 0],
+                markPoint: {
+                    data: []
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name: '字数增长量',
+                type: 'line',
+                data: [1, -2, 2, 5, 3, 2, 0],
+                markPoint: {
+                    data: []
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name: '赞数增长量',
+                type: 'line',
+                data: [1, -2, 2, 5, 3, 2, 0],
+                markPoint: {
+                    data: []
+                },
+                markLine: {
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+
+
+    option.title.text = [[${date.name}]];
+
+
+    //' ['点击增长量','收藏增长量','月票增长量','字数增长量','赞数增长量']
+    option.xAxis[0].data = [[${date.xAxisdate}]];
+    option.series[0].data = [[${date.clictNumInc}]];
+    option.series[1].data = [[${date.collectNumInc}]];
+    option.series[2].data = [[${date.monthlyNumInc}]];
+    option.series[3].data = [[${date.wordNumInc}]];
+    option.series[4].data = [[${date.likeNumInc}]];
+
+    myChart.setOption(option);
+</script>
+</body>
+</html>
+

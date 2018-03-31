@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>书籍排位</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+
+</head>
+<body>
+
+<div class="row-fluid">
+    <div class="col-md-6 col-md-offset-4" style="margin-top:30px;">
+        <h1 th:text="'《'+${bookName}+'》'">13 february 2011</h1>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="col-md-6 col-md-offset-4" style="margin-top:30px;">
+        <h3>只搜集近30天更新的书籍数据增长信息</h3>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="col-md-4 col-md-offset-4" style="margin-top:100px;">
+        <h3 th:text="'含盐量：'+${data.fuckRate}+'%'"> 盐度：</h3>
+        <div class="progress">
+            <th:div class="progress-bar" role="progressbar" aria-valuenow="60"
+                 aria-valuemin="0" aria-valuemax="100" th:style="'width:'+${data.fuckRate}+'%'">
+                <span class="sr-only"></span>
+            </th:div>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="col-md-4 col-md-offset-4" style="margin-top:30px;">
+        <h3 th:text="'你的'+${data.type}+'排名：'+${data.rank}+'名'">13 february 2011</h3>
+
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="col-md-4 col-md-offset-4" style="margin-top:30px;">
+        <h3 th:text="'一共有'+${data.sortNum}+'本书'"></h3>
+    </div>
+</div>
+
+</body>
+</html>
