@@ -72,7 +72,7 @@ public interface SfBookMapper {
             "SFBOOK.sign != '普通'\n" +
             " AND "+
             "SFBOOK.upateDate IN (#{dates})")
-    List<String> findBookNameBatchByDate(@Param("dates") List<String> dates);
+    List<String> findBookNameBatchByUpdate (@Param("dates") List<String> dates);
 
 
     /**

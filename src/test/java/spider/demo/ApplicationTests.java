@@ -97,9 +97,10 @@ public class ApplicationTests {
     @Test
     public void sfPageProcessor () throws Exception {
 
-        //    reptile.getSfbookBasicByYA();
+        Spider.create(authorPageProcessor).thread(1).
+                addUrl("https://api.sfacg.com/novels/120057?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag").
+                run();
 
-        //  reptile.getAuthorBook();
     }
 
     @Test
@@ -148,7 +149,7 @@ public class ApplicationTests {
     @Test
     public void getOneTest () throws Exception {
 
-        WhoAreYou whoAreYou = countData.countRank("掌控雷电后，我居然变成了女生？", "wordNumInc", false);
+        WhoAreYou whoAreYou = countData.countRank("性转为机械少女在异界的奇妙冒险", "monthlyNumInc", false);
         System.out.println(whoAreYou.getFuckRate());
         System.out.println(whoAreYou);
 

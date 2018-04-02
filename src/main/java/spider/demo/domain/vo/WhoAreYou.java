@@ -1,6 +1,11 @@
 package spider.demo.domain.vo;
 
+import spider.demo.exception.MyException;
 import spider.demo.tools.NumProcess;
+
+import static spider.demo.config.WhoAreYou.CLICK_INC;
+import static spider.demo.config.WhoAreYou.MONTHLY_INC;
+import static spider.demo.config.WhoAreYou.WORDS_INC;
 
 /**
  * 你算老几的实体类
@@ -51,13 +56,39 @@ public class WhoAreYou {
      */
     private double fuckRate;
 
-    public String getFuckRate () {
+    public double getFuckRate () {
         NumProcess num = new NumProcess();
 
-        return num.halfUp(rank / sortNum)*100+"%";
+        return num.halfUp(rank / sortNum)*100;
     }
 
     public void setFuckRate (double fuckRate) {
         this.fuckRate = fuckRate;
+    }
+
+
+    /**
+     * 类型
+     */
+    private String type;
+
+    public String getType () {
+        return type;
+    }
+
+    public void setType (String type) {
+        if (type.equals(WORDS_INC)) {
+            type = "昨日字数增长量";
+
+        } else if (type.equals(CLICK_INC)) {
+            type ="昨日点击增长量";
+        
+        } else if (type.equals(MONTHLY_INC)) {
+
+            type ="昨日月票增长量";
+
+        } 
+
+        this.type = type;
     }
 }

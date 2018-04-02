@@ -54,32 +54,15 @@ public class ReptileImpl implements Reptile {
 
     protected static Logger logger = LoggerFactory.getLogger(ReptileImpl.class);
 
-    @Override
-    //cron = "0 0 1 * * ?" 每日凌晨一点来一次。
-    // @Scheduled(cron = "0 0 1 * * ?")
-    public void getSfbookBasic () {
-
-        List<Author> authors = authorMapper.findAll();
-        authors.forEach(author -> {
-
-            Spider.create(sfPageProcessor).addUrl(author.getUrl()).run();
-
-        });
-
-
-    }
 
     /**
      * 0/30 * * * * ?  30秒一次
      * 0 0 1 * * ?      凌晨1点一次
      */
     @Override
-    @Scheduled(cron = "0 0 0 * * ? ")
-    public void getSfbookBasicByYA () {
-
+    public void getSfbookBasicByYA() {
         int threadNum = 15;
         long startTime = System.currentTimeMillis();
-
         List<Author> authors = authorMapper.findAll();
         String[] url = new String[authors.size()];
 
@@ -106,8 +89,7 @@ public class ReptileImpl implements Reptile {
     }
 
     @Override
-    @Scheduled(cron = "0 0 2 * * ? ")
-    public void getAuthorBook () {
+    public void getAuthorBook() {
 
         long startTime = System.currentTimeMillis();
         String[] url = new String[10000];
@@ -126,7 +108,6 @@ public class ReptileImpl implements Reptile {
 
             }
 
-
         }
 
         long endTime = System.currentTimeMillis();
@@ -135,23 +116,30 @@ public class ReptileImpl implements Reptile {
     }
 
     @Override
-    @Scheduled(cron = "0 58 23 * * ?")
-    public void getAuthorIncome () {
-
+    public void getAuthorIncome() {
         List<AuthorCookie> authorCookies = authorCookieMapper.getAll();
-
         for (AuthorCookie authorCookie : authorCookies) {
             sfPageIncome.authorName = authorCookie.getAuthorName();
             incomeMapper.delectByAuthorName(authorCookie.getAuthorName());
             DateUtil d = new DateUtil();
             for (int i = 0; i <= mons; i++) {
-
                 sfPageIncome.incomeDate = d.getAnyMonDate("M-YYYY", i);
                 Spider.create(sfPageIncome).thread(1).addUrl("http://i.sfacg.com/income/c/1-" + d.getAnyMonDate("M-YYYY", i)).run();
             }
-
-
         }
+
+    }
+
+    @Override
+    @Scheduled(cron = "0 0 0 * * ? ")
+    public void timedTask() {
+
+        //获取作者信息
+        getAuthorBook();
+        //获取书籍基本信息。
+        getSfbookBasicByYA();
+        //爬取收入
+        getAuthorIncome();
 
     }
 

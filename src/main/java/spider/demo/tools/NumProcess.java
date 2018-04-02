@@ -52,7 +52,7 @@ public class NumProcess {
      */
     public double halfUp (double f) {
         BigDecimal b = new BigDecimal(f);
-        f = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+        f = b.setScale(4, RoundingMode.HALF_UP).doubleValue();
         return f;
     }
 

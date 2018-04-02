@@ -124,34 +124,37 @@ public class CountDataImpl implements CountData {
     public WhoAreYou countRank (String bookName, String parm, boolean vip) throws Exception {
 
         List<GrowthData> growthDatas = new ArrayList<>();
-
+        DateUtil d = new DateUtil();
+        String date = d.getAnyDate("yyyy-MM-dd",1);
+//        //TODO 测试日期
+//        date = "2018-03-27";
         if (parm.equals(WORDS_INC)) {
 
             if (vip) {
-                growthDatas = growthDataMapper.getVipBookIncSortByWord();
+                growthDatas = growthDataMapper.getVipBookIncSortByWord(date);
             } else {
-                growthDatas = growthDataMapper.getBookIncSortByWord();
+                growthDatas = growthDataMapper.getBookIncSortByWord(date);
             }
 
 
         } else if (parm.equals(CLICK_INC)) {
 
             if (vip) {
-                growthDatas = growthDataMapper.getVipBookIncSortByMonth();
+                growthDatas = growthDataMapper.getVipBookIncSortByMonth(date);
             } else {
-                growthDatas = growthDataMapper.getBookIncSortByMonth();
+                growthDatas = growthDataMapper.getBookIncSortByMonth(date);
             }
 
-            growthDatas = growthDataMapper.getBookIncSortByClick();
+            growthDatas = growthDataMapper.getBookIncSortByClick(date);
 
         } else if (parm.equals(MONTHLY_INC)) {
 
             if (vip) {
-                growthDatas = growthDataMapper.getVipBookIncSortByMonth();
+                growthDatas = growthDataMapper.getVipBookIncSortByMonth(date);
 
             } else {
 
-                growthDatas = growthDataMapper.getBookIncSortByMonth();
+                growthDatas = growthDataMapper.getBookIncSortByMonth(date);
             }
 
         } else {
@@ -160,11 +163,11 @@ public class CountDataImpl implements CountData {
         }
 
 
-        return creatRank(growthDatas, bookName);
+        return creatRank(growthDatas, bookName,parm);
     }
 
 
-    private WhoAreYou creatRank (List<GrowthData> growthDatas, String bookName) throws Exception {
+    private WhoAreYou creatRank (List<GrowthData> growthDatas, String bookName,String parm) throws Exception {
         try {
             GrowthData growthData = new GrowthData();
             growthData = growthDatas.stream().filter(growth -> growth.getBookName().equals(bookName))
@@ -172,13 +175,13 @@ public class CountDataImpl implements CountData {
 
             int rank = growthDatas.indexOf(growthData);
             WhoAreYou whoAreYou = new WhoAreYou(growthDatas.size(), rank);
-
+            whoAreYou.setType(parm);
             return whoAreYou;
 
         } catch (Exception e) {
 
-            throw new MyException("查询书籍《" + bookName + "》排位错误错误",
-                    "书籍不存在，或者书籍刚录入，因此只有一日数据,无法计算增长数据。",
+            throw new MyException("查询书籍《" + bookName + "》排位信息错误",
+                    "书籍不存在。可能原因有：1.书籍刚录入，无法计算增长数据。\n 2.只计算最近一个月更新的小说。",
                     e.getStackTrace());
         }
 

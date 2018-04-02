@@ -21,13 +21,13 @@ public class DataHandleImpl implements DataHandle {
     public BookIncEchartsVo creatEchartsVo (List<GrowthData> growthDatas) throws Exception {
 
 
-        BookIncEchartsVo bookIncEchartsVo = new BookIncEchartsVo();
         long lowCollectNum = growthDatas.stream().min((g1, g2) -> (int) g1.getCollectNumInc() - (int) g2.getCollectNumInc()).get().getCollectNumInc();
         long lowClictNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getClictNumInc() - (int) g2.getClictNumInc()).get().getClictNumInc();
         long lowMonthlyNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getMonthlyNumInc() - (int) g2.getMonthlyNumInc()).get().getMonthlyNumInc();
         long lowtWordNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getWordNumInc() - (int) g2.getWordNumInc()).get().getWordNumInc();
         long lowtLikeNumInc = growthDatas.stream().min((g1, g2) -> (int) g1.getLikeNumInc() - (int) g2.getLikeNumInc()).get().getLikeNumInc();
 
+        BookIncEchartsVo bookIncEchartsVo = new BookIncEchartsVo();
         bookIncEchartsVo.setLowtLikeNumInc(lowtLikeNumInc);
         bookIncEchartsVo.setLowtWordNumInc(lowtWordNumInc);
         bookIncEchartsVo.setLowMonthlyNumInc(lowMonthlyNumInc);
@@ -36,6 +36,68 @@ public class DataHandleImpl implements DataHandle {
 
 
         int dayNum = growthDatas.size();
+
+        String[] xAxisdate = new String[dayNum];
+        for (int i = 0; i < dayNum; i++) {
+            xAxisdate[i] = growthDatas.get(i).getDate();
+
+        }
+
+
+        String[] clictNumInc = new String[dayNum];
+        for (int i = 0; i < dayNum; i++) {
+            clictNumInc[i] = String.valueOf(growthDatas.get(i).getClictNumInc());
+
+        }
+
+        String[] monthlyNumInc = new String[dayNum];
+        for (int i = 0; i < dayNum; i++) {
+            monthlyNumInc[i] = String.valueOf(growthDatas.get(i).getMonthlyNumInc());
+
+        }
+
+
+        String[] likeNumInc = new String[dayNum];
+        for (int i = 0; i < dayNum; i++) {
+            likeNumInc[i] = String.valueOf(growthDatas.get(i).getLikeNumInc());
+
+        }
+        String[] collectNumInc = new String[dayNum];
+        for (int i = 0; i < dayNum; i++) {
+            collectNumInc[i] = String.valueOf(growthDatas.get(i).getCollectNumInc());
+
+        }
+
+        String[] wordNumInc = new String[dayNum];
+        for (int i = 0; i < dayNum; i++) {
+            wordNumInc[i] = String.valueOf(growthDatas.get(i).getWordNumInc());
+
+        }
+
+
+        bookIncEchartsVo.setxAxisdate(xAxisdate);
+        bookIncEchartsVo.setWordNumInc(wordNumInc);
+        bookIncEchartsVo.setMonthlyNumInc(monthlyNumInc);
+        bookIncEchartsVo.setCollectNumInc(collectNumInc);
+        bookIncEchartsVo.setLikeNumInc(likeNumInc);
+        bookIncEchartsVo.setClictNumInc(clictNumInc);
+
+        bookIncEchartsVo.setName(growthDatas.get(0).getBookName());
+
+        return bookIncEchartsVo;
+    }
+
+    @Override
+    public BookIncEchartsVo creatWeekEchartsVo (List<GrowthData> growthDatas, int weekNum) throws Exception {
+
+        BookIncEchartsVo bookIncEchartsVo = new BookIncEchartsVo();
+        int dayNum = growthDatas.size();
+        if (weekNum * 7 < growthDatas.size()) {
+            dayNum = weekNum * 7;
+        } else {
+            dayNum = growthDatas.size();
+        }
+
 
         String[] xAxisdate = new String[dayNum];
         for (int i = 0; i < dayNum; i++) {

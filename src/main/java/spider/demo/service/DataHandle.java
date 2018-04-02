@@ -25,6 +25,16 @@ public interface DataHandle {
      */
      BookIncEchartsVo creatEchartsVo (List<GrowthData> growthDatas) throws Exception;
 
+    /**
+     * 把增长数据集合，裁剪日期后，加工为符合报表格式的集合
+     *
+     * @param growthDatas 增长数据
+     * @return 符合报表格式的数据
+     * @throws Exception 统一处理异常
+     */
+    BookIncEchartsVo creatWeekEchartsVo (List<GrowthData> growthDatas,int weekNum) throws Exception;
+
+
 
     /**
      * 把收入集合转换加工为符合报表格式的实体类

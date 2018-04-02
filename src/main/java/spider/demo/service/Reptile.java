@@ -24,29 +24,30 @@ public interface Reptile {
     int mons = 36;
 
 
-    /**
-     * 爬取sf网站的基本信息（除了简介之外），用于比较每日数据增长
-     */
-    public void getSfbookBasic ();
-
 
     /**
      * 使用雅白提供的接口爬取
      */
-    public void getSfbookBasicByYA ();
+     void getSfbookBasicByYA ();
 
 
 
     /**
      * 爬取sf有价值的作者
     */
-    public void getAuthorBook ();
+    void getAuthorBook ();
 
     /**
      * 每日凌晨0点00分
      * 爬取作者收入界面的数据
      */
     void getAuthorIncome();
+
+    /**
+     * 定时爬取
+     */
+    void  timedTask();
+
 
 
 

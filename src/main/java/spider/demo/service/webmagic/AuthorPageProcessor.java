@@ -80,7 +80,7 @@ public class AuthorPageProcessor implements PageProcessor {
 
             if (authorMapper.delectByBookName(bookName) > 0) {
 
-                logger.info("《" + bookName + "》在作者表中删除成功");
+                logger.info("《" + bookName + "》在作者表中删除成功。字数为："+wordNum+"  签约状态："+sign);
 
             } else {
 
