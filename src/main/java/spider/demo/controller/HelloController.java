@@ -1,5 +1,6 @@
 package spider.demo.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,7 @@ public class HelloController {
             bookname = "性转为机械少女在异界的奇妙冒险 ";
             weekNum=1;
         }
-
+        bookname = StringUtils.deleteWhitespace(bookname);
         BookIncEchartsVo bookIncEchartsVo = dataHandle.creatWeekEchartsVo(countData.growthAllMonth(bookname),weekNum);
         ModelAndView modelAndView = new ModelAndView("bookIncEcharts");
         modelAndView.addObject("date", bookIncEchartsVo);
