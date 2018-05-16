@@ -40,7 +40,7 @@ public class AuthorPageProcessor implements PageProcessor {
     protected static Logger logger = LoggerFactory.getLogger(AuthorPageProcessor.class);
 
     @Override
-    synchronized public void process (Page page) {
+    synchronized public void process(Page page) {
 
 
         String jsonStr = page.getJson().toString();
@@ -72,6 +72,10 @@ public class AuthorPageProcessor implements PageProcessor {
             authorObject.setUrl(page.getUrl().toString());
             authorObject.setAuthorName(jsonData.getString("authorName"));
             authorObject.setBookName(bookName);
+
+            if (authorObject.getAuthorName().length() == 5 && authorObject.getAuthorName().indexOf("圣蛋节") != -1) {
+                authorObject.setAuthorName("圣蛋节-心裂");
+            }
             authorMapper.insertAll(authorObject);
 
             logger.info("《" + bookName + "》在作者表中增添成功");
@@ -80,7 +84,7 @@ public class AuthorPageProcessor implements PageProcessor {
 
             if (authorMapper.delectByBookName(bookName) > 0) {
 
-                logger.info("《" + bookName + "》在作者表中删除成功。字数为："+wordNum+"  签约状态："+sign);
+                logger.info("《" + bookName + "》在作者表中删除成功。字数为：" + wordNum + "  签约状态：" + sign);
 
             } else {
 
@@ -94,12 +98,12 @@ public class AuthorPageProcessor implements PageProcessor {
     }
 
     @Override
-    synchronized public Site getSite () {
+    synchronized public Site getSite() {
         return site;
     }
 
 
-    private static long getDistanceDays (String str1, String str2) {
+    private static long getDistanceDays(String str1, String str2) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date one;
         Date two;

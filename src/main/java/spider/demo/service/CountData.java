@@ -86,19 +86,10 @@ public interface CountData {
      * @return
      */
     WhoAreYou countRank (String bookName,String parm ,boolean vip) throws Exception;
-
-
-
-
-
-
-
     /*******************
      * 提供指定月份收入
      * *****************
      */
-
-
     /**
      * 提供指定月份的收入
      * @param authorName 作者名

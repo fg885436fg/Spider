@@ -56,7 +56,6 @@
                 <fieldset>
                     <legend>提交作者名</legend>
                     <label>作者名：</label><input name="authorName" type="text"/> <span class="help-block">.</span>
-                    <legend> 提交月份</legend>
                     <label>月份：</label>
                     <input name="mons" type="number"  max="36"/> <span class="help-block">.</span>
                     <button class="btn" type="submit">提交</button>
@@ -64,6 +63,16 @@
             </form>
         </div>
         <div class="span4">
+            <form action="/writeincome" method="get">
+                <fieldset>
+                    <legend>提交cookie</legend>
+                    <label>作者名：</label><input name="authorName" type="text"/>
+                    <label>网站：</label><input name="site" type="text"/>
+                    <label>cookie：</label>
+                    <input name="cookie" type="text" /> <span class="help-block">.</span>
+                    <button class="btn" type="submit">提交</button>
+                </fieldset>
+            </form>
         </div>
     </div>
 </div>

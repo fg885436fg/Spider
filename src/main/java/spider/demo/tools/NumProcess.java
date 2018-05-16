@@ -32,15 +32,10 @@ public class NumProcess {
 
         if (s.indexOf(".") > 0) {
             if (s.length() - (s.indexOf(".") + 1) > i) {
-
                 i = s.indexOf(".") + i + 1;
                 s = s.substring(0, i);
-
-
             }
-
         }
-
 
         return s;
     }

@@ -37,12 +37,9 @@ import java.time.LocalDate;
         JSONObject jsonData = jsonObject.getJSONObject("data");
 
         String sign = jsonData.getString("signStatus");
-
-
         long wordNum = jsonData.getLong("charCount");
         String bookName = jsonData.getString("novelName");
         bookName = StringUtils.deleteWhitespace(bookName);
-
         long monthlyNum = jsonData.getJSONObject("expand").getLong("ticket");
         long likeNum = jsonData.getJSONObject("expand").getLong("fav");
 
@@ -50,29 +47,19 @@ import java.time.LocalDate;
         Boolean isFinish = jsonData.getBoolean("isFinish");
         if (isFinish) {
             status = "已完结";
-
         }
-
         long clickNum = jsonData.getLong("viewTimes");
         long collectNum = jsonData.getLong("markCount");
 
         String upateDate = jsonData.getString("lastUpdateTime");
         upateDate = upateDate.substring(0, 10);
-
         String date = LocalDate.now().toString();
-
         SfBook sfBook = new SfBook(bookName, collectNum, clickNum,
                 monthlyNum, likeNum, date, upateDate, status, wordNum, sign);
-
-
         SfBook book = sfBookMapper.findByNameAndDate(bookName, date);
-
-
 
         if (book == null ) {
            sfBookMapper.insertAll(sfBook);
-
-
         }  else {
             System.out.println("书籍：《" + book.getBookName() + "》今日已经爬取过");
         }

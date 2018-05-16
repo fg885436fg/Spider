@@ -122,25 +122,21 @@ public class ReptileImpl implements Reptile {
             sfPageIncome.authorName = authorCookie.getAuthorName();
             incomeMapper.delectByAuthorName(authorCookie.getAuthorName());
             DateUtil d = new DateUtil();
-            for (int i = 0; i <= mons; i++) {
-                sfPageIncome.incomeDate = d.getAnyMonDate("M-YYYY", i);
-                Spider.create(sfPageIncome).thread(1).addUrl("http://i.sfacg.com/income/c/1-" + d.getAnyMonDate("M-YYYY", i)).run();
+            String[] urls = new String[mons];
+            for (int i = 0; i < mons; i++) {
+                urls[i] = "http://i.sfacg.com/income/c/1-" + d.getAnyMonDate("M-YYYY", i);
             }
+            Spider.create(sfPageIncome).thread(10).addUrl(urls).run();
         }
-
     }
 
     @Override
     @Scheduled(cron = "0 0 0 * * ? ")
     public void timedTask() {
-
         //获取作者信息
         getAuthorBook();
         //获取书籍基本信息。
         getSfbookBasicByYA();
-        //爬取收入
-        getAuthorIncome();
-
     }
 
 

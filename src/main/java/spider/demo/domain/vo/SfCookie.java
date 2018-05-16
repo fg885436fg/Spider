@@ -14,14 +14,14 @@ import java.util.Map;
  */
 public class SfCookie {
 
-    private Map<String, String> SfCookie = new HashMap<>();
+    private Map<String, String> sfCookie = new HashMap<>();
 
     public Map<String, String> getSfCookie () {
-        return SfCookie;
+        return sfCookie;
     }
 
     public void setSfCookie (String SfCookieJsonstr) {
 
-        SfCookie = JSON.parseObject(SfCookieJsonstr, Map.class);
+        sfCookie = JSON.parseObject(SfCookieJsonstr, Map.class);
     }
 }

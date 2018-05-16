@@ -38,12 +38,6 @@ public class SfPageIncome implements PageProcessor {
     protected static Logger logger = LoggerFactory.getLogger(SfPageIncome.class);
 
     public String authorName;
-
-    /**
-     * 要爬取的收入日期
-     */
-    public String incomeDate;
-
     @Autowired
     AuthorCookieMapper authorCookieMapper;
 
@@ -54,54 +48,38 @@ public class SfPageIncome implements PageProcessor {
 
 
     @Override
-    synchronized public void process (Page page) {
-
+    synchronized public void process(Page page) {
         logger.info("开始抓取收入信息,地址是：" + page.getUrl().toString());
-
         List<Income> incomes = new ArrayList<>();
         Html html = page.getHtml();
-        if (creatIncome(html) == null) {
-            page.setSkip(true);
+        List<Income> temp = creatIncome(html);
+        if (temp == null) {
+            return;
         }
-        incomes.addAll(creatIncome(html));
-
-
+        incomes.addAll(temp);
         int hz = appearNumber(html.xpath("//div[@class='pagebar']").toString(), "<a href=\"/income/");
-
-
-        DateUtil d = new DateUtil();
         List<String> links = new ArrayList<>();
+        StringBuilder url = new StringBuilder(page.getUrl().toString());
         for (int i = 2; i <= hz && i < 5; i++) {
-            String rl = "http://i.sfacg.com/income/c/" + i;
-            links.add(rl + "-" + incomeDate);
+            links.add(url.replace(28, 29, String.valueOf(i)).toString());
         }
         if (links.size() != 0) {
             page.addTargetRequests(links);
         }
-
-        if (incomes.size() !=0) {
+        if (incomes.size() != 0) {
             incomeMapper.insertIncBatch(incomes);
         }
-
-
-
-
     }
 
     @Override
-    synchronized public Site getSite () {
-
+    synchronized public Site getSite() {
         site.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
         AuthorCookie authorCookie = authorCookieMapper.getByAuthorName(authorName);
         SfCookie sfCookie = new SfCookie();
         sfCookie.setSfCookie(authorCookie.getCookieJson());
-
         for (String key : sfCookie.getSfCookie().keySet()) {
-
             site.addCookie(key, sfCookie.getSfCookie().get(key));
         }
-
-
         return site;
     }
 
@@ -112,23 +90,17 @@ public class SfPageIncome implements PageProcessor {
      * @param html 抓取到的页面。
      * @return
      */
-    private List<Income> creatIncome (Html html) {
-
+    private List<Income> creatIncome(Html html) {
         if (html.regex("定时更新").toString() == null) {
-
             logger.info("抓取收入页面出错，可能是Cookies过期。");
+            logger.info("authorName:" + authorName);
             logger.info("_________________");
             logger.info(html.toString());
             logger.info("_________________");
-
             return null;
         }
-
-
         Document document = html.getDocument();
         Elements incomeList = document.getElementsByTag("tbody").get(0).children();
-
-
         List<Income> incomes = new ArrayList<>();
         for (int i = 0; i < incomeList.size(); i++) {
             Element tr = incomeList.get(i);
@@ -138,7 +110,6 @@ public class SfPageIncome implements PageProcessor {
                 if (td.hasAttr("width")) {
                     continue;
                 }
-
                 if (td.hasText()) {
                     j++;
                     if (j == 1) {
@@ -151,13 +122,11 @@ public class SfPageIncome implements PageProcessor {
                 }
 
             }
-
             income.setAuthorName(authorName);
             //UserInfo
             if (!StringUtils.isEmpty(income.getDate())) {
                 incomes.add(income);
             }
-
 
         }
         return incomes;
@@ -171,7 +140,7 @@ public class SfPageIncome implements PageProcessor {
      * @param findText 要查找的字符串
      * @return
      */
-    private int appearNumber (String srcText, String findText) {
+    private int appearNumber(String srcText, String findText) {
         int count = 0;
         Pattern p = Pattern.compile(findText);
         Matcher m = p.matcher(srcText);

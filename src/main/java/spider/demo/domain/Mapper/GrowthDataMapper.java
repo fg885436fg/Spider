@@ -36,7 +36,6 @@ public interface GrowthDataMapper {
     int insertAll (GrowthData growthData);
 
     /**
-     * 批量插入完整的书籍增长量信息，通过内部类来生成动态的sql语句。
      *
      * @param growthDatas 书籍增长量信息集合
      * @return

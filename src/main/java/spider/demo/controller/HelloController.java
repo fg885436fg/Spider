@@ -9,8 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 import spider.demo.domain.vo.BookIncEchartsVo;
 import spider.demo.domain.vo.IncomeEchartsVo;
 import spider.demo.domain.vo.WhoAreYou;
+import spider.demo.exception.MyException;
 import spider.demo.service.CountData;
 import spider.demo.service.DataHandle;
+import spider.demo.service.IncomeService;
 
 /**
  * 查询书籍的控制层入口
@@ -22,8 +24,8 @@ import spider.demo.service.DataHandle;
 public class HelloController {
     @Autowired
     private CountData countData;
-
-
+    @Autowired
+    IncomeService incomeService;
     @Autowired
     private DataHandle dataHandle;
 
@@ -51,10 +53,7 @@ public class HelloController {
 
     @RequestMapping("/rank")
     public ModelAndView getRank (String rankBookName, String parm, boolean vip) throws Exception {
-
-
         WhoAreYou whoAreYou = countData.countRank(rankBookName, parm, vip);
-
         ModelAndView modelAndView = new ModelAndView("rank");
         whoAreYou.setFuckRate(whoAreYou.getFuckRate());
         modelAndView.addObject("data", whoAreYou);
@@ -65,19 +64,22 @@ public class HelloController {
 
     @RequestMapping("/income")
     public ModelAndView getIncome (String authorName, Integer mons) throws Exception {
-
         if (StringUtil.isBlank(authorName)) {
             authorName = "兰玉边 ";
             mons = 1;
         }
-        IncomeEchartsVo incomeEchartsVo =
-                dataHandle.creatIncomeEchartsVo(countData.getMonIncome(authorName, mons));
-
-
+        IncomeEchartsVo incomeEchartsVo = dataHandle.creatIncomeEchartsVo(countData.getMonIncome(authorName, mons));
         ModelAndView modelAndView = new ModelAndView("IncomeEcharts");
         modelAndView.addObject("date", incomeEchartsVo);
         return modelAndView;
     }
-
+    @RequestMapping("/writeincome")
+    public String writeIncome (String authorName, String cookie,String site) throws Exception {
+        if (StringUtil.isBlank(authorName)||StringUtil.isBlank(cookie)||StringUtil.isBlank(site)) {
+            throw new MyException("authorName:"+authorName+" Cookie:"+cookie,"参数为空"+" site:"+site);
+        }
+        incomeService.addSfAuthorCookie(authorName,cookie,site);
+        return "IncomeEcharts";
+    }
 
 }

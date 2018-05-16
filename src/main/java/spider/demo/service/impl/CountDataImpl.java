@@ -44,25 +44,25 @@ public class CountDataImpl implements CountData {
 
 
     @Override
-    public List<SfBook> allDateWeek (String bookName) {
+    public List<SfBook> allDateWeek(String bookName) {
 
         return sfBookMapper.findAllDateWeek(bookName);
     }
 
     @Override
-    public List<SfBook> allDateMonth (String bookName) {
+    public List<SfBook> allDateMonth(String bookName) {
 
         return sfBookMapper.findAllDateMonth(bookName);
     }
 
     @Override
-    public List<GrowthData> growthAllDay (String bookName) {
+    public List<GrowthData> growthAllDay(String bookName) {
         List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
         return creatGrowthData(ONE_DAY, sfBooks);
     }
 
     @Override
-    public List<GrowthData> growthAllweek (String bookName) throws Exception {
+    public List<GrowthData> growthAllweek(String bookName) throws Exception {
 
 
         try {
@@ -89,7 +89,7 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public List<GrowthData> growthAllMonth (String bookName) throws Exception {
+    public List<GrowthData> growthAllMonth(String bookName) throws Exception {
         try {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
@@ -114,18 +114,18 @@ public class CountDataImpl implements CountData {
     }
 
     @Override
-    public List<GrowthData> growthAllMonthForConsole (String bookName) {
+    public List<GrowthData> growthAllMonthForConsole(String bookName) {
 
         List<SfBook> sfBooks = sfBookMapper.findAllDateMonth(bookName);
         return creatGrowthData(MON_DAY, sfBooks);
     }
 
     @Override
-    public WhoAreYou countRank (String bookName, String parm, boolean vip) throws Exception {
+    public WhoAreYou countRank(String bookName, String parm, boolean vip) throws Exception {
 
         List<GrowthData> growthDatas = new ArrayList<>();
         DateUtil d = new DateUtil();
-        String date = d.getAnyDate("yyyy-MM-dd",1);
+        String date = d.getAnyDate("yyyy-MM-dd", 1);
 //        //TODO 测试日期
 //        date = "2018-03-27";
         if (parm.equals(WORDS_INC)) {
@@ -163,11 +163,11 @@ public class CountDataImpl implements CountData {
         }
 
 
-        return creatRank(growthDatas, bookName,parm);
+        return creatRank(growthDatas, bookName, parm);
     }
 
 
-    private WhoAreYou creatRank (List<GrowthData> growthDatas, String bookName,String parm) throws Exception {
+    private WhoAreYou creatRank(List<GrowthData> growthDatas, String bookName, String parm) throws Exception {
         try {
             GrowthData growthData = new GrowthData();
             growthData = growthDatas.stream().filter(growth -> growth.getBookName().equals(bookName))
@@ -189,15 +189,16 @@ public class CountDataImpl implements CountData {
 
 
     @Override
-    public List<Income> getMonIncome (String authorName, int mons) {
+    public List<Income> getMonIncome(String authorName, int mons) {
         DateUtil d = new DateUtil();
-        d.getAnyMonDate("yyyy-MM", mons);
+        String a = d.getAnyMonDate("yyyy-MM", mons);
+        List<Income> incomes = incomeMapper.getByAuthorNameAndDate(authorName, d.getAnyMonDate("yyyy-MM", mons));
         return incomeMapper.getByAuthorNameAndDate(authorName, d.getAnyMonDate("yyyy-MM", mons));
 
     }
 
 
-    private List<GrowthData> creatGrowthData (int dayNum, List<SfBook> sfBooks) {
+    private List<GrowthData> creatGrowthData(int dayNum, List<SfBook> sfBooks) {
 
         List<GrowthData> growthDatas = new ArrayList<>();
 

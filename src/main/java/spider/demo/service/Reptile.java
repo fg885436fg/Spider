@@ -30,8 +30,6 @@ public interface Reptile {
      */
      void getSfbookBasicByYA ();
 
-
-
     /**
      * 爬取sf有价值的作者
     */

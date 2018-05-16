@@ -26,7 +26,7 @@ public interface AuthorCookieMapper {
      * @param authorCookie 作者Cookie
      * @return
      */
-    @Insert("INSERT INTO authorCookie(authorName,cookieJson," +
+    @Insert("INSERT INTO authorcookie(authorName,cookieJson," +
             "authorSite) VALUES "
             +
             "(#{authorName},#{cookieJson}," +
@@ -63,11 +63,13 @@ public interface AuthorCookieMapper {
      * @return
      */
     @Select("SELECT\n" +
-            "*\n" +
-            "FROM \n" +
+            "authorcookie.authorName,\n" +
+            "authorcookie.cookieJson,\n" +
+            "authorcookie.authorSite\n" +
+            "FROM\n" +
             "authorcookie\n" +
             "WHERE\n" +
-            "authorcookie.authorName =#{authorName}")
+            "authorcookie.authorName = #{authorName}")
     AuthorCookie getByAuthorName (@Param("authorName") String authorName);
 
     /**
@@ -76,7 +78,9 @@ public interface AuthorCookieMapper {
      * @return
      */
     @Select("SELECT\n" +
-            "*\n" +
+            "authorcookie.authorName,\n" +
+            "authorcookie.cookieJson,\n" +
+            "authorcookie.authorSite\n" +
             "FROM \n" +
             "authorcookie\n")
     List<AuthorCookie> getAll ();

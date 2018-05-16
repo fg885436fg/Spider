@@ -30,12 +30,10 @@ public class DateUtil {
     /**
      * 获取随意格式的当日期字符串。
      * 可通过days 属性，获得当日以前X天的日期
-     *
      * @param format 格式，例如：MM dd yyyy
      * @param days   今日前days天
      * @return
      */
-
     public String getAnyDate (String format, long days) {
         LocalDate now = LocalDate.now();
         now = now.minusDays(days);
@@ -45,23 +43,18 @@ public class DateUtil {
     /**
      * 获取随意格式的当日期字符串。
      * 可通过days 属性，获得当日以前X月的日期
-     *
      * @param format 格式，例如：MM -dd-yyyy
      * @param mons  今日前×月
      * @return
      */
-
     public String getAnyMonDate (String format, int mons) {
         LocalDate now = LocalDate.now();
         now = now.minusMonths(mons);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return formatter.format(now);
     }
-
-
     /**
      * 得到两个日期之间的日期差。
-     *
      * @param str1 yyyy-MM-dd 格式 例如 2017-01-01 2017-1-1
      * @param str2
      * @return
@@ -88,7 +81,5 @@ public class DateUtil {
         }
         return days;
     }
-
-
 
 }

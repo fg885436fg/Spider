@@ -1,6 +1,7 @@
 package spider.demo.domain.Mapper;
 
 import org.apache.ibatis.annotations.*;
+
 import spider.demo.config.SimpleSelectInExtendedLanguageDriver;
 import spider.demo.domain.entity.SfBook;
 
