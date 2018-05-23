@@ -31,40 +31,25 @@ public class AuthorPageProcessor implements PageProcessor {
     private Site site = Site.me().setRetryTimes(3).setSleepTime(100).
             addHeader("Authorization", "Basic YW5kcm9pZHVzZXI6MWEjJDUxLXl0Njk7KkFjdkBxeHE=")
             .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
-
-
     @Autowired
     private AuthorMapper authorMapper;
-
-
     protected static Logger logger = LoggerFactory.getLogger(AuthorPageProcessor.class);
-
     @Override
     synchronized public void process(Page page) {
-
-
         String jsonStr = page.getJson().toString();
         JSONObject jsonObject = JSONObject.parseObject(jsonStr);
         JSONObject jsonData = jsonObject.getJSONObject("data");
         long wordNum = jsonData.getLong("charCount");
-
-
         String upateDate = jsonData.getString("lastUpdateTime");
         upateDate = upateDate.substring(0, 10);
         //比较更新时间与现在的时间差，如果相差过大，则不录入。
         String date = LocalDate.now().toString();
         long day = getDistanceDays(date, upateDate);
-
-
         Author authorObject = null;
         String bookName = jsonData.getString("novelName");
         bookName = StringUtils.deleteWhitespace(bookName);
-
         authorObject = authorMapper.findByBookName(bookName);
-
         String sign = jsonData.getString("signStatus");
-
-
         //&& !"普通".equals(sign) 筛选签约或者VIP的条件。
         //只收录近45天更新字数大于50000的
         if (authorObject == null && day < 45 && wordNum > 50000) {
@@ -72,16 +57,12 @@ public class AuthorPageProcessor implements PageProcessor {
             authorObject.setUrl(page.getUrl().toString());
             authorObject.setAuthorName(jsonData.getString("authorName"));
             authorObject.setBookName(bookName);
-
             if (authorObject.getAuthorName().length() == 5 && authorObject.getAuthorName().indexOf("圣蛋节") != -1) {
                 authorObject.setAuthorName("圣蛋节-心裂");
             }
             authorMapper.insertAll(authorObject);
-
             logger.info("《" + bookName + "》在作者表中增添成功");
         } else if (authorObject != null && "普通".equals(sign) && wordNum < 50000) {
-
-
             if (authorMapper.delectByBookName(bookName) > 0) {
 
                 logger.info("《" + bookName + "》在作者表中删除成功。字数为：" + wordNum + "  签约状态：" + sign);
@@ -90,18 +71,13 @@ public class AuthorPageProcessor implements PageProcessor {
 
                 logger.info("《" + bookName + "》在作者表中删除失败");
             }
-
-
         }
-
-
     }
 
     @Override
     synchronized public Site getSite() {
         return site;
     }
-
 
     private static long getDistanceDays(String str1, String str2) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -125,6 +101,4 @@ public class AuthorPageProcessor implements PageProcessor {
         }
         return days;
     }
-
-
 }

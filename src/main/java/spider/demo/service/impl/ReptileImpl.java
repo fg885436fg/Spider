@@ -65,8 +65,6 @@ public class ReptileImpl implements Reptile {
         long startTime = System.currentTimeMillis();
         List<Author> authors = authorMapper.findAll();
         String[] url = new String[authors.size()];
-
-
         for (int i = 0; i < authors.size(); i++) {
             ///筛选出地址书号
             String bookNo = authors.get(i).getUrl();
@@ -75,44 +73,28 @@ public class ReptileImpl implements Reptile {
             Matcher m = p.matcher(bookNo);
             bookNo = m.replaceAll("").trim();
             url[i] = "https://api.sfacg.com/novels/" + bookNo + "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag";
-
-
         }
 
         Spider.create(sfPageYa).thread(threadNum).addUrl(url).run();
-
-
         long endTime = System.currentTimeMillis();
-
         logger.info(threadNum + "根线程,书籍全部爬取花费时间为：" + (endTime - startTime) + "毫秒");
 
     }
 
     @Override
     public void getAuthorBook() {
-
         long startTime = System.currentTimeMillis();
         String[] url = new String[10000];
         for (int i = BOOK_FIRST_NUM; i < BOOK_NUM; i++) {
-
             int index = i % 10000;
-
             url[index] = "https://api.sfacg.com/novels/" + i + "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag";
-
-
             if (i % 10000 == 0 && i != BOOK_FIRST_NUM) {
-
-
                 Spider.create(authorPageProcessor).thread(10).
                         addUrl(url).run();
-
             }
-
         }
-
         long endTime = System.currentTimeMillis();
         logger.info("10根线程,SF作者全部爬取花费时间为：" + (endTime - startTime) + "毫秒");
-
     }
 
     @Override

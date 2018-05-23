@@ -16,7 +16,7 @@ public interface Reptile {
     /**
      * 起始找书书号
      */
-    int BOOK_FIRST_NUM =60000;
+    int BOOK_FIRST_NUM =70000;
 
     /**
      * 抓取最近三十六月的收入

@@ -29,19 +29,7 @@ public class SfPageProcessor implements PageProcessor {
 
     @Override
     public void process (Page page) {
-
         Html html = page.getHtml();
-
-        try {
-
-            "".equals( html.xpath("//div[@class='error_bg']/text()").toString());
-            return;
-        } catch (Exception e) {
-
-
-        }
-
-
         String wordNum = html.xpath("//span[@class='book_info3']/text()").regex("\\/.*字").regex("[0-9]{4,8}").toString().replace(" ", "");
         String clickNum = html.xpath("//span[@class='book_info3']/text()").regex("\\/ [1-9]\\d* ").regex("[1-9]\\d*|0$").toString().replace(" ", "");
         String upateDate = "20" + html.xpath("//span[@class='book_info3']/text()").regex("\\d{0,4}-\\d{2}-\\d{2}").toString().replace(" ", "");
@@ -51,13 +39,10 @@ public class SfPageProcessor implements PageProcessor {
         String date = LocalDate.now().toString();
         String status = html.xpath("//div[@class='book_info2']/span[2]/text()").toString().replace(" ", "");
         String bookName = html.xpath("//span[@class='book_newtitle']/text()").toString().replace(" ", "");
-
         String sign = html.xpath("//div[@class='book_info2']/span[3]/text()").toString().replace(" ", "");
-
         if (StringUtil.isBlank(sign)) {
             sign = "无";
         }
-
         SfBook sfBook = new SfBook(bookName, Long.valueOf(collectNum), Long.valueOf(clickNum),
                 Long.valueOf(monthlyNum), Long.valueOf(likeNum), date, upateDate, status, Long.valueOf(wordNum),sign);
 
@@ -65,12 +50,9 @@ public class SfPageProcessor implements PageProcessor {
 
         SfBook book = sfBookMapper.findByNameAndDate(bookName, date);
 
-
         if (book == null) {
             sfBookMapper.insertAll(sfBook);
         }
-
-
     }
 
     @Override

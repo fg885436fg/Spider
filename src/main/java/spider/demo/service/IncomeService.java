@@ -6,7 +6,6 @@ package spider.demo.service;
  * @author lanyubing
  */
 public interface IncomeService {
-
     /**
      * 存储SF作者的实体类。
      * @param authorName 作者命
