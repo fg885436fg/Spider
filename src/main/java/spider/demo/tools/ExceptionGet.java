@@ -6,7 +6,7 @@ import java.io.PrintStream;
 /**
  * 获取异常的详细信息
  */
-public class Get {
+public class ExceptionGet {
 
     public static String getExcrptionInfo (Exception e) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

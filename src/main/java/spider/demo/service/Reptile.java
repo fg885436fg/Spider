@@ -10,7 +10,6 @@ package spider.demo.service;
 
 public interface Reptile {
 
-
      int BOOK_NUM=152000;
 
     /**
@@ -22,8 +21,6 @@ public interface Reptile {
      * 抓取最近三十六月的收入
      */
     int mons = 36;
-
-
 
     /**
      * 使用雅白提供的接口爬取
@@ -45,13 +42,4 @@ public interface Reptile {
      * 定时爬取
      */
     void  timedTask();
-
-
-
-
-
-
-
-
-
 }

@@ -1,4 +1,4 @@
-package spider.demo.domain.Mapper;
+package spider.demo.domain.mapper;
 
 import org.apache.ibatis.annotations.*;
 
@@ -17,7 +17,6 @@ import java.util.List;
 @Mapper
 @Repository
 public interface AuthorMapper {
-
 
     /**
      *  获取所有作者
@@ -45,14 +44,11 @@ public interface AuthorMapper {
             "#{url})")
     int insertAll (Author author);
 
-
-
     /**
      * 根据书名删除作者
      * @param bookName
      * @return
      */
-
     @Delete("DELETE FROM Author WHERE Author.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
     int delectByBookName (@Param("bookName") String bookName);
 

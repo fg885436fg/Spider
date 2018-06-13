@@ -1,4 +1,4 @@
-package spider.demo.domain.Mapper;
+package spider.demo.domain.mapper;
 
 import org.apache.ibatis.annotations.*;
 

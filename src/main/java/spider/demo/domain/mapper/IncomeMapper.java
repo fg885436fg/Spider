@@ -1,9 +1,7 @@
-package spider.demo.domain.Mapper;
+package spider.demo.domain.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
-import spider.demo.domain.entity.AuthorCookie;
-import spider.demo.domain.entity.GrowthData;
 import spider.demo.domain.entity.Income;
 
 import java.util.List;

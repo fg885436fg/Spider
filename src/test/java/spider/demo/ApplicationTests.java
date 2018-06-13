@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import spider.demo.domain.Mapper.AuthorCookieMapper;
-import spider.demo.domain.Mapper.AuthorMapper;
-import spider.demo.domain.Mapper.GrowthDataMapper;
-import spider.demo.domain.Mapper.SfBookMapper;
-import spider.demo.domain.entity.AuthorCookie;
+import spider.demo.domain.mapper.AuthorCookieMapper;
+import spider.demo.domain.mapper.AuthorMapper;
+import spider.demo.domain.mapper.GrowthDataMapper;
+import spider.demo.domain.mapper.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
-import spider.demo.domain.vo.WhoAreYou;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
 import spider.demo.service.Reptile;
@@ -25,6 +23,7 @@ import us.codecraft.webmagic.Spider;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -66,12 +65,12 @@ public class ApplicationTests {
 
 
     @Test
-    public void findByName () throws Exception {
+    public void findByName() throws Exception {
 
     }
 
     @Test
-    public void findAuthor () throws Exception {
+    public void findAuthor() throws Exception {
 
         Spider.create(authorPageProcessor).thread(1).
                 addUrl("https://api.sfacg.com/novels/110000?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag").run();
@@ -80,12 +79,9 @@ public class ApplicationTests {
 
 
     @Test
-    public void getSfbookBasic () throws Exception {
+    public void getSfbookBasic() throws Exception {
 //        List< SfBook> sfBooks= sfBookMapper.findByName("性转为机械少女在异界的奇妙冒险");
-
-
         String a = "https://m.sfacg.com/b/120878/";
-
         String regEx = "[^0-9]";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(a);
@@ -95,16 +91,12 @@ public class ApplicationTests {
     }
 
     @Test
-    public void sfPageProcessor () throws Exception {
-
-        Spider.create(authorPageProcessor).thread(1).
-                addUrl("https://api.sfacg.com/novels/120057?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag").
-                run();
+    public void sfPageProcessor() throws Exception {
 
     }
 
     @Test
-    public void allDateWeek () throws Exception {
+    public void allDateWeek() throws Exception {
         List<SfBook> sfBooks = countData.allDateMonth("精灵女王的宠物少女");
 
 
@@ -122,7 +114,7 @@ public class ApplicationTests {
 
 
     @Test
-    public void getSfbook () throws Exception {
+    public void getSfbook() throws Exception {
 
 
 //        LocalDate today = LocalDate.now();
@@ -147,11 +139,20 @@ public class ApplicationTests {
 
 
     @Test
-    public void getOneTest () throws Exception {
+    public void getOneTest() throws Exception {
 
-        WhoAreYou whoAreYou = countData.countRank("性转为机械少女在异界的奇妙冒险", "monthlyNumInc", false);
-        System.out.println(whoAreYou.getFuckRate());
-        System.out.println(whoAreYou);
+        List<SfBook> sfBooks = sfBookMapper.findByName("性转为叉叉叉").stream().filter(sfBook -> sfBook.getDate() == "dsadas").collect(Collectors.toList());
+        if (sfBooks.size() != 0) {
+
+        } else {
+            System.out.println("成功");
+        }
+
+    }
+
+    @Test
+    public void getAuthorIncome() {
+
 
     }
 

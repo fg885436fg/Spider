@@ -8,22 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import spider.demo.domain.Mapper.AuthorCookieMapper;
-import spider.demo.domain.Mapper.IncomeMapper;
+import spider.demo.domain.mapper.AuthorCookieMapper;
+import spider.demo.domain.mapper.IncomeMapper;
 import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.domain.entity.Income;
 import spider.demo.domain.vo.SfCookie;
-import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.selector.Html;
 
-import javax.servlet.http.Cookie;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

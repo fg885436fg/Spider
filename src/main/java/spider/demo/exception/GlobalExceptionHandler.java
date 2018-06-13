@@ -5,10 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import spider.demo.service.impl.ReptileImpl;
-import spider.demo.tools.Get;
+import spider.demo.tools.ExceptionGet;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -34,12 +32,12 @@ public class GlobalExceptionHandler {
 
         mav.addObject("exception", e);
         mav.addObject("parm", e.getParm());
-        mav.addObject("message", Get.getExcrptionInfo(e) );
+        mav.addObject("message", ExceptionGet.getExcrptionInfo(e) );
         mav.addObject("arrays", stackTraceElements);
 
         logger.error(e.getParm());
         logger.error(e.getReason());
-        logger.error(Get.getExcrptionInfo(e));
+        logger.error(ExceptionGet.getExcrptionInfo(e));
         logger.error("");
         mav.addObject("url", req.getRequestURL());
         mav.setViewName("myerror");
@@ -58,10 +56,10 @@ public class GlobalExceptionHandler {
         mav.addObject("exception", e);
         mav.addObject("parm", e.getCause().getMessage());
         mav.addObject("arrays", stackTraceElements);
-        mav.addObject("message", Get.getExcrptionInfo(e) );
+        mav.addObject("message", ExceptionGet.getExcrptionInfo(e) );
 
 
-        logger.error(Get.getExcrptionInfo(e));
+        logger.error(ExceptionGet.getExcrptionInfo(e));
         logger.error("");
         mav.addObject("url", req.getRequestURL());
         mav.setViewName("error");

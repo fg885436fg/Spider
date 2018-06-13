@@ -3,9 +3,9 @@ package spider.demo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spider.demo.domain.Mapper.GrowthDataMapper;
-import spider.demo.domain.Mapper.IncomeMapper;
-import spider.demo.domain.Mapper.SfBookMapper;
+import spider.demo.domain.mapper.GrowthDataMapper;
+import spider.demo.domain.mapper.IncomeMapper;
+import spider.demo.domain.mapper.SfBookMapper;
 import spider.demo.domain.entity.Income;
 import spider.demo.domain.entity.SfBook;
 import spider.demo.domain.entity.GrowthData;
@@ -15,7 +15,6 @@ import spider.demo.service.CountData;
 import spider.demo.tools.DateUtil;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static spider.demo.config.WhoAreYou.CLICK_INC;

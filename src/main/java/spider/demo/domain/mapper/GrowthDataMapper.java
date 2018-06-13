@@ -1,13 +1,10 @@
-package spider.demo.domain.Mapper;
+package spider.demo.domain.mapper;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import spider.demo.domain.entity.GrowthData;
-import spider.demo.domain.entity.SfBook;
 
-import java.text.MessageFormat;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 对数据增长表进行增删改查

@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import spider.demo.domain.Mapper.AuthorMapper;
+import spider.demo.domain.mapper.AuthorMapper;
 
 import spider.demo.domain.entity.Author;
 import us.codecraft.webmagic.Page;
