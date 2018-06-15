@@ -2,8 +2,10 @@ package spider.demo.tools;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -21,45 +23,80 @@ public class DateUtil {
      *
      * @return
      */
-    public String getSfDate () {
+    public String getSfDate() {
         LocalDate now = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M-YYYY");
         return formatter.format(now);
     }
 
     /**
+     * 返回当前时间（date类型）
+     *
+     * @return 返回时间类型 yyyy-MM-dd HH:mm:ss
+     */
+    public Date getNowDate() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dateStr = formatter.format(now);
+        return dateStrConvertDate(dateStr);
+    }
+
+    /**
+     * 将日期字符串转换为时间，格式为（yyyy-MM-dd HH:mm:ss）
+     *
+     * @param dateStr
+     * @return
+     */
+
+    public Date dateStrConvertDate(String dateStr) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = null;
+        try {
+            date = dateFormat.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
      * 获取随意格式的当日期字符串。
      * 可通过days 属性，获得当日以前X天的日期
+     *
      * @param format 格式，例如：MM dd yyyy
      * @param days   今日前days天
      * @return
      */
-    public String getAnyDate (String format, long days) {
+    public String getAnyDate(String format, long days) {
         LocalDate now = LocalDate.now();
         now = now.minusDays(days);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return formatter.format(now);
     }
+
     /**
      * 获取随意格式的当日期字符串。
      * 可通过days 属性，获得当日以前X月的日期
+     *
      * @param format 格式，例如：MM -dd-yyyy
-     * @param mons  今日前×月
+     * @param mons   今日前×月
      * @return
      */
-    public String getAnyMonDate (String format, int mons) {
+    public String getAnyMonDate(String format, int mons) {
         LocalDate now = LocalDate.now();
         now = now.minusMonths(mons);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
         return formatter.format(now);
     }
+
     /**
      * 得到两个日期之间的日期差。
+     *
      * @param str1 yyyy-MM-dd 格式 例如 2017-01-01 2017-1-1
      * @param str2
      * @return
      */
-    public long getDistanceDays (String str1, String str2) {
+    public long getDistanceDays(String str1, String str2) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date one;
         Date two;

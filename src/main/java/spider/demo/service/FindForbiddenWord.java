@@ -16,6 +16,6 @@ public interface FindForbiddenWord {
      *
      * @param stringList
      */
-    void findForbiddenParagraph(List<String> stringList);
+    List<String> findForbiddenParagraph(List<String> stringList);
 
 }

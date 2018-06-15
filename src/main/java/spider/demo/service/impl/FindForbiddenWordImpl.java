@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import spider.demo.service.FindForbiddenWord;
 import spider.demo.service.StringRegex;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,12 +18,14 @@ public class FindForbiddenWordImpl implements FindForbiddenWord {
     StringRegex stringRegex;
 
     @Override
-    public void findForbiddenParagraph(List<String> stringList) {
+    public List<String> findForbiddenParagraph(List<String> stringList) {
+        List<String> strings = new ArrayList<>();
         for (String word : stringList) {
             boolean wordHave = stringRegex.checkString(StringRegex.FIND_FORBIDDEN_REGEX, word);
             if (wordHave) {
-                System.out.println(word);
+                strings.add(word);
             }
         }
+        return strings;
     }
 }

@@ -1,37 +1,35 @@
 package spider.demo.domain.entity;
 
+import java.util.Date;
 
 public class ForbiddenWord {
+    private Integer id;
 
-  private long id;
-  private String word;
-  private java.sql.Date date;
+    private String word;
 
+    private Date date;
 
-  public long getId() {
-    return id;
-  }
+    public Integer getId() {
+        return id;
+    }
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public String getWord() {
+        return word;
+    }
 
-  public String getWord() {
-    return word;
-  }
+    public void setWord(String word) {
+        this.word = word == null ? null : word.trim();
+    }
 
-  public void setWord(String word) {
-    this.word = word;
-  }
+    public Date getDate() {
+        return date;
+    }
 
-
-  public java.sql.Date getDate() {
-    return date;
-  }
-
-  public void setDate(java.sql.Date date) {
-    this.date = date;
-  }
-
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
