@@ -26,19 +26,23 @@ public class ForbiddenWordSqlProvider {
     public String insertSelective(ForbiddenWord record) {
         SQL sql = new SQL();
         sql.INSERT_INTO("forbidden_word");
-        
+
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
-        
+
         if (record.getWord() != null) {
             sql.VALUES("word", "#{word,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getDate() != null) {
             sql.VALUES("date", "#{date,jdbcType=DATE}");
         }
-        
+
+        if (record.getIp() != null) {
+            sql.VALUES("ip", "#{ip,jdbcType=VARCHAR}");
+        }
+
         return sql.toString();
     }
 
@@ -51,35 +55,40 @@ public class ForbiddenWordSqlProvider {
         }
         sql.SELECT("word");
         sql.SELECT("date");
+        sql.SELECT("ip");
         sql.FROM("forbidden_word");
         applyWhere(sql, example, false);
-        
+
         if (example != null && example.getOrderByClause() != null) {
             sql.ORDER_BY(example.getOrderByClause());
         }
-        
+
         return sql.toString();
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
         ForbiddenWord record = (ForbiddenWord) parameter.get("record");
         ForbiddenWordExample example = (ForbiddenWordExample) parameter.get("example");
-        
+
         SQL sql = new SQL();
         sql.UPDATE("forbidden_word");
-        
+
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
-        
+
         if (record.getWord() != null) {
             sql.SET("word = #{record.word,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getDate() != null) {
             sql.SET("date = #{record.date,jdbcType=DATE}");
         }
-        
+
+        if (record.getIp() != null) {
+            sql.SET("ip = #{record.ip,jdbcType=VARCHAR}");
+        }
+
         applyWhere(sql, example, true);
         return sql.toString();
     }
@@ -87,11 +96,12 @@ public class ForbiddenWordSqlProvider {
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
         sql.UPDATE("forbidden_word");
-        
+
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
         sql.SET("word = #{record.word,jdbcType=VARCHAR}");
         sql.SET("date = #{record.date,jdbcType=DATE}");
-        
+        sql.SET("ip = #{record.ip,jdbcType=VARCHAR}");
+
         ForbiddenWordExample example = (ForbiddenWordExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
@@ -100,17 +110,21 @@ public class ForbiddenWordSqlProvider {
     public String updateByPrimaryKeySelective(ForbiddenWord record) {
         SQL sql = new SQL();
         sql.UPDATE("forbidden_word");
-        
+
         if (record.getWord() != null) {
             sql.SET("word = #{word,jdbcType=VARCHAR}");
         }
-        
+
         if (record.getDate() != null) {
             sql.SET("date = #{date,jdbcType=DATE}");
         }
-        
+
+        if (record.getIp() != null) {
+            sql.SET("ip = #{ip,jdbcType=VARCHAR}");
+        }
+
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
-        
+
         return sql.toString();
     }
 
@@ -118,7 +132,7 @@ public class ForbiddenWordSqlProvider {
         if (example == null) {
             return;
         }
-        
+
         String parmPhrase1;
         String parmPhrase1_th;
         String parmPhrase2;
@@ -140,7 +154,7 @@ public class ForbiddenWordSqlProvider {
             parmPhrase3 = "#{oredCriteria[%d].allCriteria[%d].value[%d]}";
             parmPhrase3_th = "#{oredCriteria[%d].allCriteria[%d].value[%d],typeHandler=%s}";
         }
-        
+
         StringBuilder sb = new StringBuilder();
         List<ForbiddenWordExample.Criteria> oredCriteria = example.getOredCriteria();
         boolean firstCriteria = true;
@@ -152,7 +166,7 @@ public class ForbiddenWordSqlProvider {
                 } else {
                     sb.append(" or ");
                 }
-                
+
                 sb.append('(');
                 List<ForbiddenWordExample.Criterion> criterions = criteria.getAllCriteria();
                 boolean firstCriterion = true;
@@ -163,7 +177,7 @@ public class ForbiddenWordSqlProvider {
                     } else {
                         sb.append(" and ");
                     }
-                    
+
                     if (criterion.isNoValue()) {
                         sb.append(criterion.getCondition());
                     } else if (criterion.isSingleValue()) {
@@ -201,7 +215,7 @@ public class ForbiddenWordSqlProvider {
                 sb.append(')');
             }
         }
-        
+
         if (sb.length() > 0) {
             sql.WHERE(sb.toString());
         }

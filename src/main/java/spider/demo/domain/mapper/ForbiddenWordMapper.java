@@ -19,16 +19,16 @@ public interface ForbiddenWordMapper {
     int deleteByExample(ForbiddenWordExample example);
 
     @Delete({
-        "delete from forbidden_word",
-        "where id = #{id,jdbcType=INTEGER}"
+            "delete from forbidden_word",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into forbidden_word (id, word, ",
-        "date)",
-        "values (#{id,jdbcType=INTEGER}, #{word,jdbcType=VARCHAR}, ",
-        "#{date,jdbcType=DATE})"
+            "insert into forbidden_word (id, word, ",
+            "date, ip)",
+            "values (#{id,jdbcType=INTEGER}, #{word,jdbcType=VARCHAR}, ",
+            "#{date,jdbcType=DATE}, #{ip,jdbcType=VARCHAR})"
     })
     int insert(ForbiddenWord record);
 
@@ -37,24 +37,26 @@ public interface ForbiddenWordMapper {
 
     @SelectProvider(type=ForbiddenWordSqlProvider.class, method="selectByExample")
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="word", property="word", jdbcType=JdbcType.VARCHAR),
-        @Result(column="date", property="date", jdbcType=JdbcType.DATE)
+            @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
+            @Result(column="word", property="word", jdbcType=JdbcType.VARCHAR),
+            @Result(column="date", property="date", jdbcType=JdbcType.DATE),
+            @Result(column="ip", property="ip", jdbcType=JdbcType.VARCHAR)
     })
-    List<ForbiddenWord> getByExample(ForbiddenWordExample example);
+    List<ForbiddenWord> selectByExample(ForbiddenWordExample example);
 
     @Select({
-        "select",
-        "id, word, date",
-        "from forbidden_word",
-        "where id = #{id,jdbcType=INTEGER}"
+            "select",
+            "id, word, date, ip",
+            "from forbidden_word",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     @Results({
-        @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
-        @Result(column="word", property="word", jdbcType=JdbcType.VARCHAR),
-        @Result(column="date", property="date", jdbcType=JdbcType.DATE)
+            @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
+            @Result(column="word", property="word", jdbcType=JdbcType.VARCHAR),
+            @Result(column="date", property="date", jdbcType=JdbcType.DATE),
+            @Result(column="ip", property="ip", jdbcType=JdbcType.VARCHAR)
     })
-    ForbiddenWord getByPrimaryKey(Integer id);
+    ForbiddenWord selectByPrimaryKey(Integer id);
 
     @UpdateProvider(type=ForbiddenWordSqlProvider.class, method="updateByExampleSelective")
     int updateByExampleSelective(@Param("record") ForbiddenWord record, @Param("example") ForbiddenWordExample example);
@@ -66,10 +68,11 @@ public interface ForbiddenWordMapper {
     int updateByPrimaryKeySelective(ForbiddenWord record);
 
     @Update({
-        "update forbidden_word",
-        "set word = #{word,jdbcType=VARCHAR},",
-          "date = #{date,jdbcType=DATE}",
-        "where id = #{id,jdbcType=INTEGER}"
+            "update forbidden_word",
+            "set word = #{word,jdbcType=VARCHAR},",
+            "date = #{date,jdbcType=DATE},",
+            "ip = #{ip,jdbcType=VARCHAR}",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(ForbiddenWord record);
 }

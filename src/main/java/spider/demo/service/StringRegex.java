@@ -14,6 +14,11 @@ public interface StringRegex {
     String FIND_FORBIDDEN_REGEX = ".*\\*.*";
 
     /**
+     * 寻找非中文
+     */
+    String FIND_NO_CHINESE = ".*[^\\u4E00-\\u9FA0].*";
+
+    /**
      * 返回符合正则表达式的字符串
      *
      * @param regexRule 正则表达式规则
