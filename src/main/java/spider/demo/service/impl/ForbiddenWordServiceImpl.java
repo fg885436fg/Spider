@@ -100,7 +100,9 @@ public class ForbiddenWordServiceImpl implements ForbiddenWordService {
         StringBuffer result = new StringBuffer();
         paragraphList.sort((o1, o2) -> (o1.getIndex() - o2.getIndex()));
         for (Paragraph paragraph : paragraphList) {
+            result.append("&nbsp&nbsp&nbsp&nbsp");
             result.append(paragraph.getContent());
+            result.append("<br>");
         }
         Msg msg = new Msg(Msg.CODE_SUCC, "和谐完毕", JSON.toJSONString(result), result);
         return msg;

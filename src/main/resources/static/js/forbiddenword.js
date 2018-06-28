@@ -12,6 +12,7 @@ $(document).ready(function () {
 });
 
 function creat(word) {
+    var forbiddenWord = $("#forbiddenWord");
     $.ajax({
         type: 'POST',
         url: "/forbidden/creat",
@@ -22,6 +23,7 @@ function creat(word) {
         cache: false,
         timeout: 600000,
         success: function (data) {
+            forbiddenWord.val("");
             alert(data.desc);
         },
         error: function (e) {
@@ -42,7 +44,8 @@ function replace(word) {
         cache: false,
         timeout: 600000,
         success: function (data) {
-            output.val(data.data)
+            var text =data.data;
+            output.html(text.replace("\"","&nbsp").replace("\"","&nbsp"))
         },
         error: function (e) {
 

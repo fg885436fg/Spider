@@ -43,14 +43,14 @@ public class ForbiddenWordController {
     }
 
     @PostMapping("/creat")
-    public String creatForbiddenWord(@RequestParam(value = "word") String forbiddenWord, HttpServletRequest request) throws Exception {
+    public ResponseEntity creatForbiddenWord(@RequestParam(value = "word") String forbiddenWord, HttpServletRequest request) throws Exception {
         Msg msg = null;
         if (stringRegex.checkString(StringRegex.FIND_NO_CHINESE, forbiddenWord)||StringUtils.isEmpty(forbiddenWord)) {
             msg = new Msg(Msg.CODE_FAIL, "不能输入非中文!");
         } else {
             msg = forbiddenWordService.creatFindForbiddenWord(forbiddenWord, IpUtil.getIpAddr(request));
         }
-        return JSON.toJSONString(msg);
+        return  ResponseEntity.ok(JSON.toJSONString(msg));
     }
 
     @GetMapping("/get")
