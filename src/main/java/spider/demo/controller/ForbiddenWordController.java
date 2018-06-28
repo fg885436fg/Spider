@@ -1,7 +1,9 @@
 package spider.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import spider.demo.common.Msg;
@@ -29,7 +31,7 @@ public class ForbiddenWordController {
     StringRegex stringRegex;
 
     @PostMapping("/replace")
-    public String replaceForbiddenWord(@RequestParam(value = "txt") String txt) throws Exception {
+    public ResponseEntity replaceForbiddenWord(@RequestParam(value = "txt",required = false) String txt) throws Exception {
         int MAX_WORD_NUM = 5000;
         Msg msg = null;
         if (txt.length() > MAX_WORD_NUM) {
@@ -37,14 +39,14 @@ public class ForbiddenWordController {
         } else {
             msg = forbiddenWordService.ForbiddenWordConvertToPingYing(txt);
         }
-        return JSON.toJSONString(msg);
+        return ResponseEntity.ok(JSON.toJSONString(msg));
     }
 
     @PostMapping("/creat")
     public String creatForbiddenWord(@RequestParam(value = "word") String forbiddenWord, HttpServletRequest request) throws Exception {
         Msg msg = null;
-        if (stringRegex.checkString(StringRegex.FIND_NO_CHINESE, forbiddenWord)) {
-            msg = new Msg(Msg.CODE_FAIL, "不能输入非中文.");
+        if (stringRegex.checkString(StringRegex.FIND_NO_CHINESE, forbiddenWord)||StringUtils.isEmpty(forbiddenWord)) {
+            msg = new Msg(Msg.CODE_FAIL, "不能输入非中文!");
         } else {
             msg = forbiddenWordService.creatFindForbiddenWord(forbiddenWord, IpUtil.getIpAddr(request));
         }
@@ -56,4 +58,12 @@ public class ForbiddenWordController {
         Msg msg = forbiddenWordService.getAllForbiddenWord();
         return JSON.toJSONString(msg);
     }
+
+    @RequestMapping("")
+    public ModelAndView forbiddenWordPage() throws Exception {
+        ModelAndView modelAndView = new ModelAndView("forbidden/forbiddenword");
+        return modelAndView;
+    }
+
+
 }

@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
 
 
         mav.addObject("exception", e);
-        mav.addObject("parm", e.getCause().getMessage());
+//        mav.addObject("parm", e.getCause().getMessage());
         mav.addObject("arrays", stackTraceElements);
         mav.addObject("message", ExceptionGet.getExcrptionInfo(e) );
 

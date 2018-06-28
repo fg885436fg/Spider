@@ -125,8 +125,6 @@ public class CountDataImpl implements CountData {
         List<GrowthData> growthDatas = new ArrayList<>();
         DateUtil d = new DateUtil();
         String date = d.getAnyDate("yyyy-MM-dd", 1);
-//        //TODO 测试日期
-//        date = "2018-03-27";
         if (parm.equals(WORDS_INC)) {
 
             if (vip) {

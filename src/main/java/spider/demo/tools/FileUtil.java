@@ -433,7 +433,8 @@ public class FileUtil {
             BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)));
             int ch = 0;
             while ((ch = reader.read()) != -1) {
-                temp = sb.toString().trim().replaceAll("\\s*", "");// 取出前后空格，之后去除中间空格
+                // 取出前后空格，之后去除中间空格
+                temp = sb.toString().trim().replaceAll("\\s*", "");
                 if ((char) ch == '\r') {
                     // 判断是否是空行
                     if (!"".equals(temp)) {
@@ -455,6 +456,32 @@ public class FileUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 从字符串中读取自然段
+     *
+     * @param string 一长串字符串
+     * @return
+     */
+    public static List<String> readParagraphsFromString(String string) {
+        List<String> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);
+            if (ch == '\n') {
+                res.add(sb.toString());
+                sb = new StringBuilder();
+                System.out.println(ch);
+            } else {
+                sb.append(ch);
+            }
+            if (i == string.length() - 1) {
+                res.add(sb.toString());
+                sb = new StringBuilder();
+            }
+        }
+        return res;
     }
 
 }

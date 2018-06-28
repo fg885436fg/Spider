@@ -1,5 +1,7 @@
 package spider.demo.tools;
 
+import org.apache.http.util.TextUtils;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -8,6 +10,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * 时间工具类
@@ -50,6 +53,24 @@ public class DateUtil {
 
     public Date dateStrConvertDate(String dateStr) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = null;
+        try {
+            date = dateFormat.parse(dateStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * 将日期字符串转换为时间，格式自定义(如：yyyy-MM-dd HH:mm:ss)
+     *
+     * @param dateStr
+     * @return
+     */
+
+    public Date dateStrConvertDate(String dateStr, String format) {
+        DateFormat dateFormat = new SimpleDateFormat(format);
         Date date = null;
         try {
             date = dateFormat.parse(dateStr);
@@ -117,6 +138,22 @@ public class DateUtil {
             e.printStackTrace();
         }
         return days;
+    }
+
+    /**
+     * Java将Unix时间戳转换成指定格式日期字符串
+     *
+     * @param timestampString 时间戳 如："1473048265";
+     * @param formats         要格式化的格式 默认："yyyy-MM-dd HH:mm:ss";
+     * @return 返回结果 如："2016-09-05 16:06:42";
+     */
+    public static String TimeStamp2Date(String timestampString, String formats) {
+        if (TextUtils.isEmpty(formats)) {
+            formats = "yyyy-MM-dd HH:mm:ss";
+        }
+        Long timestamp = Long.parseLong(timestampString) * 1000;
+        String date = new SimpleDateFormat(formats, Locale.CHINA).format(new Date(timestamp));
+        return date;
     }
 
 }
