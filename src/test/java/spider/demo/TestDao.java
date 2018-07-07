@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import spider.demo.common.Msg;
+import spider.demo.domain.dao.ForbiddenWordDao;
 import spider.demo.domain.entity.ForbiddenWord;
 import spider.demo.domain.entity.ForbiddenWordExample;
 import spider.demo.domain.mapper.AuthorCookieMapper;
@@ -14,6 +16,7 @@ import spider.demo.domain.entity.AuthorCookie;
 import spider.demo.domain.mapper.ForbiddenWordMapper;
 import spider.demo.tools.DateUtil;
 
+import javax.crypto.MacSpi;
 import java.util.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,6 +27,8 @@ public class TestDao {
     AuthorCookieMapper authorCookieMapper;
     @Autowired
     ForbiddenWordMapper forbiddenWordMapper;
+    @Autowired
+    ForbiddenWordDao forbiddenWordDao;
 
     @Test
     public void TestSfAuthorCookie() {
@@ -38,7 +43,7 @@ public class TestDao {
     @Test
     @Rollback(false)
     public void TestForbiddenWordMapper() {
-        String[] words = {"发情","樱桃","八九"};
+        String[] words = {"白粉", "母猪"};
         for (int i = 0; i < words.length; i++) {
             ForbiddenWord forbiddenWord = new ForbiddenWord();
             DateUtil dateUtil = new DateUtil();
@@ -46,8 +51,8 @@ public class TestDao {
 
             forbiddenWord.setDate(date);
             forbiddenWord.setWord(words[i]);
-            int result = forbiddenWordMapper.insert(forbiddenWord);
-            System.out.println(result);
+            Msg msg = forbiddenWordDao.creatForbiddenWord(forbiddenWord);
+            System.out.println(msg.getDesc());
         }
 
     }

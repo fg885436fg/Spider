@@ -42,23 +42,17 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
     public void saveGrowthData () throws Exception {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
-
         List<String> dates = new ArrayList<>();
-
-        for (int i = 0; i < MON_DAY; i++) {
-
+        for (int i = 0; i < WEEK_DAY; i++) {
             dates.add(today.minusDays(i).toString());
         }
-
         DateUtil d = new DateUtil();
         growthDataMapper.delectBookInc(d.getAnyDate("yyyy-MM-dd",1));
 
-        // 获取近一个月内更新的小说名
         List<String> bookNames = new ArrayList<>();
         for (int i = 0; i < MON_DAY; i++) {
             bookNames.addAll(sfBookMapper.findBookNameBatchByUpdate(dates)) ;
         }
-
         bookNames =  bookNames.stream().distinct().collect(Collectors.toList());
         //分段存储
         List<GrowthData> growthDatas = new ArrayList<>();

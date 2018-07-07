@@ -10,6 +10,8 @@ public interface AutoSaveGrowthData {
 
     //一月的日期
     int MON_DAY = 30;
+    //一周的日期
+    int WEEK_DAY = 7;
 
     /**
      * 自动存储近日更新的书籍

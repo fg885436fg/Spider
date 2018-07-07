@@ -51,8 +51,8 @@ public class AuthorPageProcessor implements PageProcessor {
         authorObject = authorMapper.findByBookName(bookName);
         String sign = jsonData.getString("signStatus");
         //&& !"普通".equals(sign) 筛选签约或者VIP的条件。
-        //只收录近45天更新字数大于50000的
-        if (authorObject == null && day < 45 && wordNum > 50000) {
+        //只收录近15天更新字数大于50000的
+        if (authorObject == null && day < 15 && wordNum > 50000) {
             authorObject = new Author();
             authorObject.setUrl(page.getUrl().toString());
             authorObject.setAuthorName(jsonData.getString("authorName"));
@@ -64,11 +64,8 @@ public class AuthorPageProcessor implements PageProcessor {
             logger.info("《" + bookName + "》在作者表中增添成功");
         } else if (authorObject != null && "普通".equals(sign) && wordNum < 50000) {
             if (authorMapper.delectByBookName(bookName) > 0) {
-
                 logger.info("《" + bookName + "》在作者表中删除成功。字数为：" + wordNum + "  签约状态：" + sign);
-
             } else {
-
                 logger.info("《" + bookName + "》在作者表中删除失败");
             }
         }

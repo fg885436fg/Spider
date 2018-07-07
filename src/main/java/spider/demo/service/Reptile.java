@@ -39,7 +39,13 @@ public interface Reptile {
     void getAuthorIncome();
 
     /**
-     * 定时爬取
+     * 定时爬取书籍信息
      */
-    void  timedTask();
+    void getBookInfoTimedTask();
+
+    /**
+     * 每周一凌晨凌晨一点
+     * 定时爬取有价值的自拍总金额信息
+     */
+    void getAuthorInfoTimedTask();
 }

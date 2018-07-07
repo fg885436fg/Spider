@@ -12,10 +12,7 @@ import spider.demo.domain.vo.BookIncEchartsVo;
 import spider.demo.domain.vo.IncomeEchartsVo;
 import spider.demo.domain.vo.WhoAreYou;
 import spider.demo.exception.MyException;
-import spider.demo.service.CountData;
-import spider.demo.service.DataHandle;
-import spider.demo.service.ForbiddenWordService;
-import spider.demo.service.IncomeService;
+import spider.demo.service.*;
 
 import java.util.List;
 
@@ -35,6 +32,8 @@ public class HelloController {
     private DataHandle dataHandle;
     @Autowired
     private ForbiddenWordService forbiddenWordService;
+    @Autowired
+    private Reptile reptile;
 
     /**
      * 查询书籍增长信息入口
@@ -93,7 +92,11 @@ public class HelloController {
         ModelAndView modelAndView = new ModelAndView("IncomeEcharts");
         modelAndView.addObject("date", incomeEchartsVo);
         return modelAndView;
-
+    }
+    @RequestMapping("/test")
+    public String test() throws Exception {
+        reptile.getSfbookBasicByYA();
+        return "测试完成";
     }
 
 }

@@ -121,45 +121,30 @@ public class CountDataImpl implements CountData {
 
     @Override
     public WhoAreYou countRank(String bookName, String parm, boolean vip) throws Exception {
-
         List<GrowthData> growthDatas = new ArrayList<>();
         DateUtil d = new DateUtil();
         String date = d.getAnyDate("yyyy-MM-dd", 1);
         if (parm.equals(WORDS_INC)) {
-
             if (vip) {
                 growthDatas = growthDataMapper.getVipBookIncSortByWord(date);
             } else {
                 growthDatas = growthDataMapper.getBookIncSortByWord(date);
             }
-
-
         } else if (parm.equals(CLICK_INC)) {
-
             if (vip) {
                 growthDatas = growthDataMapper.getVipBookIncSortByMonth(date);
             } else {
                 growthDatas = growthDataMapper.getBookIncSortByMonth(date);
             }
-
-            growthDatas = growthDataMapper.getBookIncSortByClick(date);
-
         } else if (parm.equals(MONTHLY_INC)) {
-
             if (vip) {
                 growthDatas = growthDataMapper.getVipBookIncSortByMonth(date);
-
             } else {
-
                 growthDatas = growthDataMapper.getBookIncSortByMonth(date);
             }
-
         } else {
-
             throw new MyException(parm, "传入参数不规范");
         }
-
-
         return creatRank(growthDatas, bookName, parm);
     }
 

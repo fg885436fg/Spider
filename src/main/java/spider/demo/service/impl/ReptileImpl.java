@@ -20,8 +20,12 @@ import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Spider;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static java.util.concurrent.Executors.newFixedThreadPool;
 
 /**
  * 实现类。
@@ -61,7 +65,7 @@ public class ReptileImpl implements Reptile {
      */
     @Override
     public void getSfbookBasicByYA() {
-        int threadNum = 15;
+        int threadNum = 20;
         long startTime = System.currentTimeMillis();
         List<Author> authors = authorMapper.findAll();
         String[] url = new String[authors.size()];
@@ -114,11 +118,23 @@ public class ReptileImpl implements Reptile {
 
     @Override
     @Scheduled(cron = "0 0 0 * * ? ")
-    public void timedTask() {
-        //获取作者信息
-        getAuthorBook();
-        //获取书籍基本信息。
-        getSfbookBasicByYA();
+    public void getBookInfoTimedTask() {
+        ExecutorService executor = newFixedThreadPool(2);
+        //获取作书籍信息
+        CompletableFuture.runAsync(() ->{
+            getSfbookBasicByYA();
+            executor.shutdown();
+        },executor);
+    }
+
+    @Override
+    @Scheduled(cron = "0 0 1 ? * 2 ")
+    public void getAuthorInfoTimedTask() {
+        ExecutorService executor = newFixedThreadPool(2);
+        CompletableFuture.runAsync(() ->{
+            getAuthorBook();
+            executor.shutdown();
+        },executor);
     }
 
 
