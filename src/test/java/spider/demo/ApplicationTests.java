@@ -20,6 +20,7 @@ import spider.demo.service.webmagic.AuthorPageProcessor;
 import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.proxy.Proxy;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -34,7 +35,6 @@ public class ApplicationTests {
 
     @Autowired
     SfPageYa sfPageYa;
-
 
     @Autowired
     private SfBookMapper sfBookMapper;
@@ -154,8 +154,12 @@ public class ApplicationTests {
     @Test
     @Rollback(false)
     public void getSfbookBasicByYA() {
-        reptile.getSfbookBasicByYA();
+       reptile.getSfbookBasicByYA();
+        try {
+            autoSaveGrowthData.saveGrowthData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 
 }

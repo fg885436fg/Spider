@@ -1,5 +1,9 @@
 package spider.demo.service;
 
+import us.codecraft.webmagic.proxy.Proxy;
+
+import java.util.List;
+
 /**
  * 用于启动爬取各个不同小说网站程序的接口
  *
@@ -10,12 +14,12 @@ package spider.demo.service;
 
 public interface Reptile {
 
-     int BOOK_NUM=152000;
+    int BOOK_NUM = 162000;
 
     /**
      * 起始找书书号
      */
-    int BOOK_FIRST_NUM =70000;
+    int BOOK_FIRST_NUM = 80000;
 
     /**
      * 抓取最近三十六月的收入
@@ -25,12 +29,12 @@ public interface Reptile {
     /**
      * 使用雅白提供的接口爬取
      */
-     void getSfbookBasicByYA ();
+    void getSfbookBasicByYA();
 
     /**
      * 爬取sf有价值的作者
-    */
-    void getAuthorBook ();
+     */
+    void getAuthorBook();
 
     /**
      * 每日凌晨0点00分
@@ -48,4 +52,11 @@ public interface Reptile {
      * 定时爬取有价值的自拍总金额信息
      */
     void getAuthorInfoTimedTask();
+
+    /**
+     * 获取一个可用的Proxy
+     *
+     * @return
+     */
+    List<Proxy> getProxy();
 }

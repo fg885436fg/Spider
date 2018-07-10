@@ -1,5 +1,7 @@
 package spider.demo;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.stuxuhai.jpinyin.PinyinException;
 import com.github.stuxuhai.jpinyin.PinyinFormat;
 import com.github.stuxuhai.jpinyin.PinyinHelper;
@@ -13,6 +15,7 @@ import spider.demo.service.ForbiddenWordService;
 import spider.demo.service.StringRegex;
 import spider.demo.tools.DateUtil;
 import spider.demo.tools.FileUtil;
+import us.codecraft.webmagic.proxy.Proxy;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,8 +63,10 @@ public class testFileUtil {
 
     @Test
     public void testStringRegex(){
-        String forbiddenWord ="4打";
-        System.out.println(stringRegex.checkString(StringRegex.FIND_NO_CHINESE, forbiddenWord));
+        String testStr = "{\"success\":true,\"msg\":\"获取成功\",\"data\":{\"ip\":\"139.129.99.9\",\"port\":3128,\"location\":\"北京\",\"agentType\":\"高匿\",\"lastValidateTime\":1531011084583,\"usable\":true}}";
+        JSONObject dateObject = JSON.parseObject(testStr).getJSONObject("data");
+        Proxy proxy = new Proxy(dateObject.getString("ip"), dateObject.getInteger("port"));
+        System.out.println(proxy);
     }
 
 }

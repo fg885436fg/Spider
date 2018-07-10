@@ -1,14 +1,46 @@
-2018-07-07 16:26:15,302 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 6436 (started by Administrator in F:\WorkPace\Spider)
-2018-07-07 16:26:15,304 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-07 16:26:23,378 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 9.578 seconds (JVM running for 13.713)
-2018-07-07 16:27:30,255 INFO (ReptileImpl.java:84)- 15根线程,书籍全部爬取花费时间为：65702毫秒
-2018-07-07 16:44:13,824 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 5796 (started by Administrator in F:\WorkPace\Spider)
-2018-07-07 16:44:13,826 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-07 16:44:20,519 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 8.321 seconds (JVM running for 12.367)
-2018-07-07 16:45:19,441 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 1536 (started by Administrator in F:\WorkPace\Spider)
-2018-07-07 16:45:19,445 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-07 16:45:24,830 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 7.075 seconds (JVM running for 8.794)
-2018-07-07 16:47:26,634 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 6856 (started by Administrator in F:\WorkPace\Spider)
-2018-07-07 16:47:26,637 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-07 16:47:31,662 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 6.782 seconds (JVM running for 8.532)
-2018-07-07 16:57:42,629 INFO (ReptileImpl.java:84)- 15根线程,书籍全部爬取花费时间为：606857毫秒
+2018-07-09 09:34:14,178 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/87121?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,272 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/91408?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,396 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/114649?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,584 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/129363?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,630 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/130843?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,771 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/135965?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,849 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/136420?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:14,942 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/139242?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,052 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/140647?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,254 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141836?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,566 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142591?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,629 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142459?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,691 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143179?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,847 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143572?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:15,972 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/144801?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,066 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/145798?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,128 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/118973?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,315 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/138165?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,362 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141227?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,580 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141670?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,799 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141912?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:16,955 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142327?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,035 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142517?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,178 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143221?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,271 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143856?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,427 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/78842?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,474 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/83128?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,630 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/89317?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,677 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/102679?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,848 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/110791?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:17,973 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/115627?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,192 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/117814?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,363 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/120904?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,457 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/136395?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,535 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/138297?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,706 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/139229?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,800 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/140424?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:18,862 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/144132?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:19,112 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/145427?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
+2018-07-09 09:34:20,235 INFO (ReptileImpl.java:91)- 10根线程,书籍全部爬取花费时间为：720799毫秒
+2018-07-09 09:34:20,235 INFO (AutoSaveGrowthDataImpl.java:44)- 开始存储书籍的增长数据
+2018-07-09 10:49:56,232 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 7480 (started by Administrator in F:\WorkPace\Spider)
+2018-07-09 10:49:56,236 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-09 10:50:01,532 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 6.9 seconds (JVM running for 8.368)
+2018-07-09 10:50:05,160 INFO (AutoSaveGrowthDataImpl.java:44)- 开始存储书籍的增长数据
+2018-07-09 10:51:04,870 INFO (AutoSaveGrowthDataImpl.java:70)- 存储了772本书的增长数据

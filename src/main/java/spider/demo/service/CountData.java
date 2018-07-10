@@ -15,7 +15,6 @@ import java.util.List;
  */
 public interface CountData {
 
-
     /**
      * 获取一日的常量
      */
@@ -97,15 +96,4 @@ public interface CountData {
      * @return
      */
     List<Income> getMonIncome(String authorName,int mons);
-
-
-
-
-
-
-
-
-
-
-
 }
