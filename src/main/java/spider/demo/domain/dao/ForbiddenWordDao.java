@@ -28,5 +28,4 @@ public interface ForbiddenWordDao {
      */
     Msg getAllForbiddenWord();
 
-
 }

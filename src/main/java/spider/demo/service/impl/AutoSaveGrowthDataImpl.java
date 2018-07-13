@@ -3,7 +3,6 @@ package spider.demo.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import spider.demo.domain.mapper.GrowthDataMapper;
 import spider.demo.domain.mapper.SfBookMapper;
@@ -38,7 +37,6 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
     protected static Logger logger = LoggerFactory.getLogger(AutoSaveGrowthDataImpl.class);
 
     @Override
-    @Scheduled(cron = "0 0 1 * * ?")
     public void saveGrowthData () throws Exception {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
@@ -47,7 +45,7 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
             dates.add(today.minusDays(i).toString());
         }
         DateUtil d = new DateUtil();
-        growthDataMapper.delectBookInc(d.getAnyDate("yyyy-MM-dd",1));
+        growthDataMapper.delectBookInc(d.getAnyNowDate("yyyy-MM-dd",1));
 
         List<String> bookNames = new ArrayList<>();
         for (int i = 0; i < MON_DAY; i++) {

@@ -8,16 +8,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import spider.demo.domain.dao.ErrorUrlDao;
 import spider.demo.domain.entity.ProxyEntity;
 import spider.demo.domain.mapper.AuthorCookieMapper;
 import spider.demo.domain.mapper.AuthorMapper;
 import spider.demo.domain.mapper.GrowthDataMapper;
 import spider.demo.domain.mapper.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
-import spider.demo.service.AutoSaveGrowthData;
-import spider.demo.service.CountData;
-import spider.demo.service.ProxyPool;
-import spider.demo.service.Reptile;
+import spider.demo.service.*;
 import spider.demo.service.webmagic.AuthorPageProcessor;
 import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
@@ -37,6 +35,8 @@ import java.util.stream.Collectors;
 @SpringBootTest(classes = SpiderApplication.class)
 @Transactional
 public class ApplicationTests {
+    @Autowired
+    ErrorUrlDao errorUrlDao;
 
     @Autowired
     SfPageYa sfPageYa;
@@ -45,7 +45,8 @@ public class ApplicationTests {
     private SfBookMapper sfBookMapper;
     @Autowired
     private Reptile reptile;
-
+    @Autowired
+    Scheduled scheduled;
     @Autowired
     private AuthorMapper authorMapper;
 
@@ -161,7 +162,7 @@ public class ApplicationTests {
     @Test
     @Rollback(false)
     public void getSfbookBasicByYA() {
-//        reptile.getSfbookBasicByYA();
+        reptile.getSfbookBasicByYA();
         try {
 //            autoSaveGrowthData.saveGrowthData();
         } catch (Exception e) {
@@ -195,7 +196,12 @@ public class ApplicationTests {
         proxies.forEach(proxy -> {
             System.out.println(proxyPool.checkoutProxy(proxy));
         });
+    }
 
+    @Test
+    @Rollback(false)
+    public void scheduled() {
+        scheduled.delectGuGuAuthor();
     }
 
 }

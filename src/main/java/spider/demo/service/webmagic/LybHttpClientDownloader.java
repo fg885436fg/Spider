@@ -5,6 +5,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import spider.demo.domain.dao.ErrorUrlDao;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Request;
 import us.codecraft.webmagic.Site;
@@ -24,7 +28,11 @@ import java.util.Map;
  * @author: lanyubing
  * @create: 2018-07-08 09:15
  **/
+@Service
 public class LybHttpClientDownloader extends HttpClientDownloader {
+
+    @Autowired
+    ErrorUrlDao errorUrlDao;
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -73,7 +81,6 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
         }
     }
 
-
     private CloseableHttpClient getHttpClient(Site site) {
         if (site == null) {
             return httpClientGenerator.getClient(null);
@@ -105,4 +112,13 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
         this.proxyProvider = proxyProvider;
     }
 
+    /**
+     * 记录爬取失败的URL
+     *
+     * @param request
+     */
+    @Override
+    protected void onError(Request request) {
+        errorUrlDao.creatErrorUrl(request.getUrl());
+    }
 }

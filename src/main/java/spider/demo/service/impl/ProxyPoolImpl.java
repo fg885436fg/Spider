@@ -42,6 +42,9 @@ public class ProxyPoolImpl implements ProxyPool {
     private static Logger logger = LoggerFactory.getLogger(ProxyPoolImpl.class);
 
     @Autowired
+    LybHttpClientDownloader lyb;
+
+    @Autowired
     TestIpPage testIpPage;
     @Autowired
     private RedisTemplate redisTemplate;
@@ -70,7 +73,6 @@ public class ProxyPoolImpl implements ProxyPool {
     @Override
     public boolean checkoutProxy(ProxyEntity proxy) {
         String url = "http://2018.ip138.com/ic.asp";
-        LybHttpClientDownloader lyb = new LybHttpClientDownloader();
         Proxy proxy1 = new Proxy(proxy.getIp(), proxy.getPort());
         lyb.setProxyProvider(SimpleProxyProvider.from(proxy1));
         Spider.create(testIpPage).thread(1).setDownloader(lyb).addUrl(url).run();

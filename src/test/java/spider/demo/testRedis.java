@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import spider.demo.domain.entity.ProxyEntity;
-import spider.demo.domain.entity.test.UserService;
+
 import spider.demo.service.StringRegex;
 
 import java.util.HashSet;
@@ -29,8 +29,7 @@ import static spider.demo.service.StringRegex.FIND_IP_PORT;
 public class testRedis {
     @Autowired
     private RedisTemplate redisTemplate;
-    @Autowired
-    private UserService userService;
+
     @Autowired
     private StringRegex stringRegex;
 

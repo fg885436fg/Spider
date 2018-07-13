@@ -9,42 +9,52 @@ package spider.demo.domain.entity;
 public class Author {
 
     private long id;
+    private String authorName;
+    private String bookName;
+    private String url;
+    /**
+     * 1表示爬取
+     * 0表示不爬取
+     */
+    private int right;
 
-    public long getId () {
+    public long getId() {
         return id;
     }
 
-    public void setId (long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    private String authorName;
-
-    public String getAuthorName () {
+    public String getAuthorName() {
         return authorName;
     }
 
-    public void setAuthorName (String authorName) {
+    public void setAuthorName(String authorName) {
         this.authorName = authorName;
     }
 
-    private String bookName;
-
-    public String getBookName () {
+    public String getBookName() {
         return bookName;
     }
 
-    public void setBookName (String bookName) {
+    public void setBookName(String bookName) {
         this.bookName = bookName;
     }
 
-    private String url;
-
-    public String getUrl () {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl (String url) {
+    public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getRight() {
+        return right;
+    }
+
+    public void setRight(int right) {
+        this.right = right;
     }
 }

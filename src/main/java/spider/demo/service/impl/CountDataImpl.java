@@ -123,7 +123,7 @@ public class CountDataImpl implements CountData {
     public WhoAreYou countRank(String bookName, String parm, boolean vip) throws Exception {
         List<GrowthData> growthDatas = new ArrayList<>();
         DateUtil d = new DateUtil();
-        String date = d.getAnyDate("yyyy-MM-dd", 1);
+        String date = d.getAnyNowDate("yyyy-MM-dd", 1);
         if (parm.equals(WORDS_INC)) {
             if (vip) {
                 growthDatas = growthDataMapper.getVipBookIncSortByWord(date);

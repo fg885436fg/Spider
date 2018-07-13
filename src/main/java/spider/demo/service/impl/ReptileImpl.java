@@ -40,6 +40,9 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
  */
 @Service
 public class ReptileImpl implements Reptile {
+
+    @Autowired
+    LybHttpClientDownloader lyb;
     @Autowired
     SfPageProcessor sfPageProcessor;
     @Autowired
@@ -70,7 +73,7 @@ public class ReptileImpl implements Reptile {
 
     protected static Logger logger = LoggerFactory.getLogger(ReptileImpl.class);
 
-    private int threadNum = 10;
+    private int threadNum = 15;
 
     /**
      * 0/30 * * * * ?  30秒一次
@@ -90,8 +93,8 @@ public class ReptileImpl implements Reptile {
             bookNo = m.replaceAll("").trim();
             url[i] = "https://api.sfacg.com/novels/" + bookNo + "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag";
         }
-        LybHttpClientDownloader lyb = new LybHttpClientDownloader();
-        List<ProxyEntity> proxyEntities = proxyPool.getSomeUsebleProxy(5);
+
+        List<ProxyEntity> proxyEntities = proxyPool.getSomeUsebleProxy(10);
         if (proxyEntities == null) {
             return;
         }
@@ -101,7 +104,6 @@ public class ReptileImpl implements Reptile {
             return proxy;
         }).collect(Collectors.toList());
         lyb.setProxyProvider(new SimpleProxyProvider(proxies));
-
         Spider.create(sfPageYa).thread(threadNum).setDownloader(lyb).addUrl(url).run();
         long endTime = System.currentTimeMillis();
         logger.info(threadNum + "根线程,书籍全部爬取花费时间为：" + (endTime - startTime) + "毫秒");
@@ -110,18 +112,16 @@ public class ReptileImpl implements Reptile {
     @Override
     public void getAuthorBook() {
         long startTime = System.currentTimeMillis();
-        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+
         List<Proxy> proxies = getProxy();
-        httpClientDownloader.setProxyProvider(new SimpleProxyProvider(proxies));
+        lyb.setProxyProvider(new SimpleProxyProvider(proxies));
         String[] url = new String[10000];
         for (int i = BOOK_FIRST_NUM; i < BOOK_NUM; i++) {
             int index = i % 10000;
             url[index] = "https://api.sfacg.com/novels/" + i + "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag";
             if (i % 10000 == 0 && i != BOOK_FIRST_NUM) {
                 Spider.create(authorPageProcessor).thread(threadNum).
-                        addUrl(url).setDownloader(httpClientDownloader).
-                        setDownloader(new LybHttpClientDownloader()).
-                        setDownloader(new LybHttpClientDownloader()).run();
+                        addUrl(url).setDownloader(lyb).run();
             }
         }
         long endTime = System.currentTimeMillis();
@@ -141,27 +141,6 @@ public class ReptileImpl implements Reptile {
             }
             Spider.create(sfPageIncome).thread(10).addUrl(urls).run();
         }
-    }
-
-    @Override
-    @Scheduled(cron = "0 0 0,8 * * ?")
-    public void getBookInfoTimedTask() {
-        ExecutorService executor = newFixedThreadPool(2);
-        //获取作书籍信息
-        CompletableFuture.runAsync(() -> {
-            getSfbookBasicByYA();
-            executor.shutdown();
-        }, executor);
-    }
-
-    @Override
-    @Scheduled(cron = "0 0 1 ? * 2 ")
-    public void getAuthorInfoTimedTask() {
-        ExecutorService executor = newFixedThreadPool(2);
-        CompletableFuture.runAsync(() -> {
-            getAuthorBook();
-            executor.shutdown();
-        }, executor);
     }
 
     @Override
@@ -187,7 +166,7 @@ public class ReptileImpl implements Reptile {
 
     @Override
     public List<Proxy> getAllNoFeeProxy() {
-        String url ="http://api3.xiguadaili.com/ip/?tid=558620514465611&num=50&delay=3&category=2&sortby=time&format=json";
+        String url = "http://api3.xiguadaili.com/ip/?tid=558620514465611&num=50&delay=3&category=2&sortby=time&format=json";
         Spider.create(getNotFeePage).thread(1).addUrl(url).run();
         return getNotFeePage.getProxies();
     }

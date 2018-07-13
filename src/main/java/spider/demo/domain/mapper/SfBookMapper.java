@@ -20,6 +20,8 @@ import java.util.List;
 @Repository
 public interface SfBookMapper {
 
+    @Select("SELECT * FROM SFBOOK")
+    List<SfBook> findAll ();
 
     @Select("SELECT * FROM SFBOOK WHERE bookName = #{bookName}")
     List<SfBook> findByName (@Param("bookName") String bookName);
@@ -27,9 +29,8 @@ public interface SfBookMapper {
     @Select("SELECT DISTINCT * FROM  SFBOOK WHERE bookName = #{bookName} AND date = #{date}")
     SfBook findByNameAndDate (@Param("bookName") String bookName, @Param("date") String date);
 
-
     /**
-     * 获取最近一周的所有数据
+     * 获取指定书籍最近一周的所有数据
      *
      * @param bookName
      * @return
@@ -60,7 +61,7 @@ public interface SfBookMapper {
     List<String> findAllByDate(@Param("date") String date);
 
     /**
-     * 根据日期批量获取书名
+     * 根据更新日期批量获取书名
      * @param dates 日期集合
      * @return
      */
@@ -74,7 +75,6 @@ public interface SfBookMapper {
             " AND "+
             "SFBOOK.upateDate IN (#{dates})")
     List<String> findBookNameBatchByUpdate (@Param("dates") List<String> dates);
-
 
     /**
      * 获取最近一个月的所有数据

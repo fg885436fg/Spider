@@ -3,6 +3,8 @@ package spider.demo.service.impl;
 import org.springframework.stereotype.Service;
 import spider.demo.service.StringRegex;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,6 +15,11 @@ import java.util.regex.Pattern;
 @Service
 public class StringRegexImpl implements StringRegex {
 
+    public final static Map<String,String> URL_MAP = new HashMap();
+    static {
+        URL_MAP.put(FIND_SF_URL, "SF");
+        URL_MAP.put(FIND_TEST_URL, "Test");
+    }
 
     @Override
     public String returnRegexString(String regexRule, String words) {

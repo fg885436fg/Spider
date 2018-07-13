@@ -28,6 +28,15 @@ public interface StringRegex {
     String FIND_IP = "\\d{0,9}\\.\\d{0,9}\\.\\d{0,9}\\.\\d{0,9}";
 
     /**
+     * 寻找是否是测试的网址
+     */
+    String FIND_TEST_URL = "http://2018.ip138.com/ic.asp.*";
+
+    /**
+     * 寻找是否是SF
+     */
+    String FIND_SF_URL = "https://api.sfacg.com/novels/.*";
+    /**
      * 返回符合正则表达式的字符串
      *
      * @param regexRule 正则表达式规则

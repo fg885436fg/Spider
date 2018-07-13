@@ -45,6 +45,18 @@ public class DateUtil {
     }
 
     /**
+     * 返回任意格式的当前时间（date类型）
+     *
+     * @return 返回时间类型 yyyy-MM-dd HH:mm:ss
+     */
+    public Date getNowFreeFormatterDate(String formatterStr) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formatterStr);
+        String dateStr = formatter.format(now);
+        return dateStrConvertDate(dateStr,formatterStr);
+    }
+
+    /**
      * 将日期字符串转换为时间，格式为（yyyy-MM-dd HH:mm:ss）
      *
      * @param dateStr
@@ -88,7 +100,7 @@ public class DateUtil {
      * @param days   今日前days天
      * @return
      */
-    public String getAnyDate(String format, long days) {
+    public String getAnyNowDate(String format, long days) {
         LocalDate now = LocalDate.now();
         now = now.minusDays(days);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);

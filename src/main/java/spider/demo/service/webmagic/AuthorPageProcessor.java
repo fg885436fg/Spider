@@ -60,6 +60,7 @@ public class AuthorPageProcessor implements PageProcessor {
             if (authorObject.getAuthorName().length() == 5 && authorObject.getAuthorName().indexOf("圣蛋节") != -1) {
                 authorObject.setAuthorName("圣蛋节-心裂");
             }
+            authorObject.setRight(1);
             authorMapper.insertAll(authorObject);
             logger.info("《" + bookName + "》在作者表中增添成功");
         } else if (authorObject != null && "普通".equals(sign) && wordNum < 50000) {

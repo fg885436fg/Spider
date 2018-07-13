@@ -11,48 +11,67 @@ import java.util.List;
 
 /**
  * 用于对存储作者与其所写书籍URL的表进行数据处理
- * @date 2018年2月2日
+ *
  * @author lanyubing
+ * @date 2018年2月2日
  */
 @Mapper
 @Repository
 public interface AuthorMapper {
 
     /**
-     *  获取所有作者
+     * 获取所有作者
+     *
      * @return
      */
 
     @Select("SELECT * FROM Author")
-    List<Author> findAll ();
+    List<Author> findAll();
 
     /**
-     *  根据书名查询作者
+     * 根据书名查询作者
+     *
      * @return
      */
     @Select("SELECT * FROM Author WHERE bookName = #{bookName}")
-    Author findByBookName (@Param("bookName") String bookName);
+    Author findByBookName(@Param("bookName") String bookName);
 
     /**
-     *  插入作者信息到作者表中
+     * 插入作者信息到作者表中
+     *
      * @return
      */
     @Insert("INSERT INTO Author(authorName, bookName," +
-            "url) VALUES"
+            "url,right) VALUES"
             +
             "(#{authorName}, #{bookName}," +
-            "#{url})")
-    int insertAll (Author author);
+            "#{url}，#{right})")
+    int insertAll(Author author);
 
     /**
      * 根据书名删除作者
+     *
      * @param bookName
      * @return
      */
     @Delete("DELETE FROM Author WHERE Author.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
-    int delectByBookName (@Param("bookName") String bookName);
+    int delectByBookName(@Param("bookName") String bookName);
 
+    @Update({
+            "update author",
+            "set authorName = #{authorName},",
+            "bookName = #{bookName},",
+            "url = #{url},",
+            "right = #{right}",
+            "where bookName = #{bookName}"
+    })
+    int updateAuthorByBookName(Author author);
 
-
+    @Update({
+            "update author "+
+            "set ok = #{right} "+
+            "where bookName = #{bookName}"
+    })
+    int updateAuthorRightByBookName(@Param("bookName") String bookName, @Param("right") int right);
 
 }

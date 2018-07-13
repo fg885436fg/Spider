@@ -50,7 +50,7 @@
         </javaClientGenerator>
         <!-- 指定数据库表 -->
 
-        <table tableName="forbidden_word"></table>
+        <table tableName="error_url"></table>
         <!-- <table schema="" tableName="sys_user"></table>
         <table schema="" tableName="sys_role"></table>
         <table schema="" tableName="sys_permission"></table>
