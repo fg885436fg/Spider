@@ -19,7 +19,7 @@ public class StringRegexImpl implements StringRegex {
         Pattern mPattern = Pattern.compile(regexRule);
         Matcher mMatcher = mPattern.matcher(words);
         while (mMatcher.find()) {
-            return mMatcher.group(1);
+            return mMatcher.group(0);
         }
         return null;
     }

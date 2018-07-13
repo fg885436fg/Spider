@@ -1,4 +1,4 @@
-package spider.demo.service;
+package spider.demo.service.webmagic;
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -12,7 +12,7 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.downloader.HttpClientGenerator;
 import us.codecraft.webmagic.downloader.HttpClientRequestContext;
-import us.codecraft.webmagic.downloader.HttpUriRequestConverter;
+
 import us.codecraft.webmagic.proxy.Proxy;
 import us.codecraft.webmagic.proxy.ProxyProvider;
 
@@ -38,6 +38,8 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
 
     private boolean responseHeader = true;
 
+    private boolean isSucc = false;
+
     @Override
     public Page download(Request request, Task task) {
         if (task == null || task.getSite() == null) {
@@ -53,9 +55,11 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
             page = handleResponse(request, request.getCharset() != null ? request.getCharset() : task.getSite().getCharset(), httpResponse, task);
             onSuccess(request);
             logger.info("downloading page success {}", request.getUrl());
+            setIsSucc(true);
             return page;
         } catch (IOException e) {
             logger.warn("download page {} error", request.getUrl(), e);
+            setIsSucc(false);
             onError(request);
             return page;
         } finally {
@@ -87,4 +91,18 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
         }
         return httpClient;
     }
+
+    public void setIsSucc(boolean b) {
+        this.isSucc = b;
+    }
+
+    public boolean getIsSucc() {
+        return this.isSucc;
+    }
+
+    @Override
+    public void setProxyProvider(ProxyProvider proxyProvider) {
+        this.proxyProvider = proxyProvider;
+    }
+
 }

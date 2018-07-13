@@ -1,6 +1,7 @@
 package spider.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.parser.ParserConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +40,7 @@ public class ForbiddenWordController {
         } else {
             msg = forbiddenWordService.ForbiddenWordConvertToPingYing(txt);
         }
+
         return ResponseEntity.ok(JSON.toJSONString(msg));
     }
 

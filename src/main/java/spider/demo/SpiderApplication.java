@@ -14,10 +14,9 @@ import javax.sql.DataSource;
 @EnableScheduling
 public class SpiderApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpiderApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(SpiderApplication.class, args);
+    }
 
 
 }

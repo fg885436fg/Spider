@@ -1,5 +1,6 @@
 package spider.demo.service;
 
+import spider.demo.exception.MyException;
 import us.codecraft.webmagic.proxy.Proxy;
 
 import java.util.List;
@@ -59,4 +60,11 @@ public interface Reptile {
      * @return
      */
     List<Proxy> getProxy();
+
+    /**
+     * 通过API获取付费的代理
+     *
+     * @return
+     */
+    List<Proxy> getAllNoFeeProxy();
 }

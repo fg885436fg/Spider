@@ -1,5 +1,6 @@
 package spider.demo.controller;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.helper.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import spider.demo.domain.vo.IncomeEchartsVo;
 import spider.demo.domain.vo.WhoAreYou;
 import spider.demo.exception.MyException;
 import spider.demo.service.*;
+import spider.demo.tools.IpUtil;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -34,6 +37,8 @@ public class HelloController {
     private ForbiddenWordService forbiddenWordService;
     @Autowired
     private Reptile reptile;
+    @Autowired
+    private ProxyPool proxyPool;
 
     /**
      * 查询书籍增长信息入口
@@ -95,7 +100,11 @@ public class HelloController {
     }
     @RequestMapping("/test")
     public String test() throws Exception {
-        reptile.getSfbookBasicByYA();
+        return  proxyPool.getSomeUsebleProxy(5).toString();
+    }
+    @RequestMapping("/testProxy")
+    public String testProxy( HttpServletRequest request) throws Exception {
+        System.out.println("检测到IP为"+IpUtil.getIpAddr(request));
         return "测试完成";
     }
 

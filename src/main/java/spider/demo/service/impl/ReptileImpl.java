@@ -6,12 +6,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import spider.demo.domain.entity.ProxyEntity;
 import spider.demo.domain.mapper.AuthorCookieMapper;
 import spider.demo.domain.mapper.AuthorMapper;
 import spider.demo.domain.mapper.IncomeMapper;
 import spider.demo.domain.entity.Author;
 import spider.demo.domain.entity.AuthorCookie;
-import spider.demo.service.LybHttpClientDownloader;
+import spider.demo.service.webmagic.LybHttpClientDownloader;
+import spider.demo.service.ProxyPool;
 import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.*;
 import spider.demo.tools.DateUtil;
@@ -60,6 +62,11 @@ public class ReptileImpl implements Reptile {
     @Autowired
     IncomeMapper incomeMapper;
 
+    @Autowired
+    ProxyPool proxyPool;
+
+    @Autowired
+    GetNotFeePage getNotFeePage;
 
     protected static Logger logger = LoggerFactory.getLogger(ReptileImpl.class);
 
@@ -83,13 +90,21 @@ public class ReptileImpl implements Reptile {
             bookNo = m.replaceAll("").trim();
             url[i] = "https://api.sfacg.com/novels/" + bookNo + "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag";
         }
-        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
-        List<Proxy> proxies = getProxy();
-        httpClientDownloader.setProxyProvider(new SimpleProxyProvider(proxies));
-        Spider.create(sfPageYa).thread(threadNum).setDownloader(httpClientDownloader).setDownloader(new LybHttpClientDownloader()).addUrl(url).run();
+        LybHttpClientDownloader lyb = new LybHttpClientDownloader();
+        List<ProxyEntity> proxyEntities = proxyPool.getSomeUsebleProxy(5);
+        if (proxyEntities == null) {
+            return;
+        }
+
+        List<Proxy> proxies = proxyEntities.stream().map(proxyEntity -> {
+            Proxy proxy = new Proxy(proxyEntity.getIp(), proxyEntity.getPort());
+            return proxy;
+        }).collect(Collectors.toList());
+        lyb.setProxyProvider(new SimpleProxyProvider(proxies));
+
+        Spider.create(sfPageYa).thread(threadNum).setDownloader(lyb).addUrl(url).run();
         long endTime = System.currentTimeMillis();
         logger.info(threadNum + "根线程,书籍全部爬取花费时间为：" + (endTime - startTime) + "毫秒");
-
     }
 
     @Override
@@ -159,14 +174,21 @@ public class ReptileImpl implements Reptile {
             Proxy proxy = proxyPage.getProxy();
             if (proxy != null) {
                 proxies.add(proxy);
-                proxies =  proxies.stream().distinct().collect(Collectors.toList());
+                proxies = proxies.stream().distinct().collect(Collectors.toList());
             }
             if (proxies.size() == 10) {
                 isRun = false;
             }
         }
-        logger.warn("一共得到："+proxies.size()+"个代理");
+        logger.warn("一共得到：" + proxies.size() + "个代理");
         logger.warn(proxies.toString());
         return proxies;
+    }
+
+    @Override
+    public List<Proxy> getAllNoFeeProxy() {
+        String url ="http://api3.xiguadaili.com/ip/?tid=558620514465611&num=50&delay=3&category=2&sortby=time&format=json";
+        Spider.create(getNotFeePage).thread(1).addUrl(url).run();
+        return getNotFeePage.getProxies();
     }
 }

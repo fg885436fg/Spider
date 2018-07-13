@@ -1,46 +1,517 @@
-2018-07-09 09:34:14,178 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/87121?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,272 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/91408?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,396 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/114649?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,584 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/129363?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,630 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/130843?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,771 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/135965?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,849 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/136420?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:14,942 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/139242?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,052 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/140647?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,254 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141836?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,566 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142591?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,629 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142459?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,691 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143179?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,847 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143572?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:15,972 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/144801?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,066 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/145798?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,128 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/118973?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,315 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/138165?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,362 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141227?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,580 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141670?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,799 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/141912?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:16,955 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142327?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,035 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/142517?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,178 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143221?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,271 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/143856?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,427 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/78842?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,474 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/83128?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,630 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/89317?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,677 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/102679?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,848 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/110791?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:17,973 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/115627?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,192 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/117814?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,363 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/120904?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,457 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/136395?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,535 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/138297?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,706 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/139229?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,800 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/140424?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:18,862 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/144132?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:19,112 INFO (LybHttpClientDownloader.java:55)- downloading page success https://api.sfacg.com/novels/145427?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-09 09:34:20,235 INFO (ReptileImpl.java:91)- 10根线程,书籍全部爬取花费时间为：720799毫秒
-2018-07-09 09:34:20,235 INFO (AutoSaveGrowthDataImpl.java:44)- 开始存储书籍的增长数据
-2018-07-09 10:49:56,232 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 7480 (started by Administrator in F:\WorkPace\Spider)
-2018-07-09 10:49:56,236 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-09 10:50:01,532 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 6.9 seconds (JVM running for 8.368)
-2018-07-09 10:50:05,160 INFO (AutoSaveGrowthDataImpl.java:44)- 开始存储书籍的增长数据
-2018-07-09 10:51:04,870 INFO (AutoSaveGrowthDataImpl.java:70)- 存储了772本书的增长数据
+2018-07-13 11:14:00,462 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 5816 (started by Administrator in F:\WorkPace\Spider)
+2018-07-13 11:14:00,464 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-13 11:14:07,632 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 8.604 seconds (JVM running for 10.243)
+2018-07-13 11:21:08,400 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 8744 (started by Administrator in F:\WorkPace\Spider)
+2018-07-13 11:21:08,403 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-13 11:21:15,135 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 7.987 seconds (JVM running for 9.793)
+2018-07-13 11:22:26,670 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-13 11:22:48,675 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 117.86.8.70:18118 [/117.86.8.70] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:22:50,041 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:23:55,133 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 8344 (started by Administrator in F:\WorkPace\Spider)
+2018-07-13 11:23:55,135 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-13 11:24:00,434 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 6.456 seconds (JVM running for 8.054)
+2018-07-13 11:24:07,900 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:24:09,276 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:24:20,368 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:24:42,373 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 60.205.205.48:80 [/60.205.205.48] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:24:52,570 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:210)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.IdentityInputStream.read(IdentityInputStream.java:93)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1488)
+	at org.apache.commons.io.IOUtils.copyLarge(IOUtils.java:1465)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:1440)
+	at org.apache.commons.io.IOUtils.toByteArray(IOUtils.java:444)
+	at us.codecraft.webmagic.downloader.HttpClientDownloader.handleResponse(HttpClientDownloader.java:111)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:55)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-13 11:25:14,574 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 117.86.201.247:18118 [/117.86.201.247] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:25:21,487 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:25:43,497 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 211.75.82.206:3128 [/211.75.82.206] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:26:05,502 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 163.43.28.172:60088 [/163.43.28.172] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:26:59,519 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 1488 (started by Administrator in F:\WorkPace\Spider)
+2018-07-13 11:26:59,521 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-13 11:27:05,858 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 8.178 seconds (JVM running for 9.805)
+2018-07-13 11:27:24,281 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:27:28,473 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:27:50,480 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 114.215.95.188:3128 [/114.215.95.188] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:27:51,586 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:28:13,584 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 139.129.99.9:3128 [/139.129.99.9] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:28:35,600 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 180.110.4.139:3128 [/180.110.4.139] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:28:57,613 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 120.78.83.223:3128 [/120.78.83.223] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:28:58,836 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:29:20,922 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 113.12.174.108:9797 [/113.12.174.108] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:29:22,053 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:29:25,288 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:29:47,359 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 124.193.85.88:8080 [/124.193.85.88] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:29:49,612 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:30:11,623 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 187.190.221.71:3128 [/187.190.221.71] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:30:13,902 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:30:35,921 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 116.62.194.248:3128 [/116.62.194.248] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:30:57,925 WARN (LybHttpClientDownloader.java:61)- download page http://2018.ip138.com/ic.asp error
+org.apache.http.conn.HttpHostConnectException: Connect to 101.236.60.48:8866 [/101.236.60.48] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:54)
+	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
+	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
+	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
+	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 16 common frames omitted
+2018-07-13 11:31:04,904 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:31:06,028 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:31:07,176 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:31:08,951 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:31:14,586 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp
+2018-07-13 11:31:19,032 INFO (LybHttpClientDownloader.java:57)- downloading page success http://2018.ip138.com/ic.asp

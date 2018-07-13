@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import spider.demo.domain.entity.ProxyEntity;
 import spider.demo.domain.mapper.AuthorCookieMapper;
 import spider.demo.domain.mapper.AuthorMapper;
 import spider.demo.domain.mapper.GrowthDataMapper;
@@ -15,12 +16,16 @@ import spider.demo.domain.mapper.SfBookMapper;
 import spider.demo.domain.entity.SfBook;
 import spider.demo.service.AutoSaveGrowthData;
 import spider.demo.service.CountData;
+import spider.demo.service.ProxyPool;
 import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.AuthorPageProcessor;
 import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
+import spider.demo.service.webmagic.TestIpPage;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.proxy.Proxy;
+import us.codecraft.webmagic.proxy.SimpleProxyProvider;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -63,7 +68,10 @@ public class ApplicationTests {
 
     @Autowired
     AuthorCookieMapper authorCookieMapper;
-
+    @Autowired
+    TestIpPage t;
+    @Autowired
+    ProxyPool proxyPool;
 
     @Test
     public void findByName() throws Exception {
@@ -141,7 +149,6 @@ public class ApplicationTests {
 
     @Test
     public void getOneTest() throws Exception {
-
         List<SfBook> sfBooks = sfBookMapper.findByName("性转为叉叉叉").stream().filter(sfBook -> sfBook.getDate() == "dsadas").collect(Collectors.toList());
         if (sfBooks.size() != 0) {
 
@@ -154,12 +161,41 @@ public class ApplicationTests {
     @Test
     @Rollback(false)
     public void getSfbookBasicByYA() {
-       reptile.getSfbookBasicByYA();
+//        reptile.getSfbookBasicByYA();
         try {
-            autoSaveGrowthData.saveGrowthData();
+//            autoSaveGrowthData.saveGrowthData();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    @Rollback(false)
+    public void testProxy() {
+        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+        List<ProxyEntity> proxyEntities = proxyPool.getSomeUsebleProxy(5);
+        if (proxyEntities == null) {
+            return;
+        }
+
+        List<Proxy> proxies = proxyEntities.stream().map(proxyEntity -> {
+            Proxy proxy = new Proxy(proxyEntity.getIp(), proxyEntity.getPort());
+            return proxy;
+        }).collect(Collectors.toList());
+        httpClientDownloader.setProxyProvider(new SimpleProxyProvider(proxies));
+        proxies.forEach(proxy -> {
+            Spider.create(t).thread(1).addUrl("http://2018.ip138.com/ic.asp").setDownloader(httpClientDownloader).run();
+        });
+    }
+
+    @Test
+    @Rollback(false)
+    public void checkoutProxy() {
+        List<ProxyEntity> proxies = proxyPool.getSomeUsebleProxy(5);
+        proxies.forEach(proxy -> {
+            System.out.println(proxyPool.checkoutProxy(proxy));
+        });
+
     }
 
 }

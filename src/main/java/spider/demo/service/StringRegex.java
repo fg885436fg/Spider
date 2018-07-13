@@ -17,6 +17,15 @@ public interface StringRegex {
      * 寻找非中文
      */
     String FIND_NO_CHINESE = ".*[^\\u4E00-\\u9FA0].*";
+    /**
+     * 寻找IP与端口
+     */
+    String FIND_IP_PORT = "^\\d{0,9}\\.\\d{0,9}\\.\\d{0,9}\\.\\d{0,9}:.*";
+
+    /**
+     * 寻找IP
+     */
+    String FIND_IP = "\\d{0,9}\\.\\d{0,9}\\.\\d{0,9}\\.\\d{0,9}";
 
     /**
      * 返回符合正则表达式的字符串
