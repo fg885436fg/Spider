@@ -36,7 +36,7 @@ public class ErrorUrlDaoImpl implements ErrorUrlDao {
         Set keys = URL_MAP.keySet();
         Iterator<String> iterator = keys.iterator();
         while (iterator.hasNext()) {
-            String val =iterator.next();
+            String val = iterator.next();
             if (stringRegex.checkString(val, url)) {
                 errorUrl.setType(URL_MAP.get(val));
             }
@@ -50,5 +50,19 @@ public class ErrorUrlDaoImpl implements ErrorUrlDao {
             errorUrlMapper.insert(errorUrl);
             return new Msg(Msg.CODE_SUCC, "创建成功");
         }
+    }
+
+    @Override
+    public List<ErrorUrl> getAllErrorUrl() {
+        ErrorUrlExample errorUrlExample = new ErrorUrlExample();
+        errorUrlExample.or().andTypeNotEqualTo("Test");
+        return errorUrlMapper.selectByExample(errorUrlExample);
+    }
+
+    @Override
+    public void deleteErrorUrlByType(String typeName) {
+        ErrorUrlExample errorUrlExample = new ErrorUrlExample();
+        errorUrlExample.or().andTypeEqualTo(typeName);
+        errorUrlMapper.deleteByExample(errorUrlExample);
     }
 }

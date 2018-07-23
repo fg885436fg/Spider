@@ -9,6 +9,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import spider.demo.domain.dao.ErrorUrlDao;
+import spider.demo.domain.entity.ErrorUrl;
 import spider.demo.domain.entity.ProxyEntity;
 import spider.demo.domain.mapper.AuthorCookieMapper;
 import spider.demo.domain.mapper.AuthorMapper;
@@ -20,6 +21,7 @@ import spider.demo.service.webmagic.AuthorPageProcessor;
 import spider.demo.service.webmagic.SfPageProcessor;
 import spider.demo.service.webmagic.SfPageYa;
 import spider.demo.service.webmagic.TestIpPage;
+import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.proxy.Proxy;
@@ -52,7 +54,6 @@ public class ApplicationTests {
 
     @Autowired
     private GrowthDataMapper growthDataMapper;
-
 
     @Autowired
     private CountData countData;
@@ -162,7 +163,8 @@ public class ApplicationTests {
     @Test
     @Rollback(false)
     public void getSfbookBasicByYA() {
-        reptile.getSfbookBasicByYA();
+        reptile.dealWithSfErrorUrl();
+//        reptile.getAuthorBook();
         try {
 //            autoSaveGrowthData.saveGrowthData();
         } catch (Exception e) {
@@ -173,35 +175,39 @@ public class ApplicationTests {
     @Test
     @Rollback(false)
     public void testProxy() {
-        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
-        List<ProxyEntity> proxyEntities = proxyPool.getSomeUsebleProxy(5);
-        if (proxyEntities == null) {
-            return;
-        }
-
-        List<Proxy> proxies = proxyEntities.stream().map(proxyEntity -> {
-            Proxy proxy = new Proxy(proxyEntity.getIp(), proxyEntity.getPort());
-            return proxy;
-        }).collect(Collectors.toList());
-        httpClientDownloader.setProxyProvider(new SimpleProxyProvider(proxies));
-        proxies.forEach(proxy -> {
-            Spider.create(t).thread(1).addUrl("http://2018.ip138.com/ic.asp").setDownloader(httpClientDownloader).run();
-        });
+        reptile.dealWithSfErrorUrl();
     }
 
     @Test
     @Rollback(false)
     public void checkoutProxy() {
-        List<ProxyEntity> proxies = proxyPool.getSomeUsebleProxy(5);
-        proxies.forEach(proxy -> {
-            System.out.println(proxyPool.checkoutProxy(proxy));
-        });
+        errorUrlDao.deleteErrorUrlByType("SF");
     }
 
     @Test
     @Rollback(false)
-    public void scheduled() {
-        scheduled.delectGuGuAuthor();
+    public void localDealWithSfErrorUrl() {
+        List<ErrorUrl> errorUrls = errorUrlDao.getAllErrorUrl();
+        DateUtil dateUtil = new DateUtil();
+        errorUrls = errorUrlDao.getAllErrorUrl().stream().
+                filter(errorUrl -> errorUrl.getDate().toString().equals(dateUtil.getNowFreeFormatterDate("yyyy-MM-dd").toString()))
+                .collect(Collectors.toList());
+        if (errorUrls.size() == 0) {
+            return;
+        } else {if (true){}
+            errorUrlDao.deleteErrorUrlByType("SF");
+            String[] url = new String[errorUrls.size()];
+            for (int i = 0; i < errorUrls.size(); i++) {
+                url[i] = errorUrls.get(i).getUrl();
+            }
+            Spider.create(sfPageYa).thread(10).addUrl(url).run();
+        }
+
+    }
+
+    @Test
+    public void testScheduled() {
+
     }
 
 }

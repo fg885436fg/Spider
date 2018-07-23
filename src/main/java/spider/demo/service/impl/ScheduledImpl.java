@@ -38,7 +38,6 @@ public class ScheduledImpl implements Scheduled {
     AuthorMapper authorMapper;
 
     @Override
-    @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 1 ? * 2 ")
     public void getAuthorInfoTimedTask() {
         ExecutorService executor = newFixedThreadPool(2);
         CompletableFuture.runAsync(() -> {
@@ -48,24 +47,16 @@ public class ScheduledImpl implements Scheduled {
     }
 
     @Override
-    @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 0,8 * * ?")
     public void getBookInfoTimedTask() {
-        ExecutorService executor = newFixedThreadPool(2);
-        //获取书籍信息
-        CompletableFuture.runAsync(() -> {
-            reptile.getSfbookBasicByYA();
-            executor.shutdown();
-        }, executor);
+        reptile.getSfbookBasicByYA();
     }
 
     @Override
-    @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 1 * * ?")
     public void saveGrowthData() throws Exception {
         autoSaveGrowthData.saveGrowthData();
     }
 
     @Override
-    @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 2 * * ?")
     public void delectGuGuAuthor() {
         List<SfBook> sfBooks = sfBookMapper.findAll();
         DateUtil dateUtil = new DateUtil();
@@ -74,9 +65,27 @@ public class ScheduledImpl implements Scheduled {
                     getDistanceDays(dateUtil.getAnyNowDate("yyyy-MM-dd", 0), book.getUpateDate());
             if (dayNum >= GUGU_DAY && !"已完结".equals(book.getStatus())) {
                 authorMapper.updateAuthorRightByBookName(book.getBookName(), 0);
-            } else if(dayNum<GUGU_DAY) {
+            } else if (dayNum < GUGU_DAY) {
                 authorMapper.updateAuthorRightByBookName(book.getBookName(), 1);
             }
         }
+    }
+
+    @Override
+    @org.springframework.scheduling.annotation.Scheduled(cron = "0 0 0 * * ?")
+    public void taskAll() {
+        delectGuGuAuthor();
+        getBookInfoTimedTask();
+        try {
+            saveGrowthData();
+            dealWithSfErrorUrl();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void dealWithSfErrorUrl() {
+        reptile.dealWithSfErrorUrl();
     }
 }

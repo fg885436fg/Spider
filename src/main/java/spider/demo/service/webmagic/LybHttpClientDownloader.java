@@ -49,7 +49,7 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
     private boolean isSucc = false;
 
     @Override
-    public Page download(Request request, Task task) {
+     public Page download(Request request, Task task) {
         if (task == null || task.getSite() == null) {
             throw new NullPointerException("task or site can not be null");
         }
@@ -72,7 +72,6 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
             return page;
         } finally {
             if (httpResponse != null) {
-                //ensure the connection is released back to pool
                 EntityUtils.consumeQuietly(httpResponse.getEntity());
             }
             if (proxyProvider != null && proxy != null) {
@@ -109,6 +108,7 @@ public class LybHttpClientDownloader extends HttpClientDownloader {
 
     @Override
     public void setProxyProvider(ProxyProvider proxyProvider) {
+        this.proxyProvider = null;
         this.proxyProvider = proxyProvider;
     }
 

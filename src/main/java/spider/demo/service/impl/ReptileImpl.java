@@ -4,8 +4,9 @@ package spider.demo.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import spider.demo.domain.dao.ErrorUrlDao;
+import spider.demo.domain.entity.ErrorUrl;
 import spider.demo.domain.entity.ProxyEntity;
 import spider.demo.domain.mapper.AuthorCookieMapper;
 import spider.demo.domain.mapper.AuthorMapper;
@@ -18,14 +19,12 @@ import spider.demo.service.Reptile;
 import spider.demo.service.webmagic.*;
 import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.downloader.HttpClientDownloader;
 import us.codecraft.webmagic.proxy.Proxy;
 import us.codecraft.webmagic.proxy.SimpleProxyProvider;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -71,9 +70,14 @@ public class ReptileImpl implements Reptile {
     @Autowired
     GetNotFeePage getNotFeePage;
 
+    @Autowired
+    ErrorUrlDao errorUrlDao;
+
     protected static Logger logger = LoggerFactory.getLogger(ReptileImpl.class);
 
     private int threadNum = 15;
+
+    private int retryNum = 0;
 
     /**
      * 0/30 * * * * ?  30秒一次
@@ -83,6 +87,7 @@ public class ReptileImpl implements Reptile {
     public void getSfbookBasicByYA() {
         long startTime = System.currentTimeMillis();
         List<Author> authors = authorMapper.findAll();
+        authors = authors.stream().filter(author -> author.getRight() != 0).collect(Collectors.toList());
         String[] url = new String[authors.size()];
         for (int i = 0; i < authors.size(); i++) {
             ///筛选出地址书号
@@ -98,7 +103,6 @@ public class ReptileImpl implements Reptile {
         if (proxyEntities == null) {
             return;
         }
-
         List<Proxy> proxies = proxyEntities.stream().map(proxyEntity -> {
             Proxy proxy = new Proxy(proxyEntity.getIp(), proxyEntity.getPort());
             return proxy;
@@ -112,16 +116,13 @@ public class ReptileImpl implements Reptile {
     @Override
     public void getAuthorBook() {
         long startTime = System.currentTimeMillis();
-
-        List<Proxy> proxies = getProxy();
-        lyb.setProxyProvider(new SimpleProxyProvider(proxies));
         String[] url = new String[10000];
         for (int i = BOOK_FIRST_NUM; i < BOOK_NUM; i++) {
             int index = i % 10000;
             url[index] = "https://api.sfacg.com/novels/" + i + "?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag";
             if (i % 10000 == 0 && i != BOOK_FIRST_NUM) {
                 Spider.create(authorPageProcessor).thread(threadNum).
-                        addUrl(url).setDownloader(lyb).run();
+                        addUrl(url).run();
             }
         }
         long endTime = System.currentTimeMillis();
@@ -169,5 +170,46 @@ public class ReptileImpl implements Reptile {
         String url = "http://api3.xiguadaili.com/ip/?tid=558620514465611&num=50&delay=3&category=2&sortby=time&format=json";
         Spider.create(getNotFeePage).thread(1).addUrl(url).run();
         return getNotFeePage.getProxies();
+    }
+
+    @Override
+    public void dealWithSfErrorUrl() {
+        List<ErrorUrl> errorUrls = new ArrayList<>();
+        DateUtil dateUtil = new DateUtil();
+        retryNum++;
+        errorUrls = errorUrlDao.getAllErrorUrl().stream().
+                filter(errorUrl -> {
+                    boolean isDateEq = errorUrl.getDate().toString().equals(dateUtil.getNowFreeFormatterDate("yyyy-MM-dd").toString());
+                    boolean isTypeEq = "SF".equals(errorUrl.getType());
+                    return isDateEq && isTypeEq;
+                }).collect(Collectors.toList());
+        if (errorUrls.size() == 0) {
+            return;
+        } else {
+            //todo 奇怪，把它放在这里就执行失败了。我想可能是因为在测试环境的缘故？
+            logger.warn("dealWithSfErrorUrl 开始处理错误的连接 ==》");
+            logger.warn("第" + retryNum + "次执行");
+            logger.warn("目前要处理的连接数为：" + errorUrls.size() + "\n\r");
+            errorUrlDao.deleteErrorUrlByType("SF");
+        }
+
+        String[] url = new String[errorUrls.size()];
+        for (int i = 0; i < errorUrls.size(); i++) {
+            url[i] = errorUrls.get(i).getUrl();
+        }
+        List<ProxyEntity> proxyEntities = proxyPool.getSomeUsebleProxy(10);
+        if (proxyEntities == null) {
+            return;
+        }
+        List<Proxy> proxies = proxyEntities.stream().map(proxyEntity -> {
+            Proxy proxy = new Proxy(proxyEntity.getIp(), proxyEntity.getPort());
+            return proxy;
+        }).collect(Collectors.toList());
+        lyb.setProxyProvider(new SimpleProxyProvider(proxies));
+        Spider.create(sfPageYa).thread(threadNum).setDownloader(lyb).addUrl(url).run();
+        if (retryNum == retryNum) {
+        } else {
+            dealWithSfErrorUrl();
+        }
     }
 }

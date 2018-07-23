@@ -33,4 +33,16 @@ public interface Scheduled {
      * 定时删除咕咕咕的作者
      */
     void delectGuGuAuthor();
+
+    /**
+     * 一天的所有任务集合
+     */
+    void taskAll();
+
+    /**
+     * 处理sf爬取失败的连接
+     */
+    void dealWithSfErrorUrl();
+
+
 }

@@ -25,7 +25,14 @@ public interface AuthorMapper {
      * @return
      */
 
-    @Select("SELECT * FROM Author")
+    @Select("SELECT\n" +
+            "id,\n" +
+            "authorName,\n" +
+            "bookName,\n" +
+            "url,\n" +
+            "ok AS `right`\n" +
+            "FROM\n" +
+            "Author\nr")
     List<Author> findAll();
 
     /**
@@ -58,7 +65,7 @@ public interface AuthorMapper {
     int delectByBookName(@Param("bookName") String bookName);
 
     @Update({
-            "update author",
+            "update Author",
             "set authorName = #{authorName},",
             "bookName = #{bookName},",
             "url = #{url},",
@@ -68,7 +75,7 @@ public interface AuthorMapper {
     int updateAuthorByBookName(Author author);
 
     @Update({
-            "update author "+
+            "update Author "+
             "set ok = #{right} "+
             "where bookName = #{bookName}"
     })

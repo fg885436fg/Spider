@@ -57,13 +57,14 @@ public class CountDataImpl implements CountData {
     @Override
     public List<GrowthData> growthAllDay(String bookName) {
         List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
+        if (bookName.equals("性转为机械少女在异界的奇妙冒险")){
+            System.out.println();
+        }
         return creatGrowthData(ONE_DAY, sfBooks);
     }
 
     @Override
     public List<GrowthData> growthAllweek(String bookName) throws Exception {
-
-
         try {
 
             List<SfBook> sfBooks = sfBookMapper.findAllDateWeek(bookName);
@@ -181,41 +182,28 @@ public class CountDataImpl implements CountData {
 
 
     private List<GrowthData> creatGrowthData(int dayNum, List<SfBook> sfBooks) {
-
         List<GrowthData> growthDatas = new ArrayList<>();
-
         if (dayNum > sfBooks.size() - 1) {
-
             dayNum = sfBooks.size() - 1;
         }
-
         for (int i = 0; i < dayNum; i++) {
-
             GrowthData growthData = new GrowthData();
             growthData.setDate(sfBooks.get(i + 1).getDate());
             growthData.setUpdateDay(sfBooks.get(i).getUpateDate());
-
             growthData.setBookName(sfBooks.get(i + 1).getBookName());
             //计算点击量增长
             growthData.setClictNumInc(sfBooks.get(i).getClickNum() - sfBooks.get(i + 1).getClickNum());
             //计算收藏量增长
             growthData.setCollectNumInc(sfBooks.get(i).getCollectNum() - sfBooks.get(i + 1).getCollectNum());
-
             //计算点赞量增长
             growthData.setLikeNumInc(sfBooks.get(i).getLikeNum() - sfBooks.get(i + 1).getLikeNum());
             //计算月票量增长
             growthData.setMonthlyNumInc(sfBooks.get(i).getMonthlyNum() - sfBooks.get(i + 1).getMonthlyNum());
-
             //计算字量增长
             growthData.setWordNumInc(sfBooks.get(i).getWordNum() - sfBooks.get(i + 1).getWordNum());
-
             growthData.setSign(sfBooks.get(i + 1).getSign());
             growthDatas.add(growthData);
-
-
         }
-
-
         return growthDatas;
 
     }

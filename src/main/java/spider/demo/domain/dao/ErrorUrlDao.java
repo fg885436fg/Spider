@@ -1,7 +1,9 @@
 package spider.demo.domain.dao;
 
 import spider.demo.common.Msg;
-import spider.demo.domain.entity.ForbiddenWord;
+import spider.demo.domain.entity.ErrorUrl;
+
+import java.util.List;
 
 /**
  * 对错误URL表
@@ -18,4 +20,17 @@ public interface ErrorUrlDao {
      * @return
      */
     Msg creatErrorUrl(String url);
+
+    /**
+     * 获取所有错误请求
+     *
+     * @return
+     */
+    List<ErrorUrl> getAllErrorUrl();
+
+    /**
+     * 根据错误连接类型删除
+     * @param typeName
+     */
+    void deleteErrorUrlByType(String typeName);
 }

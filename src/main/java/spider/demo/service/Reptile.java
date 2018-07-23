@@ -1,6 +1,5 @@
 package spider.demo.service;
 
-import spider.demo.exception.MyException;
 import us.codecraft.webmagic.proxy.Proxy;
 
 import java.util.List;
@@ -23,9 +22,18 @@ public interface Reptile {
     int BOOK_FIRST_NUM = 80000;
 
     /**
+     * 一次
+     */
+
+    /**
      * 抓取最近三十六月的收入
      */
     int mons = 36;
+    /**
+     * 处理错误连接的最大次数
+     */
+
+    int DEAL_ERROR_URL_NUM = 5;
 
     /**
      * 使用雅白提供的接口爬取
@@ -56,4 +64,9 @@ public interface Reptile {
      * @return
      */
     List<Proxy> getAllNoFeeProxy();
+
+    /**
+     * 处理sf爬取失败的连接
+     */
+    void dealWithSfErrorUrl();
 }

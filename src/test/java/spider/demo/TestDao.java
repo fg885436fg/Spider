@@ -8,16 +8,17 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import spider.demo.common.Msg;
+import spider.demo.domain.dao.ErrorUrlDao;
 import spider.demo.domain.dao.ForbiddenWordDao;
-import spider.demo.domain.entity.ForbiddenWord;
-import spider.demo.domain.entity.ForbiddenWordExample;
+import spider.demo.domain.entity.*;
 import spider.demo.domain.mapper.AuthorCookieMapper;
-import spider.demo.domain.entity.AuthorCookie;
+import spider.demo.domain.mapper.ErrorUrlMapper;
 import spider.demo.domain.mapper.ForbiddenWordMapper;
 import spider.demo.tools.DateUtil;
 
 import javax.crypto.MacSpi;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = SpiderApplication.class)
@@ -29,31 +30,33 @@ public class TestDao {
     ForbiddenWordMapper forbiddenWordMapper;
     @Autowired
     ForbiddenWordDao forbiddenWordDao;
+    @Autowired
+    ErrorUrlMapper errorUrlMapper;
+    @Autowired
+    ErrorUrlDao errorUrlDao;
 
     @Test
     public void TestSfAuthorCookie() {
-        Map<String, String> authorCookieMap = new HashMap<>();
-        AuthorCookie authorCookie = new AuthorCookie("A", "SF");
-        authorCookieMap.put(".SFCommunity", "咕咕咕咕");
-        authorCookie.setAuthorCookieMap(authorCookieMap);
-        System.out.println(authorCookieMapper.insertCookieMapper(authorCookie));
-        System.out.println(authorCookieMapper.getByAuthorName("A").getAuthorName());
+//        Map<String, String> authorCookieMap = new HashMap<>();
+//        AuthorCookie authorCookie = new AuthorCookie("A", "SF");
+//        authorCookieMap.put(".SFCommunity", "咕咕咕咕");
+//        authorCookie.setAuthorCookieMap(authorCookieMap);
+//        System.out.println(authorCookieMapper.insertCookieMapper(authorCookie));
+//        System.out.println(authorCookieMapper.getByAuthorName("A").getAuthorName());
     }
 
     @Test
     @Rollback(false)
     public void TestForbiddenWordMapper() {
-        String[] words = {"白粉", "母猪"};
-        for (int i = 0; i < words.length; i++) {
-            ForbiddenWord forbiddenWord = new ForbiddenWord();
-            DateUtil dateUtil = new DateUtil();
-            Date date = dateUtil.getNowDate();
-
-            forbiddenWord.setDate(date);
-            forbiddenWord.setWord(words[i]);
-            Msg msg = forbiddenWordDao.creatForbiddenWord(forbiddenWord);
-            System.out.println(msg.getDesc());
-        }
-
+        List<ErrorUrl> errorUrls = new ArrayList<>();
+        DateUtil dateUtil = new DateUtil();
+        errorUrls = errorUrlDao.getAllErrorUrl();
+        errorUrls.forEach(errorUrl -> {
+            System.out.println(errorUrl.getDate().toString());
+        });
+        errorUrls = errorUrlDao.getAllErrorUrl().stream().
+                filter(errorUrl -> errorUrl.getDate().toString().equals(dateUtil.getNowFreeFormatterDate("yyyy-MM-dd").toString()))
+                .collect(Collectors.toList());
+        System.out.println(errorUrls);
     }
 }

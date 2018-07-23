@@ -28,10 +28,11 @@ public class SfPageYa implements PageProcessor {
     private SfBookMapper sfBookMapper;
 
     @Override
-     public void process(Page page) {
-        if (!page.isDownloadSuccess()){
+    public void process(Page page) {
+        if (!page.isDownloadSuccess()) {
             return;
-        };
+        }
+        ;
         String jsonStr = page.getJson().toString();
         JSONObject jsonObject = JSONObject.parseObject(jsonStr);
         JSONObject jsonData = jsonObject.getJSONObject("data");
@@ -62,7 +63,7 @@ public class SfPageYa implements PageProcessor {
     }
 
     @Override
-    synchronized public Site getSite() {
+    public Site getSite() {
         return site;
     }
 
