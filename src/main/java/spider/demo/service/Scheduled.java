@@ -9,7 +9,7 @@ package spider.demo.service;
 public interface Scheduled {
 
     /**
-     * 判断咕咕的时间间隔
+     * 判断鸽子作者的时间间隔
      */
     int GUGU_DAY=15;
 
@@ -35,7 +35,7 @@ public interface Scheduled {
     void delectGuGuAuthor();
 
     /**
-     * 一天的所有任务集合
+     * 一天的所有任务集合,每天00：00分执行
      */
     void taskAll();
 

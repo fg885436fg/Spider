@@ -186,7 +186,6 @@ public class ReptileImpl implements Reptile {
         if (errorUrls.size() == 0) {
             return;
         } else {
-            //todo 奇怪，把它放在这里就执行失败了。我想可能是因为在测试环境的缘故？
             logger.warn("dealWithSfErrorUrl 开始处理错误的连接 ==》");
             logger.warn("第" + retryNum + "次执行");
             logger.warn("目前要处理的连接数为：" + errorUrls.size() + "\n\r");
@@ -207,7 +206,7 @@ public class ReptileImpl implements Reptile {
         }).collect(Collectors.toList());
         lyb.setProxyProvider(new SimpleProxyProvider(proxies));
         Spider.create(sfPageYa).thread(threadNum).setDownloader(lyb).addUrl(url).run();
-        if (retryNum == retryNum) {
+        if (retryNum == DEAL_WITH_ERROR_URL) {
         } else {
             dealWithSfErrorUrl();
         }

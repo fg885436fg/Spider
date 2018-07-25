@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface Reptile {
 
-    int BOOK_NUM = 162000;
+    int BOOK_NUM = 172000;
 
     /**
      * 起始找书书号
@@ -22,8 +22,9 @@ public interface Reptile {
     int BOOK_FIRST_NUM = 80000;
 
     /**
-     * 一次
+     * 最多处理错误连接的次数
      */
+    int DEAL_WITH_ERROR_URL = 5;
 
     /**
      * 抓取最近三十六月的收入

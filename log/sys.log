@@ -1,183 +1,480 @@
-2018-07-13 16:37:38,013 WARN (LybHttpClientDownloader.java:69)- download page https://api.sfacg.com/novels/140120?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag error
-org.apache.http.conn.ConnectTimeoutException: Connect to 85.237.167.120:41258 [/85.237.167.120] failed: connect timed out
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:62)
-	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
-	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
-	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
-	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.net.SocketTimeoutException: connect timed out
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:589)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 16 common frames omitted
-2018-07-13 16:37:38,163 INFO (LybHttpClientDownloader.java:65)- downloading page success https://api.sfacg.com/novels/144661?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-13 16:37:38,494 WARN (LybHttpClientDownloader.java:69)- download page https://api.sfacg.com/novels/142911?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag error
-org.apache.http.conn.ConnectTimeoutException: Connect to 103.76.196.41:8080 [/103.76.196.41] failed: connect timed out
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:62)
-	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
-	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
-	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
-	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.net.SocketTimeoutException: connect timed out
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:589)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 16 common frames omitted
-2018-07-13 16:37:38,512 INFO (LybHttpClientDownloader.java:65)- downloading page success https://api.sfacg.com/novels/142344?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-13 16:37:38,513 WARN (HttpClientDownloader.java:136)- Charset autodetect failed, use UTF-8 as charset. Please specify charset in Site.setCharset()
-2018-07-13 16:37:38,514 INFO (LybHttpClientDownloader.java:65)- downloading page success https://api.sfacg.com/novels/139734?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-13 16:37:38,974 WARN (HttpClientDownloader.java:136)- Charset autodetect failed, use UTF-8 as charset. Please specify charset in Site.setCharset()
-2018-07-13 16:37:38,974 INFO (LybHttpClientDownloader.java:65)- downloading page success https://api.sfacg.com/novels/143396?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag
-2018-07-13 16:37:39,694 WARN (LybHttpClientDownloader.java:69)- download page https://api.sfacg.com/novels/137379?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag error
-java.net.SocketTimeoutException: Read timed out
-	at java.net.SocketInputStream.socketRead0(Native Method)
-	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
-	at java.net.SocketInputStream.read(SocketInputStream.java:171)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
-	at org.apache.http.impl.execchain.MainClientExec.createTunnelToTarget(MainClientExec.java:473)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:398)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:62)
-	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
-	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
-	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
-	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-2018-07-13 16:37:39,847 WARN (LybHttpClientDownloader.java:69)- download page https://api.sfacg.com/novels/138976?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag error
-org.apache.http.conn.ConnectTimeoutException: Connect to 103.76.196.41:8080 [/103.76.196.41] failed: connect timed out
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:62)
-	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
-	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
-	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
-	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.net.SocketTimeoutException: connect timed out
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:589)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 16 common frames omitted
-2018-07-13 16:37:41,162 WARN (LybHttpClientDownloader.java:69)- download page https://api.sfacg.com/novels/144731?expand=chapterCount,typeName,intro,fav,ticket,pointCount,tags,sysTag error
-org.apache.http.conn.ConnectTimeoutException: Connect to 85.237.167.120:41258 [/85.237.167.120] failed: connect timed out
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:389)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
-	at spider.demo.service.webmagic.LybHttpClientDownloader.download(LybHttpClientDownloader.java:62)
-	at us.codecraft.webmagic.Spider.processRequest(Spider.java:404)
-	at us.codecraft.webmagic.Spider.access$000(Spider.java:61)
-	at us.codecraft.webmagic.Spider$1.run(Spider.java:320)
-	at us.codecraft.webmagic.thread.CountableThreadPool$1.run(CountableThreadPool.java:74)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.net.SocketTimeoutException: connect timed out
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:589)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:75)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
-	... 16 common frames omitted
-2018-07-13 16:37:42,165 INFO (ReptileImpl.java:109)- 15根线程,书籍全部爬取花费时间为：1079165毫秒
-2018-07-13 18:38:26,443 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 2340 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:38:26,445 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:38:39,194 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 8028 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:38:39,196 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:38:46,741 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 9.279 seconds (JVM running for 11.069)
-2018-07-13 18:39:19,973 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 8584 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:39:19,975 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:39:27,578 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 9.293 seconds (JVM running for 11.042)
-2018-07-13 18:40:26,256 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 10092 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:40:26,305 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:40:33,216 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 9.166 seconds (JVM running for 10.904)
-2018-07-13 18:42:44,060 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 7624 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:42:44,063 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:42:53,742 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 11.094 seconds (JVM running for 12.917)
-2018-07-13 18:44:40,798 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 7716 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:44:40,801 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:44:49,349 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 10.393 seconds (JVM running for 12.057)
-2018-07-13 18:47:43,580 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 1120 (started by Administrator in F:\WorkPace\Spider)
-2018-07-13 18:47:43,582 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
-2018-07-13 18:47:49,979 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 8.723 seconds (JVM running for 10.451)
+2018-07-25 16:19:06,112 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 2484 (started by Administrator in F:\WorkPace\Spider)
+2018-07-25 16:19:06,118 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-25 16:19:14,188 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 9.361 seconds (JVM running for 12.05)
+2018-07-25 16:24:35,638 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 8772 (started by Administrator in F:\WorkPace\Spider)
+2018-07-25 16:24:35,641 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-25 16:24:41,208 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 6.902 seconds (JVM running for 9.244)
+2018-07-25 16:29:20,228 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 9176 (started by Administrator in F:\WorkPace\Spider)
+2018-07-25 16:29:20,230 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-25 16:29:27,469 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 8.355 seconds (JVM running for 10.282)
+2018-07-25 16:36:45,752 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 7020 (started by Administrator in F:\WorkPace\Spider)
+2018-07-25 16:36:45,755 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-25 16:36:51,930 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 7.71 seconds (JVM running for 9.826)
+2018-07-25 16:40:10,994 INFO (AuthorPageProcessor.java:65)- 《这就是玩家的爱》在作者表中增添成功
+2018-07-25 16:40:24,814 INFO (AuthorPageProcessor.java:65)- 《月神的游戏》在作者表中增添成功
+2018-07-25 16:49:06,829 INFO (StartupInfoLogger.java:50)- Starting ApplicationTests on PRC-20170528YEV with PID 7072 (started by Administrator in F:\WorkPace\Spider)
+2018-07-25 16:49:06,832 INFO (SpringApplication.java:659)- No active profile set, falling back to default profiles: default
+2018-07-25 16:49:13,605 INFO (StartupInfoLogger.java:59)- Started ApplicationTests in 8.0 seconds (JVM running for 9.63)
+2018-07-25 16:54:02,013 INFO (AuthorPageProcessor.java:65)- 《被神使无视》在作者表中增添成功
+2018-07-25 16:55:12,829 INFO (AuthorPageProcessor.java:65)- 《无人知道的伟大时代》在作者表中增添成功
+2018-07-25 16:56:11,795 INFO (AuthorPageProcessor.java:65)- 《吸血鬼的穿越日记》在作者表中增添成功
+2018-07-25 16:57:43,308 INFO (AuthorPageProcessor.java:65)- 《悲鸣咏叹调之暗黑革命》在作者表中增添成功
+2018-07-25 16:58:08,333 INFO (AuthorPageProcessor.java:65)- 《咸鱼萝莉养成录》在作者表中增添成功
+2018-07-25 17:00:17,488 INFO (AuthorPageProcessor.java:65)- 《和幸运值S的妹妹一起征服巨龙吧》在作者表中增添成功
+2018-07-25 17:00:27,343 INFO (AuthorPageProcessor.java:65)- 《不吃药的法师才萌萌哒》在作者表中增添成功
+2018-07-25 17:00:53,197 INFO (AuthorPageProcessor.java:65)- 《立国记》在作者表中增添成功
+2018-07-25 17:03:28,435 INFO (AuthorPageProcessor.java:65)- 《总之双魂体就是个坑》在作者表中增添成功
+2018-07-25 17:03:35,392 INFO (AuthorPageProcessor.java:65)- 《神奇宝贝之神权纷争》在作者表中增添成功
+2018-07-25 17:04:06,382 INFO (AuthorPageProcessor.java:65)- 《我與神奇寶貝的冒險》在作者表中增添成功
+2018-07-25 17:04:50,680 INFO (AuthorPageProcessor.java:65)- 《穿越什么的都是命中注定的》在作者表中增添成功
+2018-07-25 17:05:27,828 INFO (AuthorPageProcessor.java:65)- 《悲鸣咏叹调》在作者表中增添成功
+2018-07-25 17:06:04,839 INFO (AuthorPageProcessor.java:65)- 《宅男养成》在作者表中增添成功
+2018-07-25 17:07:33,067 INFO (AuthorPageProcessor.java:65)- 《芙兰朵露的异世日常》在作者表中增添成功
+2018-07-25 17:09:34,041 INFO (AuthorPageProcessor.java:65)- 《我的不死旅途》在作者表中增添成功
+2018-07-25 17:10:06,208 INFO (AuthorPageProcessor.java:65)- 《在里世界收服妹子的那些事》在作者表中增添成功
+2018-07-25 17:10:43,297 INFO (AuthorPageProcessor.java:65)- 《修仙过度的我修成了唐僧肉体质》在作者表中增添成功
+2018-07-25 17:12:49,229 INFO (AuthorPageProcessor.java:65)- 《丧尸大叔的奴隶少女》在作者表中增添成功
+2018-07-25 17:17:47,195 INFO (AuthorPageProcessor.java:65)- 《食尸鬼少女的迷途人生》在作者表中增添成功
+2018-07-25 17:18:13,955 INFO (AuthorPageProcessor.java:65)- 《绝世唐门之来世霍雨浩》在作者表中增添成功
+2018-07-25 17:19:47,440 INFO (AuthorPageProcessor.java:68)- 《被徒弟逼着当老师的我》在作者表中删除成功。字数为：2339  签约状态：普通
+2018-07-25 17:20:05,121 INFO (AuthorPageProcessor.java:65)- 《异世界病娇常闻录》在作者表中增添成功
+2018-07-25 17:20:26,477 INFO (AuthorPageProcessor.java:65)- 《病弱公主绝不出嫁》在作者表中增添成功
+2018-07-25 17:23:51,265 INFO (AuthorPageProcessor.java:65)- 《彼女和我的二次攻略方程式》在作者表中增添成功
+2018-07-25 17:26:15,718 INFO (AuthorPageProcessor.java:65)- 《维度裂缝》在作者表中增添成功
+2018-07-25 17:28:09,140 INFO (AuthorPageProcessor.java:65)- 《穿越异界的我为什么只有柴刀》在作者表中增添成功
+2018-07-25 17:30:30,402 INFO (AuthorPageProcessor.java:65)- 《我只要有我妹妹就好了》在作者表中增添成功
+2018-07-25 17:30:44,011 INFO (AuthorPageProcessor.java:65)- 《枪神日常》在作者表中增添成功
+2018-07-25 17:35:04,015 INFO (AuthorPageProcessor.java:65)- 《游戏原住民》在作者表中增添成功
+2018-07-25 17:35:50,460 INFO (AuthorPageProcessor.java:65)- 《對一切感到無聊的我開始談了戀愛》在作者表中增添成功
+2018-07-25 17:36:12,607 INFO (AuthorPageProcessor.java:65)- 《只想援交的他穿越后成了碧池神官》在作者表中增添成功
+2018-07-25 17:36:25,409 INFO (AuthorPageProcessor.java:65)- 《没做成勇者的我被变成了萝莉圣女》在作者表中增添成功
+2018-07-25 17:36:26,621 INFO (AuthorPageProcessor.java:65)- 《只是个回忆录罢了》在作者表中增添成功
+2018-07-25 17:37:14,093 INFO (AuthorPageProcessor.java:65)- 《约会大作战之重生刺客》在作者表中增添成功
+2018-07-25 17:37:23,067 INFO (AuthorPageProcessor.java:68)- 《二战同萌》在作者表中删除成功。字数为：49604  签约状态：普通
+2018-07-25 17:38:03,928 INFO (AuthorPageProcessor.java:65)- 《这位女仆不太可爱》在作者表中增添成功
+2018-07-25 17:38:20,524 INFO (AuthorPageProcessor.java:65)- 《户口在幻想乡的我很绝望》在作者表中增添成功
+2018-07-25 17:38:59,122 INFO (AuthorPageProcessor.java:65)- 《明日长诗》在作者表中增添成功
+2018-07-25 17:39:10,137 INFO (AuthorPageProcessor.java:65)- 《否认自己是逗比的某圣徒》在作者表中增添成功
+2018-07-25 17:39:22,476 INFO (AuthorPageProcessor.java:65)- 《末日时在做什么能拯救我吗》在作者表中增添成功
+2018-07-25 17:39:52,561 INFO (AuthorPageProcessor.java:65)- 《谁说兽人只会正面硬刚》在作者表中增添成功
+2018-07-25 17:40:10,970 INFO (AuthorPageProcessor.java:65)- 《是我吗颪顰顬》在作者表中增添成功
+2018-07-25 17:41:06,255 INFO (AuthorPageProcessor.java:65)- 《勇者削弱计划》在作者表中增添成功
+2018-07-25 17:41:30,618 INFO (AuthorPageProcessor.java:68)- 《抱歉我的口中尽是谎言》在作者表中删除成功。字数为：38359  签约状态：普通
+2018-07-25 17:42:19,062 INFO (AuthorPageProcessor.java:65)- 《从今天开始创造神明秩序》在作者表中增添成功
+2018-07-25 17:42:41,565 INFO (AuthorPageProcessor.java:65)- 《无能剑圣的校园生活》在作者表中增添成功
+2018-07-25 17:42:48,855 INFO (AuthorPageProcessor.java:65)- 《某一本正经的异世界革命史》在作者表中增添成功
+2018-07-25 17:43:27,299 INFO (AuthorPageProcessor.java:65)- 《被21世纪遗留在22世纪的残渣》在作者表中增添成功
+2018-07-25 17:44:00,639 INFO (AuthorPageProcessor.java:68)- 《时空旅人》在作者表中删除成功。字数为：18  签约状态：普通
+2018-07-25 17:44:18,899 INFO (AuthorPageProcessor.java:65)- 《我是个解放全银河的杀手》在作者表中增添成功
+2018-07-25 17:45:34,473 INFO (AuthorPageProcessor.java:65)- 《带着次元系统走遍世界》在作者表中增添成功
+2018-07-25 17:45:56,869 INFO (AuthorPageProcessor.java:65)- 《我与青梅竹马的死亡恋爱教室》在作者表中增添成功
+2018-07-25 17:46:18,848 INFO (AuthorPageProcessor.java:65)- 《我王哈辅佐你当王还不够吗》在作者表中增添成功
+2018-07-25 17:46:20,317 INFO (AuthorPageProcessor.java:65)- 《RBQ小姐的百合网游之旅》在作者表中增添成功
+2018-07-25 17:46:34,408 INFO (AuthorPageProcessor.java:65)- 《我的徒弟是病娇该怎么办》在作者表中增添成功
+2018-07-25 17:46:36,130 INFO (AuthorPageProcessor.java:65)- 《深渊恶灵》在作者表中增添成功
+2018-07-25 17:46:57,037 INFO (AuthorPageProcessor.java:65)- 《你知道哲学吗》在作者表中增添成功
+2018-07-25 17:47:39,800 INFO (AuthorPageProcessor.java:65)- 《空白游戏》在作者表中增添成功
+2018-07-25 17:47:57,814 INFO (AuthorPageProcessor.java:65)- 《比起魔法我更喜欢科学》在作者表中增添成功
+2018-07-25 17:47:58,847 INFO (AuthorPageProcessor.java:65)- 《关于少女养成的故事》在作者表中增添成功
+2018-07-25 17:49:42,791 INFO (AuthorPageProcessor.java:65)- 《修罗都市行》在作者表中增添成功
+2018-07-25 17:50:15,821 INFO (AuthorPageProcessor.java:65)- 《黑暗之路》在作者表中增添成功
+2018-07-25 17:50:20,703 INFO (AuthorPageProcessor.java:65)- 《小白脸也要复国》在作者表中增添成功
+2018-07-25 17:50:58,020 INFO (AuthorPageProcessor.java:65)- 《死亡传说》在作者表中增添成功
+2018-07-25 17:51:06,888 INFO (AuthorPageProcessor.java:65)- 《与我家小姨妈谈恋爱》在作者表中增添成功
+2018-07-25 17:52:54,098 INFO (AuthorPageProcessor.java:65)- 《当我的母亲变成了我的妹妹》在作者表中增添成功
+2018-07-25 17:53:16,310 INFO (AuthorPageProcessor.java:65)- 《抱歉无敌真的是可以为所欲为》在作者表中增添成功
+2018-07-25 17:53:17,557 INFO (AuthorPageProcessor.java:65)- 《颠覆》在作者表中增添成功
+2018-07-25 17:53:21,941 INFO (AuthorPageProcessor.java:65)- 《重生为猫也要在异世界开后宫》在作者表中增添成功
+2018-07-25 17:53:44,697 INFO (AuthorPageProcessor.java:65)- 《绝尘之剑》在作者表中增添成功
+2018-07-25 17:53:52,744 INFO (AuthorPageProcessor.java:65)- 《黑色的白色的灰色的》在作者表中增添成功
+2018-07-25 17:54:12,944 INFO (AuthorPageProcessor.java:65)- 《温阳之猎》在作者表中增添成功
+2018-07-25 17:54:27,497 INFO (AuthorPageProcessor.java:65)- 《这个只是场游戏吧难道不是吗》在作者表中增添成功
+2018-07-25 17:54:41,053 INFO (AuthorPageProcessor.java:65)- 《污水与沥青》在作者表中增添成功
+2018-07-25 17:55:13,866 INFO (AuthorPageProcessor.java:65)- 《想要灭世的我把创世神也拉下了水》在作者表中增添成功
+2018-07-25 17:55:30,164 INFO (AuthorPageProcessor.java:65)- 《于各界秋落幕》在作者表中增添成功
+2018-07-25 17:55:47,594 INFO (AuthorPageProcessor.java:65)- 《至高意志决定让我成为萝莉法师》在作者表中增添成功
+2018-07-25 17:55:47,900 INFO (AuthorPageProcessor.java:65)- 《只是我错误的故事迎来了星空罢了》在作者表中增添成功
+2018-07-25 17:55:53,026 INFO (AuthorPageProcessor.java:68)- 《妹控作者的我与异世界的灾难》在作者表中删除成功。字数为：5521  签约状态：普通
+2018-07-25 17:55:57,651 INFO (AuthorPageProcessor.java:65)- 《最强黑暗法师的我竟只是个留级生》在作者表中增添成功
+2018-07-25 17:56:17,794 INFO (AuthorPageProcessor.java:65)- 《傲慢的她与我》在作者表中增添成功
+2018-07-25 17:56:31,179 INFO (AuthorPageProcessor.java:65)- 《去崩坏世界诱拐萝莉》在作者表中增添成功
+2018-07-25 17:56:57,202 INFO (AuthorPageProcessor.java:68)- 《心理移植者》在作者表中删除成功。字数为：163  签约状态：普通
+2018-07-25 17:57:42,341 INFO (AuthorPageProcessor.java:65)- 《无敌的哥哥给妹妹当女仆有错嘛》在作者表中增添成功
+2018-07-25 17:57:50,715 INFO (AuthorPageProcessor.java:65)- 《可怜的我却有那么多病娇》在作者表中增添成功
+2018-07-25 17:58:38,228 INFO (AuthorPageProcessor.java:65)- 《夏惜》在作者表中增添成功
+2018-07-25 17:58:52,745 INFO (AuthorPageProcessor.java:65)- 《吾乃帝王的传人》在作者表中增添成功
+2018-07-25 17:59:07,322 INFO (AuthorPageProcessor.java:65)- 《纪元境空》在作者表中增添成功
+2018-07-25 17:59:28,148 INFO (AuthorPageProcessor.java:65)- 《废土和萝莉》在作者表中增添成功
+2018-07-25 17:59:50,151 INFO (AuthorPageProcessor.java:65)- 《交织在日常中的异常狂奏》在作者表中增添成功
+2018-07-25 17:59:52,487 INFO (AuthorPageProcessor.java:65)- 《是谁让我遗忘星空》在作者表中增添成功
+2018-07-25 18:00:07,224 INFO (AuthorPageProcessor.java:65)- 《男神特征的我其实有恐女症》在作者表中增添成功
+2018-07-25 18:00:25,272 INFO (AuthorPageProcessor.java:65)- 《最强黑客的退休生活》在作者表中增添成功
+2018-07-25 18:00:59,158 INFO (AuthorPageProcessor.java:65)- 《睡醒来到2012世界末日后》在作者表中增添成功
+2018-07-25 18:01:22,814 INFO (AuthorPageProcessor.java:65)- 《fate重生》在作者表中增添成功
+2018-07-25 18:01:54,721 INFO (AuthorPageProcessor.java:65)- 《音阶万法》在作者表中增添成功
+2018-07-25 18:02:06,201 INFO (AuthorPageProcessor.java:65)- 《为什么变成女生的我比以前漂亮啊》在作者表中增添成功
+2018-07-25 18:02:09,613 INFO (AuthorPageProcessor.java:65)- 《魔法文明物语》在作者表中增添成功
+2018-07-25 18:02:10,521 INFO (AuthorPageProcessor.java:65)- 《老师的我竟被自己学生反推》在作者表中增添成功
+2018-07-25 18:02:11,573 INFO (AuthorPageProcessor.java:65)- 《非二次元异世界狂想曲》在作者表中增添成功
+2018-07-25 18:02:12,053 INFO (AuthorPageProcessor.java:65)- 《无限源界玩游戏》在作者表中增添成功
+2018-07-25 18:02:52,514 INFO (AuthorPageProcessor.java:65)- 《神奇动物不可能是美少女》在作者表中增添成功
+2018-07-25 18:02:57,451 INFO (AuthorPageProcessor.java:68)- 《世纪末MELF》在作者表中删除成功。字数为：444  签约状态：普通
+2018-07-25 18:03:00,673 INFO (AuthorPageProcessor.java:65)- 《巫德》在作者表中增添成功
+2018-07-25 18:03:20,725 INFO (AuthorPageProcessor.java:65)- 《审世者之东京密录》在作者表中增添成功
+2018-07-25 18:03:27,780 INFO (AuthorPageProcessor.java:65)- 《次时代的魔法传说》在作者表中增添成功
+2018-07-25 18:03:35,294 INFO (AuthorPageProcessor.java:65)- 《平凡的我身边被各种美少女包围着》在作者表中增添成功
+2018-07-25 18:03:57,602 INFO (AuthorPageProcessor.java:65)- 《二十一世纪血族出没的日子里》在作者表中增添成功
+2018-07-25 18:03:58,322 INFO (AuthorPageProcessor.java:65)- 《神造悲剧》在作者表中增添成功
+2018-07-25 18:04:08,188 INFO (AuthorPageProcessor.java:65)- 《伪骨科的我应该怎么办》在作者表中增添成功
+2018-07-25 18:04:12,275 INFO (AuthorPageProcessor.java:65)- 《在斗罗大陆重见明媚阳光》在作者表中增添成功
+2018-07-25 18:04:32,152 INFO (AuthorPageProcessor.java:65)- 《这不是我想要的生活》在作者表中增添成功
+2018-07-25 18:04:32,633 INFO (AuthorPageProcessor.java:65)- 《重生后的我成了转性少女》在作者表中增添成功
+2018-07-25 18:04:37,115 INFO (AuthorPageProcessor.java:65)- 《穿越后的我成为了人气主播》在作者表中增添成功
+2018-07-25 18:04:50,432 INFO (AuthorPageProcessor.java:65)- 《罪的梦境》在作者表中增添成功
+2018-07-25 18:04:55,367 INFO (AuthorPageProcessor.java:65)- 《萝莉魔王养成记》在作者表中增添成功
+2018-07-25 18:05:02,217 INFO (AuthorPageProcessor.java:65)- 《剑士的我被系统带到异世界当女孩》在作者表中增添成功
+2018-07-25 18:05:06,707 INFO (AuthorPageProcessor.java:65)- 《既然只是游戏那就随便玩玩吧》在作者表中增添成功
+2018-07-25 18:05:13,798 INFO (AuthorPageProcessor.java:65)- 《我只想在末世安静的当个普通人》在作者表中增添成功
+2018-07-25 18:05:21,863 INFO (AuthorPageProcessor.java:65)- 《穿越之穿越之穿越归来》在作者表中增添成功
+2018-07-25 18:05:28,537 INFO (AuthorPageProcessor.java:65)- 《身为血族的我成了萝莉的保姆》在作者表中增添成功
+2018-07-25 18:05:34,108 INFO (AuthorPageProcessor.java:65)- 《运气好就可以为所欲为吗》在作者表中增添成功
+2018-07-25 18:05:42,504 INFO (AuthorPageProcessor.java:65)- 《神造了个世界却只是想过普通日子》在作者表中增添成功
+2018-07-25 18:05:43,362 INFO (AuthorPageProcessor.java:65)- 《永恒之门》在作者表中增添成功
+2018-07-25 18:05:54,690 INFO (AuthorPageProcessor.java:65)- 《言游》在作者表中增添成功
+2018-07-25 18:05:55,169 INFO (AuthorPageProcessor.java:65)- 《提督大人和他的千军万马》在作者表中增添成功
+2018-07-25 18:05:55,450 INFO (AuthorPageProcessor.java:65)- 《最强的我在妹妹面前也不过如此》在作者表中增添成功
+2018-07-25 18:06:02,947 INFO (AuthorPageProcessor.java:65)- 《Fate最后的爱因兹贝伦》在作者表中增添成功
+2018-07-25 18:06:03,952 INFO (AuthorPageProcessor.java:65)- 《求求姐姐你放过我的后宫吧》在作者表中增添成功
+2018-07-25 18:06:18,843 INFO (AuthorPageProcessor.java:65)- 《我真的是个神》在作者表中增添成功
+2018-07-25 18:06:44,859 INFO (AuthorPageProcessor.java:65)- 《身为王的我不能享受孤独了》在作者表中增添成功
+2018-07-25 18:06:51,004 INFO (AuthorPageProcessor.java:65)- 《命运占卜》在作者表中增添成功
+2018-07-25 18:07:07,139 INFO (AuthorPageProcessor.java:65)- 《施虐狂的精灵新生》在作者表中增添成功
+2018-07-25 18:07:09,779 INFO (AuthorPageProcessor.java:65)- 《我星辰与她》在作者表中增添成功
+2018-07-25 18:07:11,558 INFO (AuthorPageProcessor.java:65)- 《世界使徒的后宫日常》在作者表中增添成功
+2018-07-25 18:07:12,760 INFO (AuthorPageProcessor.java:65)- 《抱紧每一个属于我的女人》在作者表中增添成功
+2018-07-25 18:07:16,366 INFO (AuthorPageProcessor.java:65)- 《穿越者的魔幻战斗》在作者表中增添成功
+2018-07-25 18:07:22,891 INFO (AuthorPageProcessor.java:65)- 《我是舰娘》在作者表中增添成功
+2018-07-25 18:07:28,125 INFO (AuthorPageProcessor.java:65)- 《管家我的女仆学院》在作者表中增添成功
+2018-07-25 18:07:29,325 INFO (AuthorPageProcessor.java:65)- 《最强勇者的萝莉养女是天神与恶魔》在作者表中增添成功
+2018-07-25 18:07:31,843 INFO (AuthorPageProcessor.java:65)- 《穿越异世界获得了名为无敌的技能》在作者表中增添成功
+2018-07-25 18:07:33,725 INFO (AuthorPageProcessor.java:65)- 《学校禁止使用枪支与魔法》在作者表中增添成功
+2018-07-25 18:07:36,426 INFO (AuthorPageProcessor.java:65)- 《拥有超能力不等于可以为所欲为》在作者表中增添成功
+2018-07-25 18:07:38,803 INFO (AuthorPageProcessor.java:65)- 《去做神的未婚夫》在作者表中增添成功
+2018-07-25 18:07:42,166 INFO (AuthorPageProcessor.java:65)- 《灰眸与星耀》在作者表中增添成功
+2018-07-25 18:07:52,579 INFO (AuthorPageProcessor.java:65)- 《叛逆魔导士的叛逆礼教》在作者表中增添成功
+2018-07-25 18:08:04,360 INFO (AuthorPageProcessor.java:65)- 《空白永不败北》在作者表中增添成功
+2018-07-25 18:08:04,710 INFO (AuthorPageProcessor.java:65)- 《我是不正常的英灵》在作者表中增添成功
+2018-07-25 18:08:12,128 INFO (AuthorPageProcessor.java:65)- 《我身边的女孩子怎么越来越多》在作者表中增添成功
+2018-07-25 18:08:19,125 INFO (AuthorPageProcessor.java:65)- 《巴别塔的少女》在作者表中增添成功
+2018-07-25 18:08:21,242 INFO (AuthorPageProcessor.java:65)- 《108超能力都市》在作者表中增添成功
+2018-07-25 18:08:22,909 INFO (AuthorPageProcessor.java:65)- 《在死后的游戏世界里被强制性转》在作者表中增添成功
+2018-07-25 18:08:29,022 INFO (AuthorPageProcessor.java:65)- 《虚妄狂想曲》在作者表中增添成功
+2018-07-25 18:08:42,380 INFO (AuthorPageProcessor.java:65)- 《穿越后老天喜欢和我开玩笑》在作者表中增添成功
+2018-07-25 18:08:45,066 INFO (AuthorPageProcessor.java:65)- 《梦开始的那天》在作者表中增添成功
+2018-07-25 18:08:49,761 INFO (AuthorPageProcessor.java:65)- 《最强圣剑使与少女们的仆从契约》在作者表中增添成功
+2018-07-25 18:08:51,949 INFO (AuthorPageProcessor.java:65)- 《为了弟弟嫁给基友》在作者表中增添成功
+2018-07-25 18:08:55,380 INFO (AuthorPageProcessor.java:65)- 《盖尼亚史诗之复仇者》在作者表中增添成功
+2018-07-25 18:08:57,285 INFO (AuthorPageProcessor.java:65)- 《真的要变身御宅伴侣玉藻前吗》在作者表中增添成功
+2018-07-25 18:09:02,400 INFO (AuthorPageProcessor.java:65)- 《彼岸少女守护灵》在作者表中增添成功
+2018-07-25 18:09:02,848 INFO (AuthorPageProcessor.java:65)- 《我懒癌到偶尔让系统接管身体》在作者表中增添成功
+2018-07-25 18:09:03,075 INFO (AuthorPageProcessor.java:65)- 《摩尔托风暴》在作者表中增添成功
+2018-07-25 18:09:12,909 INFO (AuthorPageProcessor.java:65)- 《异能探案》在作者表中增添成功
+2018-07-25 18:09:13,599 INFO (AuthorPageProcessor.java:65)- 《我是一名游历天下的山水师》在作者表中增添成功
+2018-07-25 18:09:14,809 INFO (AuthorPageProcessor.java:65)- 《成神的我穿越到了未来》在作者表中增添成功
+2018-07-25 18:09:15,252 INFO (AuthorPageProcessor.java:65)- 《转生成宇智波的萌狐不想哭泣》在作者表中增添成功
+2018-07-25 18:09:16,111 INFO (AuthorPageProcessor.java:65)- 《幻界之魂》在作者表中增添成功
+2018-07-25 18:09:16,237 INFO (AuthorPageProcessor.java:65)- 《身为无敌魔王的我被抓住了》在作者表中增添成功
+2018-07-25 18:09:18,351 INFO (AuthorPageProcessor.java:65)- 《身为凤凰的我绝不会轻易狗带》在作者表中增添成功
+2018-07-25 18:09:18,462 INFO (AuthorPageProcessor.java:65)- 《变身美少女的我要做妈妈了》在作者表中增添成功
+2018-07-25 18:09:24,432 INFO (AuthorPageProcessor.java:65)- 《重生到异世界成了萝莉》在作者表中增添成功
+2018-07-25 18:09:28,537 INFO (AuthorPageProcessor.java:65)- 《GameRhapsody》在作者表中增添成功
+2018-07-25 18:09:33,849 INFO (AuthorPageProcessor.java:65)- 《最弱职业的我同时也是最强鬼族》在作者表中增添成功
+2018-07-25 18:09:36,329 INFO (AuthorPageProcessor.java:65)- 《夜雨》在作者表中增添成功
+2018-07-25 18:09:38,360 INFO (AuthorPageProcessor.java:65)- 《永远的七日之都神的守候》在作者表中增添成功
+2018-07-25 18:09:39,526 INFO (AuthorPageProcessor.java:65)- 《在异世界执行任务》在作者表中增添成功
+2018-07-25 18:09:39,709 INFO (AuthorPageProcessor.java:65)- 《有神明存在的异谈录》在作者表中增添成功
+2018-07-25 18:09:41,512 INFO (AuthorPageProcessor.java:65)- 《我的山海游记》在作者表中增添成功
+2018-07-25 18:09:44,168 INFO (AuthorPageProcessor.java:65)- 《皇与煌之刃》在作者表中增添成功
+2018-07-25 18:09:45,947 INFO (AuthorPageProcessor.java:65)- 《在异世界我与生命之泉融合后》在作者表中增添成功
+2018-07-25 18:09:46,897 INFO (AuthorPageProcessor.java:65)- 《最后一名御主的异世界之旅》在作者表中增添成功
+2018-07-25 18:09:52,035 INFO (AuthorPageProcessor.java:65)- 《伪xian娘yu日常》在作者表中增添成功
+2018-07-25 18:09:53,403 INFO (AuthorPageProcessor.java:65)- 《在阿拉德成为英雄的武器店大叔》在作者表中增添成功
+2018-07-25 18:10:02,177 INFO (AuthorPageProcessor.java:65)- 《带着主神空间闯荡异世界》在作者表中增添成功
+2018-07-25 18:10:05,124 INFO (AuthorPageProcessor.java:65)- 《骑着电动逛异界》在作者表中增添成功
+2018-07-25 18:10:13,789 INFO (AuthorPageProcessor.java:65)- 《异色双瞳的食戟之灵》在作者表中增添成功
+2018-07-25 18:10:17,461 INFO (AuthorPageProcessor.java:65)- 《我的娘化小说无人能击败》在作者表中增添成功
+2018-07-25 18:10:20,627 INFO (AuthorPageProcessor.java:68)- 《源点大世界》在作者表中删除成功。字数为：42  签约状态：普通
+2018-07-25 18:10:22,050 INFO (AuthorPageProcessor.java:65)- 《决战女权时代》在作者表中增添成功
+2018-07-25 18:10:22,633 INFO (AuthorPageProcessor.java:65)- 《如果有超能力就好了》在作者表中增添成功
+2018-07-25 18:10:28,432 INFO (AuthorPageProcessor.java:65)- 《命运之匙》在作者表中增添成功
+2018-07-25 18:10:28,596 INFO (AuthorPageProcessor.java:65)- 《史上最不合格的吸血鬼之王》在作者表中增添成功
+2018-07-25 18:10:29,885 INFO (AuthorPageProcessor.java:65)- 《不会再被世界厌恶》在作者表中增添成功
+2018-07-25 18:10:30,414 INFO (AuthorPageProcessor.java:65)- 《在这奇怪的末世里》在作者表中增添成功
+2018-07-25 18:10:30,784 INFO (AuthorPageProcessor.java:65)- 《追求萝莉做我的老婆》在作者表中增添成功
+2018-07-25 18:10:31,157 INFO (AuthorPageProcessor.java:65)- 《双刀纵横传》在作者表中增添成功
+2018-07-25 18:10:35,377 INFO (AuthorPageProcessor.java:65)- 《我到了异界变成了战舰》在作者表中增添成功
+2018-07-25 18:10:36,066 INFO (AuthorPageProcessor.java:65)- 《狂气少年与少女的哲学》在作者表中增添成功
+2018-07-25 18:10:36,498 INFO (AuthorPageProcessor.java:65)- 《光暗双生》在作者表中增添成功
+2018-07-25 18:10:36,891 INFO (AuthorPageProcessor.java:65)- 《勇者的本职工作是照顾魔王》在作者表中增添成功
+2018-07-25 18:10:38,795 INFO (AuthorPageProcessor.java:65)- 《我和萝莉元神的异界奇幻之旅》在作者表中增添成功
+2018-07-25 18:10:40,126 INFO (AuthorPageProcessor.java:65)- 《失色星空》在作者表中增添成功
+2018-07-25 18:10:44,619 INFO (AuthorPageProcessor.java:65)- 《有女朋友就死没有女朋友就永生》在作者表中增添成功
+2018-07-25 18:10:45,360 INFO (AuthorPageProcessor.java:65)- 《失业勇者与落难于异世界的我》在作者表中增添成功
+2018-07-25 18:10:47,670 INFO (AuthorPageProcessor.java:65)- 《夏之轨迹》在作者表中增添成功
+2018-07-25 18:10:48,739 INFO (AuthorPageProcessor.java:65)- 《夜雨龙生》在作者表中增添成功
+2018-07-25 18:10:54,881 INFO (AuthorPageProcessor.java:65)- 《心之海一一Purify》在作者表中增添成功
+2018-07-25 18:10:58,139 INFO (AuthorPageProcessor.java:65)- 《难道我是穿越者之耻吗》在作者表中增添成功
+2018-07-25 18:10:58,901 INFO (AuthorPageProcessor.java:65)- 《唯一神的升级之路》在作者表中增添成功
+2018-07-25 18:11:02,540 INFO (AuthorPageProcessor.java:65)- 《次元召唤师重制版》在作者表中增添成功
+2018-07-25 18:11:06,084 INFO (AuthorPageProcessor.java:65)- 《向限定幻想献上祈祷》在作者表中增添成功
+2018-07-25 18:11:06,248 INFO (AuthorPageProcessor.java:65)- 《漆黑的骑士在今日也依旧前行》在作者表中增添成功
+2018-07-25 18:11:14,677 INFO (AuthorPageProcessor.java:65)- 《里世界0别问我0我啥都不知道》在作者表中增添成功
+2018-07-25 18:11:15,609 INFO (AuthorPageProcessor.java:65)- 《念转轮回》在作者表中增添成功
+2018-07-25 18:11:18,156 INFO (AuthorPageProcessor.java:65)- 《元素神帝与14位妹子的校园生活》在作者表中增添成功
+2018-07-25 18:11:21,056 INFO (AuthorPageProcessor.java:65)- 《小职员的我被危险少女包围了》在作者表中增添成功
+2018-07-25 18:11:21,955 INFO (AuthorPageProcessor.java:65)- 《极不正经的社团活动日志》在作者表中增添成功
+2018-07-25 18:11:23,495 INFO (AuthorPageProcessor.java:65)- 《异世行商见闻录》在作者表中增添成功
+2018-07-25 18:11:26,946 INFO (AuthorPageProcessor.java:65)- 《里草薙京的异界游》在作者表中增添成功
+2018-07-25 18:11:27,148 INFO (AuthorPageProcessor.java:65)- 《无敌的我破产后选择当冒险者》在作者表中增添成功
+2018-07-25 18:11:31,554 INFO (AuthorPageProcessor.java:65)- 《变身之后我与女儿的日常》在作者表中增添成功
+2018-07-25 18:11:32,847 INFO (AuthorPageProcessor.java:65)- 《曾经最强的我现在只想做个废物》在作者表中增添成功
+2018-07-25 18:11:34,754 INFO (AuthorPageProcessor.java:65)- 《女儿国男神》在作者表中增添成功
+2018-07-25 18:11:36,249 INFO (AuthorPageProcessor.java:65)- 《四月樱花盛开的季节是你的笑颜》在作者表中增添成功
+2018-07-25 18:11:40,419 INFO (AuthorPageProcessor.java:65)- 《GGO的无名小卒》在作者表中增添成功
+2018-07-25 18:11:46,314 INFO (AuthorPageProcessor.java:65)- 《在回家路上捡到了房东》在作者表中增添成功
+2018-07-25 18:11:46,507 INFO (AuthorPageProcessor.java:65)- 《我的迦勒底有点奇怪》在作者表中增添成功
+2018-07-25 18:11:47,311 INFO (AuthorPageProcessor.java:65)- 《好人太多就由我来做坏蛋吧》在作者表中增添成功
+2018-07-25 18:11:47,596 INFO (AuthorPageProcessor.java:65)- 《无敌的我横行在异世界》在作者表中增添成功
+2018-07-25 18:11:53,678 INFO (AuthorPageProcessor.java:65)- 《龙的二次元修行》在作者表中增添成功
+2018-07-25 18:11:56,117 INFO (AuthorPageProcessor.java:65)- 《穿越之后我要成为最强的男人》在作者表中增添成功
+2018-07-25 18:11:59,492 INFO (AuthorPageProcessor.java:65)- 《末世里的特种萝莉》在作者表中增添成功
+2018-07-25 18:12:00,369 INFO (AuthorPageProcessor.java:65)- 《妹子不止天上有》在作者表中增添成功
+2018-07-25 18:12:07,025 INFO (AuthorPageProcessor.java:65)- 《斩赤红之瞳之黑瞳传》在作者表中增添成功
+2018-07-25 18:12:08,046 INFO (AuthorPageProcessor.java:65)- 《灵战APP》在作者表中增添成功
+2018-07-25 18:12:09,401 INFO (AuthorPageProcessor.java:65)- 《穿越成剑仙的我后宫全是病娇》在作者表中增添成功
+2018-07-25 18:12:14,503 INFO (AuthorPageProcessor.java:65)- 《你妹就是我妹》在作者表中增添成功
+2018-07-25 18:12:17,346 INFO (AuthorPageProcessor.java:65)- 《天道幻想》在作者表中增添成功
+2018-07-25 18:12:23,996 INFO (AuthorPageProcessor.java:65)- 《祖师爷不好惹》在作者表中增添成功
+2018-07-25 18:12:28,666 INFO (AuthorPageProcessor.java:65)- 《零之使魔东京的魔法师》在作者表中增添成功
+2018-07-25 18:12:35,511 INFO (AuthorPageProcessor.java:65)- 《螺旋尽头》在作者表中增添成功
+2018-07-25 18:12:36,202 INFO (AuthorPageProcessor.java:65)- 《宅物语少女星空》在作者表中增添成功
+2018-07-25 18:12:37,032 INFO (AuthorPageProcessor.java:65)- 《装逼重练的无敌圣器帝与病娇魔姬》在作者表中增添成功
+2018-07-25 18:12:38,254 INFO (AuthorPageProcessor.java:65)- 《被异界生物缠身后的日常》在作者表中增添成功
+2018-07-25 18:12:38,691 INFO (AuthorPageProcessor.java:65)- 《幻想魔物娘庄园》在作者表中增添成功
+2018-07-25 18:12:38,873 INFO (AuthorPageProcessor.java:65)- 《剑舞之不开车的女装复国之路》在作者表中增添成功
+2018-07-25 18:12:43,380 INFO (AuthorPageProcessor.java:65)- 《我男版富江被姐姐们不可描述》在作者表中增添成功
+2018-07-25 18:12:51,061 INFO (AuthorPageProcessor.java:65)- 《平凡的我遇到不平凡的人们》在作者表中增添成功
+2018-07-25 18:13:03,345 INFO (AuthorPageProcessor.java:65)- 《末世之尸皇系统》在作者表中增添成功
+2018-07-25 18:13:12,161 INFO (AuthorPageProcessor.java:65)- 《在末世上演钢铁童话真的没关系吗》在作者表中增添成功
+2018-07-25 18:13:14,876 INFO (AuthorPageProcessor.java:65)- 《即将合法萝莉》在作者表中增添成功
+2018-07-25 18:13:16,894 INFO (AuthorPageProcessor.java:65)- 《精灵女校的唯一男教师》在作者表中增添成功
+2018-07-25 18:13:17,717 INFO (AuthorPageProcessor.java:65)- 《变成吸血鬼萝莉什么的我可没听说》在作者表中增添成功
+2018-07-25 18:13:23,489 INFO (AuthorPageProcessor.java:65)- 《无敌的我回来了》在作者表中增添成功
+2018-07-25 18:13:23,600 INFO (AuthorPageProcessor.java:65)- 《在异界有了强制交易能力就无敌了》在作者表中增添成功
+2018-07-25 18:13:24,762 INFO (AuthorPageProcessor.java:65)- 《异界转生的我被预定成神》在作者表中增添成功
+2018-07-25 18:13:30,436 INFO (AuthorPageProcessor.java:65)- 《当一个至高神掉落到了下界》在作者表中增添成功
+2018-07-25 18:13:38,903 INFO (AuthorPageProcessor.java:65)- 《求求你们去搞百合吧》在作者表中增添成功
+2018-07-25 18:13:48,231 INFO (AuthorPageProcessor.java:65)- 《约会吧风纪委员黑子》在作者表中增添成功
+2018-07-25 18:13:50,958 INFO (AuthorPageProcessor.java:65)- 《终焉之龙的位面之旅》在作者表中增添成功
+2018-07-25 18:13:51,788 INFO (AuthorPageProcessor.java:65)- 《当你有了系统会怎样》在作者表中增添成功
+2018-07-25 18:13:52,970 INFO (AuthorPageProcessor.java:65)- 《我所遗落到异界的邂逅之旅》在作者表中增添成功
+2018-07-25 18:13:54,988 INFO (AuthorPageProcessor.java:65)- 《成为邪神后的糟糕日常》在作者表中增添成功
+2018-07-25 18:13:57,803 INFO (AuthorPageProcessor.java:65)- 《魔方因子》在作者表中增添成功
+2018-07-25 18:14:01,343 INFO (AuthorPageProcessor.java:65)- 《反派娘》在作者表中增添成功
+2018-07-25 18:14:10,489 INFO (AuthorPageProcessor.java:65)- 《白虎X猎豹》在作者表中增添成功
+2018-07-25 18:14:11,772 INFO (AuthorPageProcessor.java:65)- 《血色恐怖》在作者表中增添成功
+2018-07-25 18:14:23,363 INFO (AuthorPageProcessor.java:65)- 《背锅男主也想谈恋爱》在作者表中增添成功
+2018-07-25 18:14:23,758 INFO (AuthorPageProcessor.java:65)- 《其实爱就是一场久别重逢的旅行》在作者表中增添成功
+2018-07-25 18:14:25,367 INFO (AuthorPageProcessor.java:65)- 《fatehollow》在作者表中增添成功
+2018-07-25 18:14:27,298 INFO (AuthorPageProcessor.java:65)- 《三生三世樱落满园》在作者表中增添成功
+2018-07-25 18:14:30,299 INFO (AuthorPageProcessor.java:65)- 《战争之火燃尽一切》在作者表中增添成功
+2018-07-25 18:14:32,858 INFO (AuthorPageProcessor.java:65)- 《少女前线指挥官的复仇之路》在作者表中增添成功
+2018-07-25 18:14:38,987 INFO (AuthorPageProcessor.java:65)- 《交错变换的世界连锁》在作者表中增添成功
+2018-07-25 18:14:42,141 INFO (AuthorPageProcessor.java:65)- 《在充满巨萌妹子的游戏世界里氪金》在作者表中增添成功
+2018-07-25 18:14:44,785 INFO (AuthorPageProcessor.java:65)- 《这是弦姬的魔王图鉴》在作者表中增添成功
+2018-07-25 18:14:46,275 INFO (AuthorPageProcessor.java:65)- 《作为异世界最强剑豪的麻烦》在作者表中增添成功
+2018-07-25 18:14:48,351 INFO (AuthorPageProcessor.java:65)- 《白与黑的圆舞曲》在作者表中增添成功
+2018-07-25 18:14:50,633 INFO (AuthorPageProcessor.java:65)- 《神国不在》在作者表中增添成功
+2018-07-25 18:14:53,643 INFO (AuthorPageProcessor.java:65)- 《碧蓝启示录》在作者表中增添成功
+2018-07-25 18:14:54,007 INFO (AuthorPageProcessor.java:65)- 《以使徒之名一一少年的冒险之旅》在作者表中增添成功
+2018-07-25 18:14:55,711 INFO (AuthorPageProcessor.java:65)- 《我的老婆是loli轻小说作家》在作者表中增添成功
+2018-07-25 18:15:01,746 INFO (AuthorPageProcessor.java:65)- 《爱上校花的那几年》在作者表中增添成功
+2018-07-25 18:15:13,302 INFO (AuthorPageProcessor.java:65)- 《为这次穿越献上节操》在作者表中增添成功
+2018-07-25 18:15:13,466 INFO (AuthorPageProcessor.java:65)- 《妖怪就一定要开后宫吗》在作者表中增添成功
+2018-07-25 18:15:16,507 INFO (AuthorPageProcessor.java:65)- 《阿斯加德的迷雾之蝎》在作者表中增添成功
+2018-07-25 18:15:20,685 INFO (AuthorPageProcessor.java:65)- 《尾行之狼居然是女孩子》在作者表中增添成功
+2018-07-25 18:15:23,143 INFO (AuthorPageProcessor.java:65)- 《黑夜鬼响》在作者表中增添成功
+2018-07-25 18:15:28,419 INFO (AuthorPageProcessor.java:65)- 《天道只是愚弄众生的枷锁》在作者表中增添成功
+2018-07-25 18:15:30,745 INFO (AuthorPageProcessor.java:65)- 《哥布林管家魔王养成日记》在作者表中增添成功
+2018-07-25 18:15:30,855 INFO (AuthorPageProcessor.java:65)- 《圣母的光辉照耀着你》在作者表中增添成功
+2018-07-25 18:15:31,074 INFO (AuthorPageProcessor.java:65)- 《我的使魔是魔界公主》在作者表中增添成功
+2018-07-25 18:15:31,778 INFO (AuthorPageProcessor.java:65)- 《踏上了复仇路的我竟变成了女孩子》在作者表中增添成功
+2018-07-25 18:15:32,459 INFO (AuthorPageProcessor.java:65)- 《当绝美少年来到女权世界》在作者表中增添成功
+2018-07-25 18:15:32,570 INFO (AuthorPageProcessor.java:65)- 《捡到魔女之后才不会结婚呢》在作者表中增添成功
+2018-07-25 18:15:33,109 INFO (AuthorPageProcessor.java:65)- 《补魔圣手的异界后宫全收集》在作者表中增添成功
+2018-07-25 18:15:33,219 INFO (AuthorPageProcessor.java:65)- 《与圣骑士姐姐的结婚手册》在作者表中增添成功
+2018-07-25 18:15:33,330 INFO (AuthorPageProcessor.java:65)- 《天尊的魅魔女仆养成方法》在作者表中增添成功
+2018-07-25 18:15:33,494 INFO (AuthorPageProcessor.java:65)- 《变身四神的我携妹吞异界开后宫》在作者表中增添成功
+2018-07-25 18:15:34,114 INFO (AuthorPageProcessor.java:65)- 《器灵后宫的收集计划》在作者表中增添成功
+2018-07-25 18:15:34,224 INFO (AuthorPageProcessor.java:65)- 《在剑与魔法的世界开高达有问题吗》在作者表中增添成功
+2018-07-25 18:15:34,636 INFO (AuthorPageProcessor.java:65)- 《校园恋爱什么的根本就是骗人的》在作者表中增添成功
+2018-07-25 18:15:34,747 INFO (AuthorPageProcessor.java:65)- 《零级小号吊打满级只需一击》在作者表中增添成功
+2018-07-25 18:15:35,019 INFO (AuthorPageProcessor.java:65)- 《成为区域boss之后》在作者表中增添成功
+2018-07-25 18:15:35,616 INFO (AuthorPageProcessor.java:65)- 《绝望刽子手与咒神龙姬的悲恋物语》在作者表中增添成功
+2018-07-25 18:15:35,726 INFO (AuthorPageProcessor.java:65)- 《最强杀手应该不需要感情才对吧》在作者表中增添成功
+2018-07-25 18:15:36,029 INFO (AuthorPageProcessor.java:65)- 《我站着不动也没人可以击败我》在作者表中增添成功
+2018-07-25 18:15:37,008 INFO (AuthorPageProcessor.java:65)- 《谁敢欺负本剑神的玉精灵公主》在作者表中增添成功
+2018-07-25 18:15:37,292 INFO (AuthorPageProcessor.java:65)- 《封号阻止不了我拿冠军》在作者表中增添成功
+2018-07-25 18:15:37,996 INFO (AuthorPageProcessor.java:65)- 《次元脉动》在作者表中增添成功
+2018-07-25 18:15:39,065 INFO (AuthorPageProcessor.java:65)- 《本店低价出售香烟和酒和正义》在作者表中增添成功
+2018-07-25 18:15:39,926 INFO (AuthorPageProcessor.java:65)- 《武林霸王逍遥行》在作者表中增添成功
+2018-07-25 18:15:40,198 INFO (AuthorPageProcessor.java:65)- 《兄弟买挂么》在作者表中增添成功
+2018-07-25 18:15:40,761 INFO (AuthorPageProcessor.java:65)- 《刀剑人妻》在作者表中增添成功
+2018-07-25 18:15:41,480 INFO (AuthorPageProcessor.java:65)- 《我能变成金发小姐姐是我的错么》在作者表中增添成功
+2018-07-25 18:15:41,591 INFO (AuthorPageProcessor.java:65)- 《OTHERWORLD不懂看简介》在作者表中增添成功
+2018-07-25 18:15:42,166 INFO (AuthorPageProcessor.java:65)- 《小心猫咪》在作者表中增添成功
+2018-07-25 18:15:42,276 INFO (AuthorPageProcessor.java:65)- 《女装大魔王的我拥有神界后宫三千》在作者表中增添成功
+2018-07-25 18:15:42,608 INFO (AuthorPageProcessor.java:65)- 《我的妹妹是sf热销作者》在作者表中增添成功
+2018-07-25 18:15:42,772 INFO (AuthorPageProcessor.java:65)- 《姐控救世主才不开后宫》在作者表中增添成功
+2018-07-25 18:15:43,052 INFO (AuthorPageProcessor.java:65)- 《残念轻小说作家与柴刀修罗场》在作者表中增添成功
+2018-07-25 18:15:43,162 INFO (AuthorPageProcessor.java:65)- 《让后宫们带飞有错吗》在作者表中增添成功
+2018-07-25 18:15:44,002 INFO (AuthorPageProcessor.java:65)- 《百物语之主》在作者表中增添成功
+2018-07-25 18:15:44,646 INFO (AuthorPageProcessor.java:65)- 《天下第一也要陪女儿闯荡江湖》在作者表中增添成功
+2018-07-25 18:15:45,046 INFO (AuthorPageProcessor.java:65)- 《黑道大小姐的百合水晶宫》在作者表中增添成功
+2018-07-25 18:15:45,820 INFO (AuthorPageProcessor.java:65)- 《穿越异世界的我如何开后宫》在作者表中增添成功
+2018-07-25 18:15:46,746 INFO (AuthorPageProcessor.java:65)- 《暗客》在作者表中增添成功
+2018-07-25 18:15:48,151 INFO (AuthorPageProcessor.java:65)- 《剑豪转生成魅魔靠借力量称霸异界》在作者表中增添成功
+2018-07-25 18:15:48,263 INFO (AuthorPageProcessor.java:65)- 《身为灭世级反派我已经看穿了一切》在作者表中增添成功
+2018-07-25 18:15:48,428 INFO (AuthorPageProcessor.java:65)- 《皇家玩家的我怎么可能是反派》在作者表中增添成功
+2018-07-25 18:15:49,730 INFO (AuthorPageProcessor.java:65)- 《即便是最强神使也要追求爱情》在作者表中增添成功
+2018-07-25 18:15:49,894 INFO (AuthorPageProcessor.java:65)- 《和死神一起生活的日子》在作者表中增添成功
+2018-07-25 18:15:50,113 INFO (AuthorPageProcessor.java:65)- 《本长老身为最菜才不要收女弟子》在作者表中增添成功
+2018-07-25 18:15:51,470 INFO (AuthorPageProcessor.java:65)- 《v999大佬不好惹》在作者表中增添成功
+2018-07-25 18:15:51,684 INFO (AuthorPageProcessor.java:65)- 《最强散修没了肉身也能吊打修仙界》在作者表中增添成功
+2018-07-25 18:15:52,513 INFO (AuthorPageProcessor.java:65)- 《关于我转生到异世界那些事》在作者表中增添成功
+2018-07-25 18:15:53,488 INFO (AuthorPageProcessor.java:65)- 《我与病娇妹妹相隔一个世界》在作者表中增添成功
+2018-07-25 18:15:54,472 INFO (AuthorPageProcessor.java:65)- 《你好我是龙骑士这是我的萝莉龙》在作者表中增添成功
+2018-07-25 18:15:54,690 INFO (AuthorPageProcessor.java:65)- 《辅助系妹控精灵》在作者表中增添成功
+2018-07-25 18:15:55,816 INFO (AuthorPageProcessor.java:65)- 《被迫照顾着萝莉的隐藏BOSS》在作者表中增添成功
+2018-07-25 18:15:56,947 INFO (AuthorPageProcessor.java:65)- 《恶魔的我与天使少女的同居生活》在作者表中增添成功
+2018-07-25 18:15:57,060 INFO (AuthorPageProcessor.java:65)- 《我只是区区一个不死者》在作者表中增添成功
+2018-07-25 18:15:58,465 INFO (AuthorPageProcessor.java:65)- 《无敌魔王的我在人类王国开后宫》在作者表中增添成功
+2018-07-25 18:16:01,659 INFO (AuthorPageProcessor.java:65)- 《作为神剑的我和我的猪队友们》在作者表中增添成功
+2018-07-25 18:16:01,933 INFO (AuthorPageProcessor.java:65)- 《为了变回男身绝不能被少女们捕获》在作者表中增添成功
+2018-07-25 18:16:03,158 INFO (AuthorPageProcessor.java:65)- 《女王救命》在作者表中增添成功
+2018-07-25 18:16:04,083 INFO (AuthorPageProcessor.java:65)- 《汐岚和他的刀》在作者表中增添成功
+2018-07-25 18:16:05,070 INFO (AuthorPageProcessor.java:65)- 《萝莉塔事务所》在作者表中增添成功
+2018-07-25 18:16:06,639 INFO (AuthorPageProcessor.java:65)- 《这个世界对最强传承者来说好弱》在作者表中增添成功
+2018-07-25 18:16:06,923 INFO (AuthorPageProcessor.java:65)- 《有关于大师姐的安全使用手册》在作者表中增添成功
+2018-07-25 18:16:07,872 INFO (AuthorPageProcessor.java:65)- 《我的女武神学院》在作者表中增添成功
+2018-07-25 18:16:07,981 INFO (AuthorPageProcessor.java:65)- 《圣女殿下请停止你的幻想》在作者表中增添成功
+2018-07-25 18:16:08,101 INFO (AuthorPageProcessor.java:65)- 《超能力宅楠拒绝拯救世界》在作者表中增添成功
+2018-07-25 18:16:08,691 INFO (AuthorPageProcessor.java:65)- 《雾空》在作者表中增添成功
+2018-07-25 18:16:10,483 INFO (AuthorPageProcessor.java:65)- 《关于我分手后遇上妹妹这件事》在作者表中增添成功
+2018-07-25 18:16:11,485 INFO (AuthorPageProcessor.java:65)- 《魔花育成日记》在作者表中增添成功
+2018-07-25 18:16:12,658 INFO (AuthorPageProcessor.java:65)- 《我成为了我小说里面的女主角》在作者表中增添成功
+2018-07-25 18:16:13,575 INFO (AuthorPageProcessor.java:65)- 《理科男的人生价值就只有抢萝莉吗》在作者表中增添成功
+2018-07-25 18:16:13,889 INFO (AuthorPageProcessor.java:65)- 《变嫁作家的性转物语》在作者表中增添成功
+2018-07-25 18:16:14,207 INFO (AuthorPageProcessor.java:65)- 《破碎世界重置》在作者表中增添成功
+2018-07-25 18:16:19,692 INFO (AuthorPageProcessor.java:65)- 《众神狂想曲》在作者表中增添成功
+2018-07-25 18:16:25,613 INFO (AuthorPageProcessor.java:65)- 《会算命的我在江湖上摸爬滚打》在作者表中增添成功
+2018-07-25 18:16:31,535 INFO (AuthorPageProcessor.java:65)- 《回到明天的世界》在作者表中增添成功
+2018-07-25 18:16:32,098 INFO (AuthorPageProcessor.java:65)- 《青梅竹马死后重生性格有点扭曲》在作者表中增添成功
+2018-07-25 18:16:33,555 INFO (AuthorPageProcessor.java:65)- 《路西法圣使的异世界魔幻风云》在作者表中增添成功
+2018-07-25 18:16:34,723 INFO (AuthorPageProcessor.java:65)- 《女装大佬的变身日常》在作者表中增添成功
+2018-07-25 18:16:36,002 INFO (AuthorPageProcessor.java:65)- 《天朝少年在异世界的后宫之旅》在作者表中增添成功
+2018-07-25 18:16:38,304 INFO (AuthorPageProcessor.java:65)- 《魔零》在作者表中增添成功
+2018-07-25 18:16:41,229 INFO (AuthorPageProcessor.java:65)- 《魔神残骸收集者》在作者表中增添成功
+2018-07-25 18:16:43,077 INFO (AuthorPageProcessor.java:65)- 《无论何等爆肝都会扑街的美好世界》在作者表中增添成功
+2018-07-25 18:16:43,675 INFO (AuthorPageProcessor.java:65)- 《天使的羽翼》在作者表中增添成功
+2018-07-25 18:16:44,745 INFO (AuthorPageProcessor.java:65)- 《痴女魔王与萌女勇者在争夺我》在作者表中增添成功
+2018-07-25 18:16:45,269 INFO (AuthorPageProcessor.java:65)- 《中二病的我在拯救异世界》在作者表中增添成功
+2018-07-25 18:16:50,432 INFO (AuthorPageProcessor.java:65)- 《炼金术能炼出老婆吗》在作者表中增添成功
+2018-07-25 18:16:51,422 INFO (AuthorPageProcessor.java:65)- 《黑与白的繁星异闻录》在作者表中增添成功
+2018-07-25 18:16:53,156 INFO (AuthorPageProcessor.java:65)- 《我X人神妖三族老大X打钱》在作者表中增添成功
+2018-07-25 18:16:53,798 INFO (AuthorPageProcessor.java:65)- 《网游中报复同班校花却误入修罗场》在作者表中增添成功
+2018-07-25 18:16:54,432 INFO (AuthorPageProcessor.java:65)- 《我的系统怎么老想着害我》在作者表中增添成功
+2018-07-25 18:16:55,027 INFO (AuthorPageProcessor.java:65)- 《变身游戏角色后我穿越到了异世界》在作者表中增添成功
+2018-07-25 18:16:56,647 INFO (AuthorPageProcessor.java:65)- 《这个妹妹给你怎样》在作者表中增添成功
+2018-07-25 18:16:56,909 INFO (AuthorPageProcessor.java:65)- 《时空逆乱》在作者表中增添成功
+2018-07-25 18:16:57,793 INFO (AuthorPageProcessor.java:65)- 《身为女主却想要做男主小弟》在作者表中增添成功
+2018-07-25 18:16:58,118 INFO (AuthorPageProcessor.java:65)- 《非常规事态进行时》在作者表中增添成功
+2018-07-25 18:16:59,299 INFO (AuthorPageProcessor.java:65)- 《CRO绝地神域》在作者表中增添成功
+2018-07-25 18:17:03,459 INFO (AuthorPageProcessor.java:65)- 《存在感超高的我不想被人注意》在作者表中增添成功
+2018-07-25 18:17:03,900 INFO (AuthorPageProcessor.java:65)- 《科学这玩意儿肯定比魔法好用啊》在作者表中增添成功
+2018-07-25 18:17:04,012 INFO (AuthorPageProcessor.java:65)- 《本魔王今天就是要做冒险者》在作者表中增添成功
+2018-07-25 18:17:09,782 INFO (AuthorPageProcessor.java:65)- 《为了她我可以和整个武林为敌》在作者表中增添成功
+2018-07-25 18:17:10,558 INFO (AuthorPageProcessor.java:65)- 《那一抹飞剑的娇羞》在作者表中增添成功
+2018-07-25 18:17:11,749 INFO (AuthorPageProcessor.java:65)- 《可以不当英雄吗》在作者表中增添成功
+2018-07-25 18:17:12,441 INFO (AuthorPageProcessor.java:65)- 《我对宫城小姐的恋爱大作战》在作者表中增添成功
+2018-07-25 18:17:13,347 INFO (AuthorPageProcessor.java:65)- 《女装的我被女生视为狐狸精这件事》在作者表中增添成功
+2018-07-25 18:17:16,664 INFO (AuthorPageProcessor.java:65)- 《我的沉默是世界的死亡》在作者表中增添成功
+2018-07-25 18:17:18,070 INFO (AuthorPageProcessor.java:65)- 《我变成了萝莉美少女》在作者表中增添成功
+2018-07-25 18:17:18,185 INFO (AuthorPageProcessor.java:65)- 《概率魔法无定法则》在作者表中增添成功
+2018-07-25 18:17:22,180 INFO (AuthorPageProcessor.java:65)- 《东方之霞》在作者表中增添成功
+2018-07-25 18:17:28,965 INFO (AuthorPageProcessor.java:65)- 《山海快递公司》在作者表中增添成功
+2018-07-25 18:17:31,963 INFO (AuthorPageProcessor.java:65)- 《MaplELeaF》在作者表中增添成功
+2018-07-25 18:17:33,961 INFO (AuthorPageProcessor.java:65)- 《被欲望支配的超常世界异闻录》在作者表中增添成功
+2018-07-25 18:17:36,293 INFO (AuthorPageProcessor.java:65)- 《我不像你那样强大》在作者表中增添成功
+2018-07-25 18:17:41,146 INFO (AuthorPageProcessor.java:65)- 《摘星神偷被女捕头强行逼婚怎么办》在作者表中增添成功
+2018-07-25 18:17:43,255 INFO (AuthorPageProcessor.java:65)- 《恋爱七重奏》在作者表中增添成功
+2018-07-25 18:17:45,459 INFO (AuthorPageProcessor.java:65)- 《瑟伊希的白面之影》在作者表中增添成功
+2018-07-25 18:17:48,034 INFO (AuthorPageProcessor.java:65)- 《正经的守护者碰上不正经的守护人》在作者表中增添成功
+2018-07-25 18:17:48,638 INFO (AuthorPageProcessor.java:65)- 《黑死学院的一尘不变》在作者表中增添成功
+2018-07-25 18:17:50,469 INFO (AuthorPageProcessor.java:65)- 《意外变妹的吾辈与不正经魔法战争》在作者表中增添成功
+2018-07-25 18:17:50,579 INFO (AuthorPageProcessor.java:65)- 《光与暗的裁决使》在作者表中增添成功
+2018-07-25 18:17:53,440 INFO (AuthorPageProcessor.java:65)- 《珀尔泊斯诺的王牌侍骑》在作者表中增添成功
+2018-07-25 18:17:55,736 INFO (AuthorPageProcessor.java:65)- 《魔王萝莉茶》在作者表中增添成功
+2018-07-25 18:18:03,803 INFO (AuthorPageProcessor.java:65)- 《多元宇宙居委会》在作者表中增添成功
+2018-07-25 18:18:04,752 INFO (AuthorPageProcessor.java:65)- 《这个漫研社不缺非正常人类》在作者表中增添成功
+2018-07-25 18:18:05,141 INFO (AuthorPageProcessor.java:65)- 《在末世拥有指挥部是个怎样的体验》在作者表中增添成功
+2018-07-25 18:18:06,450 INFO (AuthorPageProcessor.java:65)- 《每周唯独在萝变两天时算无敌状态》在作者表中增添成功
+2018-07-25 18:18:11,872 INFO (AuthorPageProcessor.java:65)- 《最后的半小妖》在作者表中增添成功
+2018-07-25 18:18:13,923 INFO (AuthorPageProcessor.java:65)- 《流萤幻游》在作者表中增添成功
+2018-07-25 18:18:14,159 INFO (AuthorPageProcessor.java:65)- 《我活不过四天怎么破》在作者表中增添成功
+2018-07-25 18:18:17,371 INFO (AuthorPageProcessor.java:65)- 《剑立于前》在作者表中增添成功
+2018-07-25 18:18:17,589 INFO (AuthorPageProcessor.java:65)- 《进击吧哥布林》在作者表中增添成功
+2018-07-25 18:18:18,820 INFO (AuthorPageProcessor.java:65)- 《我的战国求生之路》在作者表中增添成功
+2018-07-25 18:18:23,072 INFO (AuthorPageProcessor.java:65)- 《少女前线狂想曲》在作者表中增添成功
+2018-07-25 18:18:23,185 INFO (AuthorPageProcessor.java:65)- 《爱上校花那一年》在作者表中增添成功
+2018-07-25 18:18:24,358 INFO (AuthorPageProcessor.java:65)- 《最弱能力者的妻管严之路》在作者表中增添成功
+2018-07-25 18:18:24,576 INFO (AuthorPageProcessor.java:65)- 《我怎么会被剑灵缠上》在作者表中增添成功
+2018-07-25 18:18:24,686 INFO (AuthorPageProcessor.java:65)- 《关于我被二货魔女拐到异世界这事》在作者表中增添成功
+2018-07-25 18:18:27,345 INFO (AuthorPageProcessor.java:65)- 《我与机械女仆在异世界的异常》在作者表中增添成功
+2018-07-25 18:18:33,681 INFO (AuthorPageProcessor.java:65)- 《残翼丶泥淖中绽放的生命》在作者表中增添成功
+2018-07-25 18:18:35,018 INFO (AuthorPageProcessor.java:65)- 《觉醒之剑》在作者表中增添成功
+2018-07-25 18:18:37,257 INFO (AuthorPageProcessor.java:65)- 《这是青春樱花的狂袭》在作者表中增添成功
+2018-07-25 18:18:38,070 INFO (AuthorPageProcessor.java:65)- 《FTL次元之门》在作者表中增添成功
+2018-07-25 18:18:42,714 INFO (AuthorPageProcessor.java:65)- 《狼背上的萝莉》在作者表中增添成功
+2018-07-25 18:18:48,300 INFO (AuthorPageProcessor.java:65)- 《如果只剩绝望我将踏向永恒》在作者表中增添成功
+2018-07-25 18:18:48,881 INFO (AuthorPageProcessor.java:65)- 《失落世界的红名玩家》在作者表中增添成功
+2018-07-25 18:18:53,210 INFO (AuthorPageProcessor.java:65)- 《就我一个男的要怎么洁身自好》在作者表中增添成功
+2018-07-25 18:18:56,332 INFO (AuthorPageProcessor.java:65)- 《鬼畜的我竟然有女孩子喜欢》在作者表中增添成功
+2018-07-25 18:18:57,847 INFO (AuthorPageProcessor.java:65)- 《百邪不谈》在作者表中增添成功
+2018-07-25 18:19:00,679 INFO (AuthorPageProcessor.java:65)- 《纪元丶炼金》在作者表中增添成功
+2018-07-25 18:19:02,024 INFO (AuthorPageProcessor.java:65)- 《追迹者》在作者表中增添成功
+2018-07-25 18:19:20,820 INFO (AuthorPageProcessor.java:65)- 《废宅老师和他的现充学生》在作者表中增添成功
+2018-07-25 18:19:21,514 INFO (AuthorPageProcessor.java:65)- 《姐姐大人无处安放的恋爱物语》在作者表中增添成功
+2018-07-25 18:19:21,679 INFO (AuthorPageProcessor.java:65)- 《最终boss》在作者表中增添成功
+2018-07-25 18:19:22,240 INFO (AuthorPageProcessor.java:65)- 《我的世界不欢迎龙傲天》在作者表中增添成功
+2018-07-25 18:19:30,101 INFO (AuthorPageProcessor.java:65)- 《我与她与轻小说》在作者表中增添成功
+2018-07-25 18:19:33,649 INFO (AuthorPageProcessor.java:65)- 《药妖》在作者表中增添成功
+2018-07-25 18:19:37,071 INFO (AuthorPageProcessor.java:65)- 《杀神影》在作者表中增添成功
+2018-07-25 18:19:45,614 INFO (AuthorPageProcessor.java:65)- 《魔王的我却收养了勇者的萝莉女儿》在作者表中增添成功
+2018-07-25 18:19:49,341 INFO (AuthorPageProcessor.java:65)- 《最强天师竟一心只想开后宫》在作者表中增添成功
+2018-07-25 18:19:55,190 INFO (AuthorPageProcessor.java:65)- 《青铜班的死神》在作者表中增添成功
+2018-07-25 18:20:01,990 INFO (AuthorPageProcessor.java:65)- 《星之砂》在作者表中增添成功
+2018-07-25 18:20:03,166 INFO (AuthorPageProcessor.java:65)- 《充满爱的斗神演武》在作者表中增添成功
+2018-07-25 18:20:15,230 INFO (AuthorPageProcessor.java:65)- 《未来置换》在作者表中增添成功
+2018-07-25 18:20:20,973 INFO (AuthorPageProcessor.java:65)- 《圣域的传说》在作者表中增添成功
+2018-07-25 18:20:25,501 INFO (AuthorPageProcessor.java:65)- 《纯洁精灵不会被魔花污染》在作者表中增添成功
+2018-07-25 18:20:29,115 INFO (AuthorPageProcessor.java:65)- 《诸神灵域》在作者表中增添成功
+2018-07-25 18:20:34,259 INFO (AuthorPageProcessor.java:65)- 《柯南同人GRS第一部黑白无常》在作者表中增添成功
+2018-07-25 18:21:19,187 INFO (AuthorPageProcessor.java:65)- 《他所追寻的世界》在作者表中增添成功
+2018-07-25 18:21:21,195 INFO (AuthorPageProcessor.java:65)- 《交汇的平行线》在作者表中增添成功
+2018-07-25 18:21:35,035 INFO (AuthorPageProcessor.java:65)- 《我一定好好做女孩子》在作者表中增添成功
+2018-07-25 18:21:36,018 INFO (AuthorPageProcessor.java:65)- 《Re银狼的魔女》在作者表中增添成功
+2018-07-25 18:21:50,714 INFO (AuthorPageProcessor.java:65)- 《星城探长》在作者表中增添成功
+2018-07-25 18:21:59,626 INFO (AuthorPageProcessor.java:65)- 《最强妖使的我只想还债回家娶老婆》在作者表中增添成功
+2018-07-25 18:22:28,491 INFO (AuthorPageProcessor.java:65)- 《2020》在作者表中增添成功
+2018-07-25 18:22:39,491 INFO (AuthorPageProcessor.java:65)- 《蔚蓝交响曲》在作者表中增添成功

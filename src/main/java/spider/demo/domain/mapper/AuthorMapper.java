@@ -48,11 +48,11 @@ public interface AuthorMapper {
      *
      * @return
      */
-    @Insert("INSERT INTO Author(authorName, bookName," +
-            "url,right) VALUES"
+    @Insert("INSERT INTO Author(authorName,bookName," +
+            "url,ok) VALUES"
             +
             "(#{authorName}, #{bookName}," +
-            "#{url}，#{right})")
+            "#{url},#{right})")
     int insertAll(Author author);
 
     /**
