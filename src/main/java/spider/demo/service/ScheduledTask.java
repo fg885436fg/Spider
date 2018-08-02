@@ -6,7 +6,7 @@ package spider.demo.service;
  * @author: lanyubing
  * @create: 2018-07-13 16:42
  **/
-public interface Scheduled {
+public interface ScheduledTask {
 
     /**
      * 判断鸽子作者的时间间隔
@@ -30,19 +30,29 @@ public interface Scheduled {
     void saveGrowthData() throws Exception;
 
     /**
-     * 定时删除咕咕咕的作者
+     * 每天根据昨日所爬取的书籍信息，判定是否太监
      */
-    void delectGuGuAuthor();
+    void delectGuGuAuthorDay();
 
     /**
-     * 一天的所有任务集合,每天00：00分执行
+     * 每周根据作者表信息，判定是否太监
      */
-    void taskAll();
+    void delectGuGuAuthorWeek();
+
+    /**
+     * 一天的所有任务集合,每天00：00分50秒执行
+     */
+    void runEveryDay();
 
     /**
      * 处理sf爬取失败的连接
      */
     void dealWithSfErrorUrl();
+
+    /**
+     * 每周日凌晨一点运行
+     */
+    void runEveryWeek();
 
 
 }

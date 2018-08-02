@@ -12,6 +12,7 @@ import spider.demo.domain.dao.ErrorUrlDao;
 import spider.demo.domain.dao.ForbiddenWordDao;
 import spider.demo.domain.entity.*;
 import spider.demo.domain.mapper.AuthorCookieMapper;
+import spider.demo.domain.mapper.AuthorMapper;
 import spider.demo.domain.mapper.ErrorUrlMapper;
 import spider.demo.domain.mapper.ForbiddenWordMapper;
 import spider.demo.tools.DateUtil;
@@ -34,15 +35,12 @@ public class TestDao {
     ErrorUrlMapper errorUrlMapper;
     @Autowired
     ErrorUrlDao errorUrlDao;
+    @Autowired
+    AuthorMapper authorMapper;
 
     @Test
     public void TestSfAuthorCookie() {
-//        Map<String, String> authorCookieMap = new HashMap<>();
-//        AuthorCookie authorCookie = new AuthorCookie("A", "SF");
-//        authorCookieMap.put(".SFCommunity", "咕咕咕咕");
-//        authorCookie.setAuthorCookieMap(authorCookieMap);
-//        System.out.println(authorCookieMapper.insertCookieMapper(authorCookie));
-//        System.out.println(authorCookieMapper.getByAuthorName("A").getAuthorName());
+
     }
 
     @Test

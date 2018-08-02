@@ -61,6 +61,19 @@ public interface SfBookMapper {
     List<String> findAllByDate(@Param("date") String date);
 
     /**
+     * 根据爬取日期获得书籍信息
+     * @param date 日期
+     * @return
+     */
+    @Select("SELECT DISTINCT\n" +
+            "*\n" +
+            "FROM\n" +
+            "SFBOOK\n" +
+            "WHERE\n" +
+            "SFBOOK.date = #{date}")
+    List<SfBook> findBookBydate (@Param("date") String date);
+
+    /**
      * 根据更新日期批量获取书名
      * @param dates 日期集合
      * @return

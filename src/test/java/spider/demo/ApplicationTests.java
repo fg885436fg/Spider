@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import spider.demo.domain.dao.ErrorUrlDao;
 import spider.demo.domain.entity.ErrorUrl;
-import spider.demo.domain.entity.ProxyEntity;
 import spider.demo.domain.mapper.AuthorCookieMapper;
 import spider.demo.domain.mapper.AuthorMapper;
 import spider.demo.domain.mapper.GrowthDataMapper;
@@ -23,9 +22,6 @@ import spider.demo.service.webmagic.SfPageYa;
 import spider.demo.service.webmagic.TestIpPage;
 import spider.demo.tools.DateUtil;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.downloader.HttpClientDownloader;
-import us.codecraft.webmagic.proxy.Proxy;
-import us.codecraft.webmagic.proxy.SimpleProxyProvider;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -48,7 +44,7 @@ public class ApplicationTests {
     @Autowired
     private Reptile reptile;
     @Autowired
-    Scheduled scheduled;
+    ScheduledTask scheduledTask;
     @Autowired
     private AuthorMapper authorMapper;
 
@@ -77,7 +73,7 @@ public class ApplicationTests {
 
     @Test
     public void findByName() throws Exception {
-
+        scheduledTask.delectGuGuAuthorWeek();
     }
 
     @Test
@@ -194,20 +190,23 @@ public class ApplicationTests {
                 .collect(Collectors.toList());
         if (errorUrls.size() == 0) {
             return;
-        } else {if (true){}
-            errorUrlDao.deleteErrorUrlByType("SF");
-            String[] url = new String[errorUrls.size()];
-            for (int i = 0; i < errorUrls.size(); i++) {
-                url[i] = errorUrls.get(i).getUrl();
-            }
-            Spider.create(sfPageYa).thread(10).addUrl(url).run();
         }
-
+        errorUrlDao.deleteErrorUrlByType("SF");
+        String[] url = new String[errorUrls.size()];
+        for (int i = 0; i < errorUrls.size(); i++) {
+            url[i] = errorUrls.get(i).getUrl();
+        }
+        Spider.create(sfPageYa).thread(10).addUrl(url).run();
     }
 
     @Test
     public void testScheduled() {
 
+    }
+
+    @Test
+    public void testGetAuthor(){
+        reptile.getAuthorBook();
     }
 
 }
