@@ -174,17 +174,20 @@ public class ReptileImpl implements Reptile {
     }
 
     @Override
-    public void dealWithSfErrorUrl() {
+    synchronized public void dealWithSfErrorUrl() {
         List<ErrorUrl> errorUrls = new ArrayList<>();
         DateUtil dateUtil = new DateUtil();
-
+        logger.warn("最高循环处理："+DEAL_WITH_ERROR_URL+"次");
         errorUrls = errorUrlDao.getAllErrorUrl().stream().
                 filter(errorUrl -> {
                     boolean isDateEq = errorUrl.getDate().toString().equals(dateUtil.getNowFreeFormatterDate("yyyy-MM-dd").toString());
                     boolean isTypeEq = "SF".equals(errorUrl.getType());
                     return isDateEq && isTypeEq;
                 }).collect(Collectors.toList());
+
         if (errorUrls.size() == 0) {
+            logger.warn("第" + retryNum + "次执行");
+            logger.warn("错误处理完毕");
             return;
         } else {
             logger.warn("dealWithSfErrorUrl 开始处理错误的连接 ==》");
@@ -208,7 +211,7 @@ public class ReptileImpl implements Reptile {
         }).collect(Collectors.toList());
         lyb.setProxyProvider(new SimpleProxyProvider(proxies));
         Spider.create(sfPageYa).thread(threadNum).setDownloader(lyb).addUrl(url).run();
-        if (retryNum == DEAL_WITH_ERROR_URL) {
+        if (retryNum > 5) {
             logger.warn("第" + retryNum + "次执行");
             logger.warn("错误处理完毕");
         } else {
@@ -216,5 +219,11 @@ public class ReptileImpl implements Reptile {
             logger.warn("重复任务中");
             dealWithSfErrorUrl();
         }
+    }
+
+
+    @Override
+    public void setRetryNum(int retryNum) {
+        this.retryNum = retryNum;
     }
 }

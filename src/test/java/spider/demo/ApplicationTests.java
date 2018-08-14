@@ -159,10 +159,12 @@ public class ApplicationTests {
     @Test
     @Rollback(false)
     public void getSfbookBasicByYA() {
-        reptile.dealWithSfErrorUrl();
+        scheduledTask.delectGuGuAuthorWeek();
+//        reptile.dealWithSfErrorUrl();
+        reptile.getSfbookBasicByYA();
 //        reptile.getAuthorBook();
         try {
-//            autoSaveGrowthData.saveGrowthData();
+            autoSaveGrowthData.saveGrowthData();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -201,7 +203,11 @@ public class ApplicationTests {
 
     @Test
     public void testScheduled() {
-
+        try {
+            scheduledTask.saveGrowthData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

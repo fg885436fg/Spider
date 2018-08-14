@@ -41,12 +41,12 @@ public class AutoSaveGrowthDataImpl implements AutoSaveGrowthData {
         LocalDate today = LocalDate.now();
         logger.info("开始存储书籍的增长数据");
         List<String> dates = new ArrayList<>();
-        for (int i = 0; i < WEEK_DAY; i++) {
-            dates.add(today.minusDays(i).toString());
-        }
+//        for (int i = 0; i < WEEK_DAY; i++) {
+//            dates.add(today.minusDays(i).toString());
+//        }
+        dates.add("2018-8-13");
         DateUtil d = new DateUtil();
         growthDataMapper.delectBookInc(d.getAnyNowDate("yyyy-MM-dd",1));
-
         List<String> bookNames = new ArrayList<>();
         for (int i = 0; i < MON_DAY; i++) {
             bookNames.addAll(sfBookMapper.findBookNameBatchByUpdate(dates)) ;

@@ -20,13 +20,13 @@ import java.util.List;
 @Repository
 public interface SfBookMapper {
 
-    @Select("SELECT * FROM SFBOOK")
+    @Select("SELECT * FROM sfbook")
     List<SfBook> findAll ();
 
-    @Select("SELECT * FROM SFBOOK WHERE bookName = #{bookName}")
+    @Select("SELECT * FROM sfbook WHERE bookName = #{bookName}")
     List<SfBook> findByName (@Param("bookName") String bookName);
 
-    @Select("SELECT DISTINCT * FROM  SFBOOK WHERE bookName = #{bookName} AND date = #{date}")
+    @Select("SELECT DISTINCT * FROM  sfbook WHERE bookName = #{bookName} AND date = #{date}")
     SfBook findByNameAndDate (@Param("bookName") String bookName, @Param("date") String date);
 
     /**
@@ -38,11 +38,11 @@ public interface SfBookMapper {
     @Select("SELECT DISTINCT " +
             "*\n" +
             "FROM\n" +
-            "SFBOOK\n" +
+            "sfbook\n" +
             "WHERE\n" +
-            "SFBOOK.bookName =  #{bookName}\n" +
+            "sfbook.bookName =  #{bookName}\n" +
             "ORDER BY\n" +
-            "SFBOOK.date DESC\n" +
+            "sfbook.date DESC\n" +
             "LIMIT 0,100")
     List<SfBook> findAllDateWeek (@Param("bookName") String bookName);
 
@@ -52,12 +52,12 @@ public interface SfBookMapper {
      * @return
      */
     @Select("SELECT\n" +
-            "SFBOOK.bookName\n" +
+            "sfbook.bookName\n" +
             "FROM\n" +
-            "SFBOOK\n" +
+            "sfbook\n" +
             "WHERE\n" +
-            "SFBOOK.upateDate = #{date} AND\n" +
-            "SFBOOK.sign <> '普通'\n")
+            "sfbook.upateDate = #{date} AND\n" +
+            "sfbook.sign <> '普通'\n")
     List<String> findAllByDate(@Param("date") String date);
 
     /**
@@ -68,9 +68,9 @@ public interface SfBookMapper {
     @Select("SELECT DISTINCT\n" +
             "*\n" +
             "FROM\n" +
-            "SFBOOK\n" +
+            "sfbook\n" +
             "WHERE\n" +
-            "SFBOOK.date = #{date}")
+            "sfbook.date = #{date}")
     List<SfBook> findBookBydate (@Param("date") String date);
 
     /**
@@ -80,13 +80,13 @@ public interface SfBookMapper {
      */
     @Lang(SimpleSelectInExtendedLanguageDriver.class)
     @Select("SELECT  DISTINCT\n" +
-            "SFBOOK.bookName\n" +
+            "sfbook.bookName\n" +
             "FROM\n" +
-            "SFBOOK\n" +
+            "sfbook\n" +
             "WHERE\n" +
-            "SFBOOK.sign != '普通'\n" +
+            "sfbook.sign != '普通'\n" +
             " AND "+
-            "SFBOOK.upateDate IN (#{dates})")
+            "sfbook.upateDate IN (#{dates})")
     List<String> findBookNameBatchByUpdate (@Param("dates") List<String> dates);
 
     /**
@@ -98,11 +98,11 @@ public interface SfBookMapper {
     @Select("SELECT DISTINCT " +
             "*\n" +
             "FROM\n" +
-            "SFBOOK\n" +
+            "sfbook\n" +
             "WHERE\n" +
-            "SFBOOK.bookName =  #{bookName}\n" +
+            "sfbook.bookName =  #{bookName}\n" +
             "ORDER BY\n" +
-            "SFBOOK.date DESC\n" +
+            "sfbook.date DESC\n" +
             "LIMIT 0,100")
     List<SfBook> findAllDateMonth (@Param("bookName") String bookName);
 
@@ -113,7 +113,7 @@ public interface SfBookMapper {
      * @param sfBook 书籍对象
      * @return
      */
-    @Insert("INSERT INTO SFBOOK(bookName,collectNum," +
+    @Insert("INSERT INTO sfbook(bookName,collectNum," +
             "clickNum,monthlyNum," +
             "likeNum,date,upateDate,status,wordNum,sign) VALUES "
             +
@@ -130,7 +130,7 @@ public interface SfBookMapper {
      * @return
      */
 
-    @Insert("INSERT INTO SFBOOK(bookName) VALUES(#{bookName})")
+    @Insert("INSERT INTO sfbook(bookName) VALUES(#{bookName})")
     int insert (@Param("bookName") String bookName);
 
     /**
@@ -139,7 +139,7 @@ public interface SfBookMapper {
      * @return
      */
 
-    @Delete("DELETE FROM SFBOOK WHERE SFBOOK.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
+    @Delete("DELETE FROM sfbook WHERE sfbook.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
     int delectByBookName (@Param("bookName") String bookName);
 
 

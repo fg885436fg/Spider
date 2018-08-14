@@ -80,6 +80,7 @@ public class ScheduledTaskImpl implements ScheduledTask {
     }
 
     @Override
+    @Scheduled(cron = "55 0 10 * * ?")
     public void saveGrowthData() throws Exception {
         logger.warn("开始存储每日增长信息");
         autoSaveGrowthData.saveGrowthData();
@@ -125,27 +126,28 @@ public class ScheduledTaskImpl implements ScheduledTask {
     }
 
     @Override
-    @Scheduled(cron = "3 * * * * ?")
-//    @Scheduled(cron = "55 0 0 * * ?")
+//    @Scheduled(cron = "3 * * * * ?")
+    @Scheduled(cron = "55 0 0 * * ?")
     public void runEveryDay() {
         logger.info("每日例行任务开始执行中....");
         getBookInfoTimedTask();
         try {
-            saveGrowthData();
             dealWithSfErrorUrl();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
     public void dealWithSfErrorUrl() {
         logger.info("开始处理错误连接");
+        reptile.setRetryNum(0);
         reptile.dealWithSfErrorUrl();
     }
 
     @Override
-    @Scheduled(cron = "0 0 1 ? * 1 ")
+//    @Scheduled(cron = "0 0 1 ? * 1 ")
     public void runEveryWeek() {
         delectGuGuAuthorWeek();
     }

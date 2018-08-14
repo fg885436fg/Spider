@@ -70,4 +70,7 @@ public interface Reptile {
      * 处理sf爬取失败的连接
      */
     void dealWithSfErrorUrl();
+
+    void setRetryNum(int retryNum);
+
 }

@@ -1,10 +1,8 @@
 package spider.demo.domain.mapper;
 
 import org.apache.ibatis.annotations.*;
-
 import org.springframework.stereotype.Repository;
 import spider.demo.domain.entity.Author;
-
 
 import java.util.List;
 
@@ -32,15 +30,32 @@ public interface AuthorMapper {
             "url,\n" +
             "ok AS `right`\n" +
             "FROM\n" +
-            "Author\nr")
+            "author\nr")
     List<Author> findAll();
+
+
+    /**
+     * 寻找不咕咕的作者
+     * @return
+     */
+    @Select("SELECT\n" +
+            "id,\n" +
+            "authorName,\n" +
+            "bookName,\n" +
+            "url,\n" +
+            "ok AS `right`\n" +
+            "FROM\n" +
+            "author\n"+
+            "where  "+
+            "author.ok = 1")
+    List<Author> findAllNoGuGuAuthors();
 
     /**
      * 根据书名查询作者
      *
      * @return
      */
-    @Select("SELECT * FROM Author WHERE bookName = #{bookName}")
+    @Select("SELECT * FROM author WHERE bookName = #{bookName}")
     Author findByBookName(@Param("bookName") String bookName);
 
     /**
@@ -48,7 +63,7 @@ public interface AuthorMapper {
      *
      * @return
      */
-    @Insert("INSERT INTO Author(authorName,bookName," +
+    @Insert("INSERT INTO author(authorName,bookName," +
             "url,ok) VALUES"
             +
             "(#{authorName}, #{bookName}," +
@@ -61,11 +76,11 @@ public interface AuthorMapper {
      * @param bookName
      * @return
      */
-    @Delete("DELETE FROM Author WHERE Author.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
+    @Delete("DELETE FROM author WHERE author.bookName LIKE  CONCAT(CONCAT('%', #{bookName}),'%')")
     int delectByBookName(@Param("bookName") String bookName);
 
     @Update({
-            "update Author",
+            "update author",
             "set authorName = #{authorName},",
             "bookName = #{bookName},",
             "url = #{url},",
@@ -75,7 +90,7 @@ public interface AuthorMapper {
     int updateAuthorByBookName(Author author);
 
     @Update({
-            "update Author "+
+            "update author "+
             "set ok = #{right} "+
             "where bookName = #{bookName}"
     })

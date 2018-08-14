@@ -23,7 +23,7 @@ public interface GrowthDataMapper {
      * @param growthData 书籍增长量
      * @return
      */
-    @Insert("INSERT INTO SFBOOKINC(bookName,updateDay," +
+    @Insert("INSERT INTO sfbookinc(bookName,updateDay," +
             "collectNumInc,clictNumInc," +
             "monthlyNumInc,likeNumInc,wordNumInc,sign) VALUES "
             +
@@ -39,7 +39,7 @@ public interface GrowthDataMapper {
      */
 
     @Insert("<script>" +
-            "INSERT INTO SFBOOKINC(bookName,updateDay," +
+            "INSERT INTO sfbookinc(bookName,updateDay," +
             "collectNumInc,clictNumInc," +
             "monthlyNumInc,likeNumInc,wordNumInc,sign,date) VALUES " +
             "<foreach collection='list' item='item' index='index'  separator=\",\">" +
@@ -48,7 +48,7 @@ public interface GrowthDataMapper {
             "#{item.monthlyNumInc},#{item.likeNumInc},#{item.wordNumInc},#{item.sign},#{item.date})" +
             "</foreach>" +
             "</script>")
-    int insertIncBatch (@Param("list") List<GrowthData> growthDatas);
+    int insertIncBatch(@Param("list") List<GrowthData> growthDatas);
 
 
     //以下为查
@@ -59,8 +59,8 @@ public interface GrowthDataMapper {
      * @param bookName
      * @return
      */
-    @Select("SELECT * FROM SFBOOKINC WHERE bookName = #{bookName}")
-    List<GrowthData> findByName (@Param("bookName") String bookName);
+    @Select("SELECT * FROM sfbookinc WHERE bookName = #{bookName}")
+    List<GrowthData> findByName(@Param("bookName") String bookName);
 
     /**
      * 获取最新，以点击增长量的排序数据（由大至小）。
@@ -68,11 +68,11 @@ public interface GrowthDataMapper {
      * @return
      */
     @Select("SELECT *\n" +
-            "FROM SFBOOKINC\n" +
-            "WHERE SFBOOKINC.date=#{date}\n" +
+            "FROM sfbookinc\n" +
+            "WHERE sfbookinc.date=#{date}\n" +
             "ORDER BY\n" +
-            "SFBOOKINC.clictNumInc DESC\n")
-    List<GrowthData> getBookIncSortByClick (@Param("date") String date);
+            "sfbookinc.clictNumInc DESC\n")
+    List<GrowthData> getBookIncSortByClick(@Param("date") String date);
 
     /**
      * 获取最新，以月票增长量的排序数据（由大至小）。
@@ -80,11 +80,11 @@ public interface GrowthDataMapper {
      * @return
      */
     @Select("SELECT *\n" +
-            "FROM SFBOOKINC\n" +
-            "WHERE SFBOOKINC.date=#{date}\n" +
+            "FROM sfbookinc\n" +
+            "WHERE sfbookinc.date=#{date}\n" +
             "ORDER BY\n" +
-            "SFBOOKINC.monthlyNumInc DESC\n")
-    List<GrowthData> getBookIncSortByMonth (@Param("date") String date);
+            "sfbookinc.monthlyNumInc DESC\n")
+    List<GrowthData> getBookIncSortByMonth(@Param("date") String date);
 
     /**
      * 获取最新，以字数增长量的排序数据（由大至小）。
@@ -92,11 +92,11 @@ public interface GrowthDataMapper {
      * @return
      */
     @Select("SELECT *\n" +
-            "FROM SFBOOKINC\n" +
-            "WHERE SFBOOKINC.date=#{date}\n" +
+            "FROM sfbookinc\n" +
+            "WHERE sfbookinc.date=#{date}\n" +
             "ORDER BY\n" +
-            "SFBOOKINC.wordNumInc DESC\n")
-    List<GrowthData> getBookIncSortByWord (@Param("date") String date);
+            "sfbookinc.wordNumInc DESC\n")
+    List<GrowthData> getBookIncSortByWord(@Param("date") String date);
 
 
     /**
@@ -105,13 +105,13 @@ public interface GrowthDataMapper {
      * @return
      */
     @Select("SELECT *\n" +
-            "FROM SFBOOKINC\n" +
+            "FROM sfbookinc\n" +
             "WHERE\n" +
-            "SFBOOKINC.sign <> '普通'\n" +
-            " AND SFBOOKINC.date=#{date}\n" +
+            "sfbookinc.sign <> '普通'\n" +
+            " AND sfbookinc.date=#{date}\n" +
             "ORDER BY\n" +
-            "SFBOOKINC.clictNumInc DESC\n")
-    List<GrowthData> getVipBookIncSortByClick (@Param("date") String date);
+            "sfbookinc.clictNumInc DESC\n")
+    List<GrowthData> getVipBookIncSortByClick(@Param("date") String date);
 
     /**
      * 获取最新，以月票增长量的排序数据（由大至小）。
@@ -119,13 +119,13 @@ public interface GrowthDataMapper {
      * @return
      */
     @Select("SELECT *\n" +
-            "FROM SFBOOKINC\n" +
+            "FROM sfbookinc\n" +
             "WHERE\n" +
-            "SFBOOKINC.sign <> '普通' \n" +
-            " AND SFBOOKINC.date=#{date}\n" +
+            "sfbookinc.sign <> '普通' \n" +
+            " AND sfbookinc.date=#{date}\n" +
             "ORDER BY\n" +
-            "SFBOOKINC.wordNumInc DESC\n")
-    List<GrowthData> getVipBookIncSortByMonth (@Param("date") String date);
+            "sfbookinc.wordNumInc DESC\n")
+    List<GrowthData> getVipBookIncSortByMonth(@Param("date") String date);
 
     /**
      * 获取最新，以字数增长量的排序数据（由大至小）。
@@ -133,13 +133,13 @@ public interface GrowthDataMapper {
      * @return
      */
     @Select("SELECT *\n" +
-            "FROM SFBOOKINC\n" +
+            "FROM sfbookinc\n" +
             "WHERE\n" +
-            "SFBOOKINC.sign <> '普通'\n" +
-            " AND SFBOOKINC.date=#{date}\n" +
+            "sfbookinc.sign <> '普通'\n" +
+            " AND sfbookinc.date=#{date}\n" +
             "ORDER BY\n" +
-            "SFBOOKINC.wordNumInc DESC\n")
-    List<GrowthData> getVipBookIncSortByWord (@Param("date") String date);
+            "sfbookinc.wordNumInc DESC\n")
+    List<GrowthData> getVipBookIncSortByWord(@Param("date") String date);
 
 
     //以下为删
@@ -153,9 +153,9 @@ public interface GrowthDataMapper {
 
     @Delete("DELETE\n" +
             "FROM\n" +
-            "SFBOOKINC\n" +
+            "sfbookinc\n" +
             "WHERE\n" +
-            "SFBOOKINC.date =#{date} ")
-    int delectBookInc (@Param("date") String date);
+            "sfbookinc.date =#{date} ")
+    int delectBookInc(@Param("date") String date);
 
 }
